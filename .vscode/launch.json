@@ -1,0 +1,61 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "al",
+          "request": "launch",
+          "name": "Microsoft cloud sandbox",
+          "schemaUpdateMode": "ForceSync",
+          "environmentType": "Sandbox",
+          "environmentName": "Sandbox",
+          //  "environmentName": "RRLUJKT1",
+          //  "environmentName": "BBN-Indonesia_Sandbox",
+         //"environmentName": "PreProduction",
+         "breakOnError": "All",
+         "breakOnRecordWrite": "None",
+         "launchBrowser": true,
+         "enableSqlInformationDebugger": true,
+         "enableLongRunningSqlStatements": true,
+         "longRunningSqlStatementsThreshold": 500,
+         "numberOfSqlStatements": 10,
+        //  "tenant": "6cafff92-3b55-4909-8bc6-a786cd612d40"
+          //"dependencyPublishingOption": "Default"
+      }
+      // {
+      //     "name": "Docker BC",
+      //     "type": "al",
+      //     "request": "launch",
+      //     "environmentType": "OnPrem",
+      //     "server": "http://bcsandboxdev",
+      //     "serverInstance": "BC",
+      //     "authentication": "UserPassword",
+      //     "startupObjectId": 22,
+      //     "breakOnError": true,
+      //     "breakOnRecordWrite": false,
+      //     "launchBrowser": true,
+      //     "enableSqlInformationDebugger": true,
+      //     "enableLongRunningSqlStatements": true,
+      //     "longRunningSqlStatementsThreshold": 500,
+      //     "numberOfSqlStatements": 10,
+      //     "tenant": "default"
+      // }
+      // {
+      //     "name": "Docker BC",
+      //     "type": "al",
+      //     "request": "launch",
+      //     "environmentType": "OnPrem",
+      //     "server": "http://localhost:8080",
+      //     "serverInstance": "BC170",
+      //     "authentication":"Windows",
+      //     "startupObjectId": 22,
+      //     "breakOnError": true,
+      //     "breakOnRecordWrite": false,
+      //     "launchBrowser": true,
+      //     "enableSqlInformationDebugger": true,
+      //     "enableLongRunningSqlStatements": true,
+      //     "longRunningSqlStatementsThreshold": 500,
+      //     "numberOfSqlStatements": 10,
+      //     "tenant": "default"
+      // }
+  ]
+}

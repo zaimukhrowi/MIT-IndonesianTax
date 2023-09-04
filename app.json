@@ -1,0 +1,42 @@
+{
+  "id": "b4489504-d418-4a87-aef0-e4bb7e1cecc9",
+  "name": "Pajak Indonesia",
+  "publisher": "Kreatif",
+  "brief": "",
+  "description": "",
+  "version": "21.0.0.58",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./Logo/logo kreatif.jpg",
+  "screenshots": [],
+  "platform": "21.0.0.0",
+  "runtime": "9.1",
+  "features": [ "TranslationFile" ],
+  "dependencies": [
+    {
+      "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "21.0.0.0"
+    },
+    {
+      "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "21.0.0.0"
+    }
+  ],
+  "idRanges": [
+    {
+      "from": 60000,
+      "to": 60040
+    }
+  ],
+  "resourceExposurePolicy": 
+  {
+    "allowDownloadingSource": false
+  }
+
+}

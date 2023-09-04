@@ -1,0 +1,6 @@
+{
+    "al.defaultLaunchConfigurationName": "Microsoft cloud sandbox",
+    "al.assemblyProbingPaths": [
+        "./.netpackages"
+    ]
+}
