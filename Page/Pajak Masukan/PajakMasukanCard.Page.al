@@ -71,6 +71,11 @@ page 60010 PajakMasukanCard
                 {
                     ApplicationArea = All;
                 }
+                field(Kode_Dokumen_Pendukung; Rec.Kode_Dokumen_Pendukung)
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
                 field("Pre-Assigned No."; Rec."Pre-Assigned No.")
                 {
                     ApplicationArea = All;
@@ -143,6 +148,11 @@ page 60010 PajakMasukanCard
                     //Editable = false;
                 }
                 field("TAX CANCELLED"; Rec.TAX_Cancelled)
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
+                field(Notes; Rec.Notes)
                 {
                     ApplicationArea = All;
                     ToolTip = '';

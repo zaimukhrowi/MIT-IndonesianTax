@@ -633,6 +633,11 @@ codeunit 60001 PajakCode
                             TaxJour.TAXNUMBER := "Posted Purchase Invoice".TAXNUMBER;
                             TaxJour.TAXDATE := "Posted Purchase Invoice".TAXDATE;
                             TaxJour.CURRENCY := "Posted Purchase Invoice"."Currency Code";
+
+                            if "Posted Purchase Invoice"."Order No." = '' then
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Purchase Invoice"."Pre-Assigned No."
+                            else
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Purchase Invoice"."Order No.";
                         end;
                         //End of Get Tax Number and Tax Date
                         //Get Tax Number and Tax Date

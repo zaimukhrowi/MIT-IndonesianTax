@@ -120,6 +120,14 @@ table 60002 KRE_TAXJOUR
         {
             Caption = 'Pre-Assigned No.';
         }
+        field(30; Notes; Text[250])
+        {
+            Caption = 'Notes';
+        }
+        field(31; "Keterangan Tambahan"; Text[250])
+        {
+            Caption = 'Keterangan Tambahan';
+        }
 
 
     }

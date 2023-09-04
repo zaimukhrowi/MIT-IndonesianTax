@@ -90,6 +90,7 @@ xmlport 60004 CSVPajakMasukanEFaktur
                 fieldelement(NAMA; EFaktur.Nama_Penjual) { }
 
                 fieldelement(ALAMAT_LENGKAP; EFaktur.Alamat_Penjual) { }
+
                 textelement(JUMLAH_DPP)
                 {
                     trigger onbeforePassvariable();

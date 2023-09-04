@@ -31,6 +31,7 @@ xmlport 60001 CSVPajakKeluaran
                 textelement(Uang_Muka_PPN_Header) { }
                 textelement(Uang_Muka_PPNBM_Header) { }
                 textelement(Referensi_Header) { }
+                textelement(Keterangan_Tambahan_Header) { }
                 textelement(Kode_Dokumen_Pendukung_Header) { }
             }
 
@@ -210,6 +211,20 @@ xmlport 60001 CSVPajakKeluaran
                     trigger onbeforePassvariable();
                     begin
                         Referensi := format(TAXJOUR.INVOICENO);
+                    end;
+                }
+                // textelement(Notes)
+                // {
+                //     trigger onbeforePassvariable();
+                //     begin
+                //         Notes := TAXJOUR.Notes;
+                //     end;
+                // }
+                textelement(Keterangan_Tambahan)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        Keterangan_Tambahan := TAXJOUR."Keterangan Tambahan";
                     end;
                 }
                 textelement(Kode_Dokumen_Pendukung)
@@ -516,6 +531,8 @@ xmlport 60001 CSVPajakKeluaran
         Uang_Muka_PPN_Header := 'UANG_MUKA_PPN';
         Uang_Muka_PPNBM_Header := 'UANG_MUKA_PPNBM';
         Referensi_Header := 'REFERENSI';
+        // Notes_Header := 'NOTES';
+        Keterangan_Tambahan_Header := 'KETERANGAN_TAMBAHAN';
         Kode_Dokumen_Pendukung_Header := 'KODE_DOKUMEN_PENDUKUNG';
 
         LT_Header := 'LT';

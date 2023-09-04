@@ -23,6 +23,8 @@ xmlport 60000 CSVPajakMasukan
                 textelement(NPWP_Header) { }
                 textelement(NAMA_Header) { }
                 textelement(ALAMAT_LENGKAP_Header) { }
+                textelement(Keterangan_Tambahan_Header) { }
+                textelement(Kode_Dokumen_Pendukung_Header) { }
                 textelement(JUMLAH_DPP_Header) { }
                 textelement(JUMLAH_PPN_Header) { }
                 textelement(JUMLAH_PPNBM_Header) { }
@@ -63,6 +65,7 @@ xmlport 60000 CSVPajakMasukan
                         NOMOR_FAKTUR := format(DELCHR(DELSTR(TAXJOUR.TAXNUMBER, 1, 4), '=', '.-'));
                     end;
                 }
+
                 textelement(MASA_PAJAK)
                 {
                     trigger onbeforePassvariable();
@@ -90,6 +93,20 @@ xmlport 60000 CSVPajakMasukan
                 fieldelement(NAMA; TAXJOUR.NAMA) { }
 
                 fieldelement(ALAMAT_LENGKAP; TAXJOUR.ALAMATNPWP) { }
+                textelement(Keterangan_Tambahan)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        Keterangan_Tambahan := TAXJOUR."Keterangan Tambahan";
+                    end;
+                }
+                textelement(kode_dokumen_pendukung)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        kode_dokumen_pendukung := TAXJOUR.Kode_Dokumen_Pendukung;
+                    end;
+                }
                 textelement(JUMLAH_DPP)
                 {
                     trigger onbeforePassvariable();
@@ -147,6 +164,8 @@ xmlport 60000 CSVPajakMasukan
 
         FM_Header := 'FM';
         KD_JENIS_TRANSAKSI_Header := 'KD_JENIS_TRANSAKSI';
+        Keterangan_Tambahan_Header := 'KETERANGAN_TAMBAHAN';
+        Kode_Dokumen_Pendukung_Header := 'KODE_DOKUMEN_PENDUKUNG';
         FG_PENGGANTI_Header := 'FG_PENGGANTI';
         NOMOR_FAKTUR_Header := 'NOMOR_FAKTUR';
         MASA_PAJAK_Header := 'MASA_PAJAK';
