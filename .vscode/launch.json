@@ -7,7 +7,7 @@
           "name": "Microsoft cloud sandbox",
           "schemaUpdateMode": "ForceSync",
           "environmentType": "Sandbox",
-          "environmentName": "Sandbox",
+          "environmentName": "Development",
           //  "environmentName": "RRLUJKT1",
           //  "environmentName": "BBN-Indonesia_Sandbox",
          //"environmentName": "PreProduction",

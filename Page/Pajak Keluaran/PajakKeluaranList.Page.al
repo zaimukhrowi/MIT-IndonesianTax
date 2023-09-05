@@ -58,6 +58,16 @@ page 60003 PajakKeluaranList
                     ToolTip = '';
                     Editable = false;
                 }
+                field(Notes; Rec.Notes)
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
+                field("Keterangan Tambahan"; Rec."Keterangan Tambahan")
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
                 field("Pre-Assigned No."; Rec."Pre-Assigned No.")
                 {
                     ApplicationArea = All;

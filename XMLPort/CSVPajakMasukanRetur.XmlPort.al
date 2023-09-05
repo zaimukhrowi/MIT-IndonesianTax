@@ -21,6 +21,8 @@ xmlport 60002 CSVPajakMasukanRetur
                 textelement(TANGGAL_FAKTUR_Header) { }
                 textelement(IS_CREDITABLE_Header) { }
                 textelement(NOMOR_DOKUMEN_RETUR_Header) { }
+                textelement(Keterangan_Tambahan_Header) { }
+                textelement(Kode_Dokumen_Pendukung_Header) { }
                 textelement(TANGGAL_RETUR_Header) { }
                 textelement(MASA_PAJAK_RETUR_Header) { }
                 textelement(TAHUN_PAJAK_RETUR_Header) { }
@@ -85,6 +87,20 @@ xmlport 60002 CSVPajakMasukanRetur
                     trigger onbeforePassvariable();
                     begin
                         NOMOR_DOKUMEN_RETUR := format(TAXJOUR.RETURN_DOC_NUMBER);
+                    end;
+                }
+                textattribute(Keterangan_Tambahan)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        Keterangan_Tambahan := TAXJOUR."Keterangan Tambahan";
+                    end;
+                }
+                textattribute(kode_dokumen_pendukung)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        kode_dokumen_pendukung := TAXJOUR.Kode_Dokumen_Pendukung;
                     end;
                 }
                 textattribute(TANGGAL_RETUR)
@@ -164,6 +180,8 @@ xmlport 60002 CSVPajakMasukanRetur
         TANGGAL_FAKTUR_Header := 'TANGGAL_FAKTUR';
         IS_CREDITABLE_Header := 'IS_CREDITABLE';
         NOMOR_DOKUMEN_RETUR_Header := 'NOMOR_DOKUMEN_RETUR';
+        Keterangan_Tambahan_Header := 'KETERANGAN_TAMBAHAN';
+        Kode_Dokumen_Pendukung_Header := 'KODE_DOKUMEN_PENDUKUNG';
         TANGGAL_RETUR_Header := 'TANGGAL_RETUR';
         MASA_PAJAK_RETUR_Header := 'MASA_PAJAK_RETUR';
         TAHUN_PAJAK_RETUR_Header := 'TAHUN_PAJAK_RETUR';

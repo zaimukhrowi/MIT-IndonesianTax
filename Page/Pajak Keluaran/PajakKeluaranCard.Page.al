@@ -25,6 +25,11 @@ page 60008 PajakKeluaranCard
                     ToolTip = '';
                     Editable = false;
                 }
+                field("Keterangan Tambahan"; Rec."Keterangan Tambahan")
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
                 field("INVOICE DATE"; Rec.INVOICEDATE)
                 {
                     ApplicationArea = All;
@@ -172,6 +177,11 @@ page 60008 PajakKeluaranCard
                     //Editable = false;
                 }
                 field("TAX CANCELLED"; Rec.TAX_Cancelled)
+                {
+                    ApplicationArea = All;
+                    ToolTip = '';
+                }
+                field(Notes; Rec.Notes)
                 {
                     ApplicationArea = All;
                     ToolTip = '';

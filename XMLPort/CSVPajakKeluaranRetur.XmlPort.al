@@ -20,6 +20,9 @@ xmlport 60003 CSVPajakKeluaranRetur
                 textelement(NOMOR_FAKTUR_Header) { }
                 textelement(TANGGAL_FAKTUR_Header) { }
                 textelement(NOMOR_DOC_RETUR_Header) { }
+                // textelement(Notes_Header) { }
+                textelement(Keterangan_Tambahan_Header) { }
+                textelement(Kode_Dokumen_Pendukung_Header) { }
                 textelement(TANGGAL_RETUR_Header) { }
                 textelement(MASA_PAJAK_RETUR_Header) { }
                 textelement(TAHUN_PAJAK_RETUR_Header) { }
@@ -77,6 +80,27 @@ xmlport 60003 CSVPajakKeluaranRetur
                     trigger onbeforePassvariable();
                     begin
                         NO_DOKUMEN_RETUR := format(TAXJOUR.RETURN_DOC_NUMBER);
+                    end;
+                }
+                // textattribute(Notes)
+                // {
+                //     trigger onbeforePassvariable();
+                //     begin
+                //         Notes := TAXJOUR.Notes;
+                //     end;
+                // }
+                textattribute(Keterangan_Tambahan)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        Keterangan_Tambahan := TAXJOUR."Keterangan Tambahan";
+                    end;
+                }
+                textattribute(Kode_Dokumen_Pendukung)
+                {
+                    trigger onbeforePassvariable();
+                    begin
+                        Kode_Dokumen_Pendukung := TAXJOUR.Kode_Dokumen_Pendukung;
                     end;
                 }
                 textattribute(TANGGAL_RETUR)
@@ -157,6 +181,9 @@ xmlport 60003 CSVPajakKeluaranRetur
         NOMOR_FAKTUR_Header := 'NOMOR_FAKTUR';
         TANGGAL_FAKTUR_Header := 'TANGGAL_FAKTUR';
         NOMOR_DOC_RETUR_Header := 'NOMOR_DOKUMEN_RETUR';
+        // Notes_Header := 'NOTES';
+        Keterangan_Tambahan_Header := 'KETERANGAN_TAMBAHAN';
+        Kode_Dokumen_Pendukung_Header := 'DOKUMEN_PENDUKUNG';
         TANGGAL_RETUR_Header := 'TANGGAL_RETUR';
         MASA_PAJAK_RETUR_Header := 'MASA_PAJAK_RETUR';
         TAHUN_PAJAK_RETUR_Header := 'TAHUN_PAJAK_RETUR';
