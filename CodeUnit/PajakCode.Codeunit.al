@@ -161,7 +161,7 @@ codeunit 60001 PajakCode
                                 TaxJourLines.VAT_Identifier := PurchLineInv."VAT Identifier";
                                 TaxJourLines.PRICE := PurchLineInv."Direct Unit Cost";
                                 TaxJourLines.QTY := system.Round(PurchLineInv.Quantity, 1, '>');
-                                TaxJourLines.TOTAL_AMOUNT := PurchLineInv."Line Amount";
+                                // TaxJourLines.TOTAL_AMOUNT := PurchLineInv."Line Amount";
                                 TaxJourLines.DISCOUNT_AMOUNT := PurchLineInv."Line Discount Amount";
                                 TaxJourLines.DPP_AMOUNT := PurchLineInv."VAT Base Amount";
 
@@ -173,6 +173,7 @@ codeunit 60001 PajakCode
                                 end
                                 else
                                     TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100);
+                                TaxJourLines.TOTAL_AMOUNT := PurchLineInv."Line Amount" + TaxJourLines.VAT_AMOUNT;
 
                                 TaxJourLines.Insert();
                             until (PurchLineInv.Next() = 0);
@@ -667,7 +668,7 @@ codeunit 60001 PajakCode
                         PurchLineInv.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
                         //Validasi VAT Amount Header dgn Line 
                         if PurchLineInv.IsEmpty = false then
-                            SelisihVAT1 := ValidasiVATAmountPurchaseLineInv(SourceTable.Document_No_, PurchLineInv);
+                            SelisihVAT1 := ValidasiVATAmountPurchaseLineInvForeign(SourceTable.Document_No_, PurchLineInv);
                         //Validasi VAT Amount Header dgn Line 
                         if PurchLineInv.FindSet() then begin
                             TaxJourLines.LockTable();
@@ -695,12 +696,15 @@ codeunit 60001 PajakCode
 
                                 if SelisihVAT1 > 0 then begin
                                     if PurchLineInv."Line No." = 10000 then
-                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100) - SelisihVAT1
+                                        // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100) - SelisihVAT1
+                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100) - SelisihVAT1
                                     else
-                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
+                                        // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
+                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100);
                                 end
                                 else
-                                    TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
+                                    // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
+                                    TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100);
                                 TaxJourLines.TOTAL_AMOUNT := (PurchLineInv."Line Amount" / ExchangeRate) + TaxJourLines.VAT_AMOUNT;
                                 TaxJourLines.Insert();
                             until (PurchLineInv.Next() = 0);
@@ -1757,6 +1761,29 @@ codeunit 60001 PajakCode
         if VATEntry.FindSet() then begin
             VATEntry.CalcSums(Amount);
             VATamountHeader := System.Abs(VATEntry.Amount);
+
+            PurchLineInv.FindSet();
+            repeat
+                VATamountLine += (PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100;
+            until PurchLineInv.Next() = 0;
+
+            if (VATamountLine - VATamountHeader) > 0 then
+                exit(VATamountLine - VATamountHeader)
+            else
+                exit(0);
+        end
+    end;
+
+    procedure ValidasiVATAmountPurchaseLineInvForeign(DocNo: Code[20]; var PurchLineInv: Record "Purch. Inv. Line"): Decimal
+    var
+        VATEntry: Record "VAT Entry";
+        VATamountHeader: Decimal;
+        VATamountLine: Decimal;
+    begin
+        VATEntry.SetRange("Document No.", DocNo);
+        if VATEntry.FindSet() then begin
+            VATEntry.CalcSums(Amount);
+            VATamountHeader := System.Abs(VATEntry."Additional-Currency Amount");
 
             PurchLineInv.FindSet();
             repeat

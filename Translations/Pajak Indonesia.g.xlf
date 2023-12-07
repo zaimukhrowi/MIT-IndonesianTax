@@ -528,6 +528,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field IS_RETURNITEM - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 3014909938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Keterangan Tambahan</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Keterangan Tambahan - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1373678984 - Field 772306933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Kode Dokumen Pendukung</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -537,6 +542,11 @@
           <source>NAMA</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field NAMA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 222620933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Notes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1373678984 - Field 1294354891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>NPWP</source>
@@ -813,6 +823,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control INVOICE NO - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 3014909938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Keterangan Tambahan - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3291111650 - Control 772306933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -898,6 +913,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control IS RETURNITEM - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Notes - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3291111650 - Control 2953381466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -953,6 +973,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranList - Control DOCUMENTNO - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4195825860 - Control 3014909938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranList - Control Keterangan Tambahan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4195825860 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranList - Control Notes - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1203650285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pajak Masukan Card</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -962,6 +992,16 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control DOCUMENTNO - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1203650285 - Control 772306933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control Kode_Dokumen_Pendukung - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1203650285 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control Notes - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1203650285 - Control 2953381466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
@@ -1017,6 +1057,16 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Control DOCUMENTNO - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3235120699 - Control 3014909938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Control Keterangan Tambahan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3235120699 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Control Notes - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2588880968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Pajak Masukan List</source>
