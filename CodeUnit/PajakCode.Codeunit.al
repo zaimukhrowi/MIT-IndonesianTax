@@ -673,11 +673,13 @@ codeunit 60001 PajakCode
                         if PurchLineInv.FindSet() then begin
                             TaxJourLines.LockTable();
                             repeat
-                                if TaxSetup."Export to Currency" = "Posted Purchase Invoice"."Currency Code" then
-                                    ExchangeRate := 1 else
-                                    if "Posted Purchase Invoice"."Currency Code" = '' then
-                                        ExchangeRate := Exc.GetExchangeRate(TaxSetup."Export to Currency", GLSetup."LCY Code", "Posted Purchase Invoice"."Posting Date") else
-                                        ExchangeRate := Exc.GetExchangeRate(TaxSetup."Export to Currency", "Posted Purchase Invoice"."Currency Code", "Posted Purchase Invoice"."Posting Date");
+                                // if TaxSetup."Export to Currency" = "Posted Purchase Invoice"."Currency Code" then
+                                //     ExchangeRate := 1
+                                // else
+                                //     ExchangeRate := Exc.GetExchangeRate(TaxSetup."Export to Currency", GLSetup."LCY Code", "Posted Purchase Invoice"."Posting Date");
+                                // if "Posted Purchase Invoice"."Currency Code" = '' then
+                                // ExchangeRate := Exc.GetExchangeRate(TaxSetup."Export to Currency", GLSetup."LCY Code", "Posted Purchase Invoice"."Posting Date") else
+                                // ExchangeRate := Exc.GetExchangeRate(TaxSetup."Export to Currency", "Posted Purchase Invoice"."Currency Code", "Posted Purchase Invoice"."Posting Date");
                                 TaxJourLines.Init();
                                 Clear(TaxJourLines.ID);
                                 TaxJourLines.KRE_TAXJOURID := GetLastID();
@@ -689,23 +691,27 @@ codeunit 60001 PajakCode
                                 TaxJourLines.VAT_Bus_Posting_Group := PurchLineInv."VAT Bus. Posting Group";
                                 TaxJourLines.VAT_Prod_Posting_Group := PurchLineInv."VAT Prod. Posting Group";
                                 TaxJourLines.VAT_Identifier := PurchLineInv."VAT Identifier";
-                                TaxJourLines.PRICE := PurchLineInv."Direct Unit Cost" / ExchangeRate;
                                 TaxJourLines.QTY := system.Round(PurchLineInv.Quantity, 1, '>');
-                                TaxJourLines.DISCOUNT_AMOUNT := PurchLineInv."Line Discount Amount" / ExchangeRate;
-                                TaxJourLines.DPP_AMOUNT := PurchLineInv."VAT Base Amount" / ExchangeRate;
+                                // TaxJourLines.DISCOUNT_AMOUNT := PurchLineInv."Line Discount Amount" * ExchangeRate;
+                                // TaxJourLines.DPP_AMOUNT := PurchLineInv."VAT Base Amount" * ExchangeRate;
+                                // TaxJourLines.PRICE := PurchLineInv."Direct Unit Cost" * ExchangeRate;
+                                TaxJourLines.DISCOUNT_AMOUNT := PurchLineInv."Line Discount Amount";
+                                TaxJourLines.DPP_AMOUNT := PurchLineInv."VAT Base (ACY)";
+                                TaxJourLines.PRICE := PurchLineInv."VAT Base (ACY)" / PurchLineInv.Quantity;
 
                                 if SelisihVAT1 > 0 then begin
                                     if PurchLineInv."Line No." = 10000 then
                                         // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100) - SelisihVAT1
-                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100) - SelisihVAT1
+                                    TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base (ACY)" * PurchLineInv."VAT %") / 100) - SelisihVAT1
                                     else
                                         // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
-                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100);
+                                        TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base (ACY)" * PurchLineInv."VAT %") / 100);
                                 end
                                 else
                                     // TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" / ExchangeRate * PurchLineInv."VAT %") / 100);
-                                    TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100);
-                                TaxJourLines.TOTAL_AMOUNT := (PurchLineInv."Line Amount" / ExchangeRate) + TaxJourLines.VAT_AMOUNT;
+                                    TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base (ACY)" * PurchLineInv."VAT %") / 100);
+                                // TaxJourLines.TOTAL_AMOUNT := (PurchLineInv."Line Amount" / ExchangeRate) + TaxJourLines.VAT_AMOUNT;
+                                TaxJourLines.TOTAL_AMOUNT := PurchLineInv."Amount Including VAT (ACY)";
                                 TaxJourLines.Insert();
                             until (PurchLineInv.Next() = 0);
                         end;
