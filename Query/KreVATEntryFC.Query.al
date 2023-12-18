@@ -32,6 +32,10 @@ query 60006 KreVATEntryForeignCurrency
             { }
             column(Amount; "Additional-Currency Amount")
             { }
+            column(BaseIDR; Base)
+            { }
+            column(AmountIDR; Amount)
+            { }
             column(Is_Synch; Is_Synch)
             { }
 

@@ -831,13 +831,24 @@ codeunit 60001 PajakCode
                         VATGroup.Reset();
                         VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
                         VATGroup.FindFirst();
-                        if (VATGroup.IS_FORWARDER = true) then
-                            TaxJour.DPPAMOUNT := system.ABS(SourceTable.Base) / 10
-                        else
-                            TaxJour.DPPAMOUNT := system.ABS(SourceTable.Base);
+                        if "Posted Sales Invoices"."Currency Code" = TaxSetup."Export to Currency" then begin
+                            if (VATGroup.IS_FORWARDER = true) then
+                                TaxJour.DPPAMOUNT := system.ABS(SourceTable.BaseIDR) / 10
+                            else
+                                TaxJour.DPPAMOUNT := system.ABS(SourceTable.BaseIDR);
 
-                        TaxJour.VATAMOUNT := system.ABS(SourceTable.Amount);
-                        TaxJour.INVOICEAMOUNT := system.ABS(SourceTable.Base + SourceTable.Amount);
+                            TaxJour.VATAMOUNT := system.ABS(SourceTable.AmountIDR);
+                            TaxJour.INVOICEAMOUNT := system.ABS(SourceTable.BaseIDR + SourceTable.AmountIDR);
+                        end else begin
+                            if (VATGroup.IS_FORWARDER = true) then
+                                TaxJour.DPPAMOUNT := system.ABS(SourceTable.Base) / 10
+                            else
+                                TaxJour.DPPAMOUNT := system.ABS(SourceTable.Base);
+
+                            TaxJour.VATAMOUNT := system.ABS(SourceTable.Amount);
+                            TaxJour.INVOICEAMOUNT := system.ABS(SourceTable.Base + SourceTable.Amount);
+                        end;
+
                         TaxJour.TAX_POSTED := TaxJour.TAX_POSTED::NO;
                         TaxJour.TAX_EXPORTED := TaxJour.TAX_EXPORTED::NO;
                         TaxJour.Insert();

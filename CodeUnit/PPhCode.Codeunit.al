@@ -1423,7 +1423,8 @@ codeunit 60006 PPhCode
                                 PurchInvLine2Row.SetRange("Document No.", GLEntry."Document No.");
                                 PurchInvLine2Row.SetRange("No.", GLAccount."No.");
                                 PurchInvLine2Row.SetRange(IsWHTCalc, false);
-                                if PurchInvLine2Row.FindSet() then
+                                if PurchInvLine2Row.FindSet() then begin
+                                    PurchInvHeader.Get(PurchInvLine2Row."Document No.");
                                     repeat
 
                                         WHTTrans.SetRange(WHTAmount, System.Abs(PurchInvLine2Row."WHTAmount Additional Currency"));
@@ -1559,7 +1560,7 @@ codeunit 60006 PPhCode
                                         end;
                                     until PurchInvLine2Row.Next() = 0
 
-                                else begin
+                                end else begin
                                     SalesInvLine2Row.SetRange("Document No.", GLEntry."Document No.");
                                     SalesInvLine2Row.SetRange("No.", GLAccount."No.");
                                     SalesInvLine2Row.SetRange(IsWHTCalc, false);
