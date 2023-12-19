@@ -8,7 +8,7 @@
           "schemaUpdateMode": "ForceSync",
           "environmentType": "Sandbox",
           // "environmentName": "Sandbox_AU",
-           "environmentName": "IRLUJKT1",
+          //  "environmentName": "IRLUJKT1",
           //  "environmentName": "BBN-Indonesia_Sandbox",
          //"environmentName": "PreProduction",
          "breakOnError": "All",
