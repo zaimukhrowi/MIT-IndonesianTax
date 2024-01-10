@@ -2,7 +2,7 @@ tableextension 60000 ExtVendor extends Vendor
 {
     fields
     {
-        field(60000; NPWP; Code[15])
+        field(60000; NPWP; Code[16])
         {
             Caption = 'NPWP';
         }
