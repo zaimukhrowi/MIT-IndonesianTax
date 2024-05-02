@@ -59,6 +59,7 @@ pageextension 60010 ExtSalesInvoice extends "Sales Invoice"
                     PpnCode: Codeunit PajakCode;
                     Exch: Decimal;
                 begin
+                    TaxSetup.FindFirst();
                     if TaxSetup."Export to Currency" = '' then
                         Error('Please fill export currency in tax setup');
 

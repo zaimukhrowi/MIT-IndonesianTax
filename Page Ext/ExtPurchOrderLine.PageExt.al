@@ -107,6 +107,7 @@ pageextension 60022 ExtPurchOrderLine extends "Purchase Order Subform"
     }
     local procedure SetWHTAmount(var SL: Record "Purchase Line")
     begin
+        TaxSetup.FindFirst();
         if TaxSetup."Export to Currency" = '' then
             Error('Please fill export currency in tax setup');
 

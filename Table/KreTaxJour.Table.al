@@ -91,11 +91,11 @@ table 60002 KRE_TAXJOUR
         {
             Caption = 'TAX EXPORTED';
         }
-        field(23; "VAT Bus. Posting Group"; Text[15])
+        field(23; "VAT Bus. Posting Group"; Text[20])
         {
             Caption = 'VAT Bus. Posting Group';
         }
-        field(24; "VAT Prod. Posting Group"; Text[15])
+        field(24; "VAT Prod. Posting Group"; Text[20])
         {
             Caption = 'VAT Prod. Posting Group';
         }

@@ -113,6 +113,7 @@ pageextension 60021 ExtSalesCrMemoLine extends "Sales Cr. Memo Subform"
     }
     local procedure SetWHTAmount(var SL: Record "Sales Line")
     begin
+        TaxSetup.FindFirst();
         if TaxSetup."Export to Currency" = '' then
             Error('Please fill export currency in tax setup');
 

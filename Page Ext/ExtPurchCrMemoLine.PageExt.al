@@ -102,6 +102,7 @@ pageextension 60024 ExtPurchCrMemoLine extends "Purch. Cr. Memo Subform"
     }
     local procedure SetWHTAmount(var SL: Record "Purchase Line")
     begin
+        TaxSetup.FindFirst();
         if TaxSetup."Export to Currency" = '' then
             Error('Please fill export currency in tax setup');
 
