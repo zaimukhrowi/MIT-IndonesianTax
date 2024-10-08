@@ -40,7 +40,13 @@ tableextension 60017 ExtGLEntryWHT extends "G/L Entry"
         //     PurchCrMm: Record "Purch. Cr. Memo Line";
         //     GJLine: Record "Gen. Journal Line";
         PPhCode: Codeunit PPhCode;
+        IsHandled: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeOnAfterInsert(IsHandled);
+        if IsHandled then
+            exit;
+
         PPhCode.UpdateGLEntryWHT(Rec."Entry No.");
 
         // case "Gen. Posting Type" of
@@ -124,5 +130,10 @@ tableextension 60017 ExtGLEntryWHT extends "G/L Entry"
         //         end;
         //     else
         // end;
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeOnAfterInsert(var IsHandled: Boolean)
+    begin
     end;
 }
