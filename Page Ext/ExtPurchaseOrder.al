@@ -9,7 +9,7 @@ pageextension 60002 ExtPurchaseOrder extends "Purchase Order"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Subtotal Excl. WHT" field.';
             }
-            field("WHT AMount"; WHTAmount)
+            field("WHT Amount"; WHTAmount)
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the WHT Amount field.';
