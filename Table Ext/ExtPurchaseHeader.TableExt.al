@@ -44,6 +44,27 @@ tableextension 60002 ExtPurchaseHeader extends "Purchase Header"
             Editable = false;
             FieldClass = FlowField;
         }
+        field(60007; "Subtotal Excl. WHT"; Decimal)
+        {
+            Caption = 'Subtotal Excl. WHT';
+            AutoFormatType = 1;
+            CalcFormula = sum("Purchase Line"."Line Amount" where("Document Type" = field("Document Type"),
+                                                                "Document No." = field("No."),
+                                                                IsWHTCalc = const(false)));
+            FieldClass = FlowField;
+            Editable = false;
+        }
+        field(60008; "WHT Amount"; Decimal)
+        {
+            Caption = 'WHT Amount';
+            AutoFormatType = 1;
+            CalcFormula = sum("Purchase Line"."Line Amount" where("Document Type" = field("Document Type"),
+                                                                "Document No." = field("No."),
+                                                                IsWHTCalc = const(true)));
+            FieldClass = FlowField;
+            Editable = false;
+
+        }
     }
 
 }

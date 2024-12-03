@@ -4,35 +4,41 @@ pageextension 60002 ExtPurchaseOrder extends "Purchase Order"
     {
         addafter(Status)
         {
+            field("Subtotal Excl. WHT"; Rec."Subtotal Excl. WHT")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Subtotal Excl. WHT" field.';
+            }
+            field("WHT AMount"; WHTAmount)
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Amount field.';
+                Editable = false;
+
+                trigger OnDrillDown()
+                var
+                    PurchaseLine: Record "Purchase Line";
+                begin
+                    PurchaseLine.SetRange("Document Type", Rec."Document Type");
+                    PurchaseLine.SetRange("Document No.", Rec."No.");
+                    PurchaseLine.SetRange(IsWHTCalc, true);
+                    if not PurchaseLine.IsEmpty then
+                        Page.Run(Page::"Purchase Lines", PurchaseLine);
+                end;
+            }
             field(TAXNUMBER; Rec.TAXNUMBER)
             {
                 ApplicationArea = All;
                 Caption = 'Tax Number';
+                ToolTip = 'Specifies the value of the Tax Number field.';
             }
             field(TAXDATE; Rec.TAXDATE)
             {
                 ApplicationArea = All;
                 Caption = 'Tax Date';
+                ToolTip = 'Specifies the value of the Tax Date field.';
             }
         }
-
-        // modify("Buy-from Vendor No.")
-        // {
-        //     trigger OnAfterValidate()
-        //     var
-        //         Vendor: Record Vendor;
-        //     begin
-        //         if Vendor.Get(Rec."Buy-from Vendor No.") then
-        //             if Vendor.ISPPH = true then begin
-        //                 PPhCode.UpdateWHTPostingGroupPO(Rec."No.", Vendor.WHTProductPostingGroup);
-        //                 POSubForm.Update()
-        //             end
-        //             else begin
-        //                 PPhCode.UpdateWHTPostingGroupPONull(Rec."No.");
-        //                 POSubForm.Update()
-        //             end;
-        //     end;
-        // }
         modify("Document Date")
         {
             trigger OnAfterValidate()
@@ -89,5 +95,14 @@ pageextension 60002 ExtPurchaseOrder extends "Purchase Order"
             }
         }
     }
+
+    trigger OnAfterGetRecord()
+    begin
+        Rec.CalcFields("WHT Amount");
+        WHTAmount := Abs(Rec."WHT Amount");
+    end;
+
+    var
+        WHTAmount: Decimal;
 
 }

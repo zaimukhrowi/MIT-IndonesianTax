@@ -22,28 +22,27 @@ tableextension 60007 ExtSalesHeader extends "Sales Header"
         {
             Caption = 'Return Date';
         }
-        // field(60005; "Tax Exemption Amount"; Decimal)
-        // {
-        //     AutoFormatExpression = "Currency Code";
-        //     AutoFormatType = 1;
-        //     CalcFormula = Sum("Sales Line"."Tax Exemption Amount" WHERE("Document Type" = FIELD("Document Type"),
-        //                                                  "Document No." = FIELD("No."),
-        //                                                  "Is TaxExemption" = const(true)));
-        //     Caption = 'Tax Exemption Amount';
-        //     Editable = false;
-        //     FieldClass = FlowField;
-        // }
-        // field(60006; "Exemption Amount"; Decimal)
-        // {
-        //     AutoFormatExpression = "Currency Code";
-        //     AutoFormatType = 1;
-        //     CalcFormula = Sum("Sales Line".Amount WHERE("Document Type" = FIELD("Document Type"),
-        //                                                  "Document No." = FIELD("No."),
-        //                                                  "Is TaxExemption" = const(true)));
-        //     Caption = 'Amount';
-        //     Editable = false;
-        //     FieldClass = FlowField;
-        // }
+
+        field(60005; "Subtotal Excl. WHT"; Decimal)
+        {
+            Caption = 'Subtotal Excl. WHT';
+            AutoFormatType = 1;
+            CalcFormula = sum("Sales Line"."Line Amount" where("Document Type" = field("Document Type"),
+                                                                "Document No." = field("No."),
+                                                                IsWHTCalc = const(false)));
+            FieldClass = FlowField;
+            Editable = false;
+        }
+        field(60006; "WHT Amount"; Decimal)
+        {
+            Caption = 'WHT Amount';
+            AutoFormatType = 1;
+            CalcFormula = sum("Sales Line"."Line Amount" where("Document Type" = field("Document Type"),
+                                                                "Document No." = field("No."),
+                                                                IsWHTCalc = const(true)));
+            FieldClass = FlowField;
+            Editable = false;
+        }
     }
 
 }

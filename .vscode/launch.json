@@ -10,7 +10,7 @@
           // "environmentName": "Sandbox_AU",
           //  "environmentName": "IRLUJKT1",
           //  "environmentName": "BBN-Indonesia_Sandbox",
-        //  "environmentName": "PreProduction",
+        //  "environmentName": "Pre-Production",
          "breakOnError": "All",
          "breakOnRecordWrite": "None",
          "launchBrowser": true,

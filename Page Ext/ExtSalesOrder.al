@@ -4,6 +4,28 @@ pageextension 60009 ExtSalesOrder extends "Sales Order"
     {
         addafter(Status)
         {
+            field("Subtotal Excl. WHT"; Rec."Subtotal Excl. WHT")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Subtotal Excl. WHT" field.';
+            }
+            field("WHT AMount"; WHTAmount)
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Amount field.';
+                Editable = false;
+
+                trigger OnDrillDown()
+                var
+                    SalesLine: Record "Sales Line";
+                begin
+                    SalesLine.SetRange("Document Type", Rec."Document Type");
+                    SalesLine.SetRange("Document No.", Rec."No.");
+                    SalesLine.SetRange(IsWHTCalc, true);
+                    if not SalesLine.IsEmpty then
+                        Page.Run(Page::"Sales Lines", SalesLine);
+                end;
+            }
             field(TAXNUMBER; Rec.TAXNUMBER)
             {
                 ApplicationArea = All;
@@ -87,7 +109,15 @@ pageextension 60009 ExtSalesOrder extends "Sales Order"
         GLSetup.Get();
     end;
 
+
+    trigger OnAfterGetRecord()
+    begin
+        Rec.CalcFields("WHT Amount");
+        WHTAmount := Abs(Rec."WHT Amount");
+    end;
+
     var
+        WHTAmount: Decimal;
         TaxSetup: Record Kre_TaxSetup;
         GLSetup: Record "General Ledger Setup";
         Exchange: Codeunit ExchangeRateIDR;

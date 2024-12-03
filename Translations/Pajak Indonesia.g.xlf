@@ -2123,15 +2123,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Action WHT Calculation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1887010200 - Control 913718387 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the Subtotal Excl. WHT" field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control Subtotal Excl. WHT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1887010200 - Control 546629155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the Tax Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control TAXDATE - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1887010200 - Control 546629155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Tax Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control TAXDATE - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1887010200 - Control 92137674 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the Tax Number field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control TAXNUMBER - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1887010200 - Control 92137674 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Tax Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control TAXNUMBER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1887010200 - Control 3093375153 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the WHT Amount field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control WHT AMount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 13950292 - Control 3414466033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1521900543">
           <source>Gross Up</source>
@@ -2553,6 +2573,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Action WHT Calculation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2984887457 - Control 913718387 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the value of the Subtotal Excl. WHT" field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control Subtotal Excl. WHT - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2984887457 - Control 546629155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Tax Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2572,6 +2597,11 @@
           <source>Tax Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control TAXNUMBER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2984887457 - Control 3093375153 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the value of the WHT Amount field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control WHT AMount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3360287691 - Control 551538586 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
           <source>Is Tax Exemption VAT</source>
@@ -2868,6 +2898,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseHeader - Field RETURN_TAX_NUMBER - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 449559471 - Field 913718387 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Subtotal Excl. WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseHeader - Field Subtotal Excl. WHT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 449559471 - Field 857377988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>Tax Exemption Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2882,6 +2917,11 @@
           <source>Tax Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseHeader - Field TAXNUMBER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 449559471 - Field 4187200721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>WHT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseHeader - Field WHT Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1397117352 - Field 3414466033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
           <source>Gross Up</source>
@@ -3133,6 +3173,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesHeader - Field RETURN_TAX_NUMBER - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3680722594 - Field 913718387 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Subtotal Excl. WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesHeader - Field Subtotal Excl. WHT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3680722594 - Field 546629155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Tax Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3142,6 +3187,11 @@
           <source>Tax Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesHeader - Field TAXNUMBER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3680722594 - Field 4187200721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>WHT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesHeader - Field WHT Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 878378649 - Field 546629155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Tax Date</source>
