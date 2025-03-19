@@ -6,5 +6,10 @@ tableextension 60022 ExtShiptoAddress extends "Ship-to Address"
         {
             Caption = 'Nama NPWP';
         }
+        field(60001; "ID TKU"; Text[22])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'ID TKU';
+        }
     }
 }

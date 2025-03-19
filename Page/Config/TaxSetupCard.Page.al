@@ -14,44 +14,60 @@ page 60016 TaxSetupCard
                 field("Pajak Masukan"; Rec.Activate_VAT_In)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Pajak Masukan field.';
                 }
                 field("Pajak Keluaran"; Rec.Activate_VAT_Out)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Pajak Keluaran field.';
                 }
                 field("Scan EFaktur"; Rec.Activate_Scan)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Scan EFaktur field.';
                 }
                 field(User_EFaktur; Rec.User_EFaktur)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the User EFaktur field.';
                 }
                 field("VAT Rounding Type"; Rec."VAT Rounding Type")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the VAT Rounding Type field.';
                 }
                 field("Amount Decimal Places"; Rec."Amount Decimal Places")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Amount Decimal Places field.';
                 }
                 field(PPh; Rec.Activate_WHT)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the PPh field.';
                 }
                 field("VAT Retail"; Rec."VAT Retail")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Pajak Keluaran Digunggung field.';
                 }
                 field("Currency Used"; Rec."Currency Used")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Currency Used field.';
                     // ShowMandatory = true;
                 }
                 field("Export to Currency"; Rec."Export to Currency")
                 {
                     ApplicationArea = All;
                     ShowMandatory = true;
+                    ToolTip = 'Specifies the value of the Export to Tax Currency field.';
+                }
+                field("Default ID TKU"; Rec."Default ID TKU")
+                {
+                    ApplicationArea = All;
+                    ShowMandatory = true;
+                    ToolTip = 'Specifies the value of the Default ID TKU field.';
                 }
             }
         }

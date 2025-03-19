@@ -97,6 +97,7 @@ page 60008 PajakKeluaranCard
                 {
                     ApplicationArea = All;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Pre-Assigned No. field.';
                 }
             }
             group(Invoice)
@@ -185,6 +186,30 @@ page 60008 PajakKeluaranCard
                 {
                     ApplicationArea = All;
                     ToolTip = '';
+                }
+                field("Jenis ID Pembeli"; Rec."Jenis ID Pembeli")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Jenis ID Pembeli field.';
+                    Editable = false;
+                }
+                field("Location Code"; Rec."Location Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the LOCATION CODE field.';
+                    Editable = false;
+                }
+                field("ID TKU Pembeli"; Rec."ID TKU Pembeli")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the ID TKU Pembeli field.';
+                    Editable = false;
+                }
+                field("Ship-to Code"; Rec."Ship-to Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Ship-to Code field.';
+                    Editable = false;
                 }
             }
 

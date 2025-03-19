@@ -6,6 +6,7 @@ table 60002 KRE_TAXJOUR
         field(1; ID; Integer)
         {
             AutoIncrement = true;
+            Caption = 'ID';
         }
         field(2; TAXNUMBER; Code[19])
         {
@@ -127,6 +128,33 @@ table 60002 KRE_TAXJOUR
         field(31; "Keterangan Tambahan"; Text[250])
         {
             Caption = 'Keterangan Tambahan';
+        }
+        field(32; "Kode Transaksi"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'TRANSACTION CODE';
+        }
+        field(33; "Location Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'LOCATION CODE';
+        }
+        field(34; "Jenis ID Pembeli"; Option)
+        {
+            DataClassification = ToBeClassified;
+            OptionMembers = TIN,"National ID",Passport,"Other ID";
+            OptionCaption = 'TIN,National ID,Passport,Other ID';
+            Caption = 'Jenis ID Pembeli';
+        }
+        field(35; "ID TKU Pembeli"; Text[22])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'ID TKU Pembeli';
+        }
+        field(36; "Ship-to Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Ship-to Code';
         }
 
 

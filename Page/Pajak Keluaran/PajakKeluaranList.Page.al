@@ -22,6 +22,12 @@ page 60003 PajakKeluaranList
                     Editable = false;
                 }
 
+                field("Kode Transaksi"; Rec."Kode Transaksi")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+
                 field("TAX NUMBER"; Rec.TAXNUMBER)
                 {
                     ApplicationArea = All;

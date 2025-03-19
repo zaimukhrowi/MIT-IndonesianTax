@@ -11,6 +11,11 @@ pageextension 60028 ExtShiptoAddress extends "Ship-to Address"
                 ToolTip = 'Alamat NPWP';
                 MultiLine = true;
             }
+            field("ID TKU"; Rec."ID TKU")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the ID TKU field.';
+            }
         }
     }
 

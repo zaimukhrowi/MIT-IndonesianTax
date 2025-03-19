@@ -54,6 +54,11 @@ table 60006 Kre_TaxSetup
             Caption = 'Export to Tax Currency';
             TableRelation = Currency;
         }
+        field(1; "Default ID TKU"; Text[22])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Default ID TKU';
+        }
     }
 
 

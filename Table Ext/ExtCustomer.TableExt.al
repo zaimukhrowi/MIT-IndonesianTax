@@ -51,5 +51,10 @@ tableextension 60001 ExtCustomer extends Customer
         {
             Caption = 'Is NPWP';
         }
+        field(60012; "ID TKU"; Text[22])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'ID TKU';
+        }
     }
 }

@@ -52,6 +52,11 @@ pageextension 60000 ExtCustomer extends "Customer Card"
                     Importance = Additional;
                     ShowMandatory = NPWPmandatory;
                 }
+                field("ID TKU"; Rec."ID TKU")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the ID TKU field.';
+                }
                 field("Nama NPWP"; Rec.NamaNPWP)
                 {
                     ApplicationArea = All;

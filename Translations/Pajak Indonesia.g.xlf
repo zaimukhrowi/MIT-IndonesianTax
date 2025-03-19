@@ -503,6 +503,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 2361264711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID TKU Pembeli</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field ID TKU Pembeli - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1373678984 - Field 2407959255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>INVOICE AMOUNT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -528,15 +533,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field IS_RETURNITEM - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 666834320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jenis ID Pembeli</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Jenis ID Pembeli - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 666834320 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TIN,National ID,Passport,Other ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Jenis ID Pembeli - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 1373678984 - Field 3014909938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Keterangan Tambahan</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Keterangan Tambahan - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 708711145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TRANSACTION CODE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Kode Transaksi - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1373678984 - Field 772306933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Kode Dokumen Pendukung</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Kode_Dokumen_Pendukung - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LOCATION CODE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Location Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1373678984 - Field 2208812453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>NAMA</source>
@@ -572,6 +597,11 @@
           <source>RETURN TAX NUMBER</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field RETURN_TAX_NUMBER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 993414011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Ship-to Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1373678984 - Field 546629155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TAX DATE</source>
@@ -738,6 +768,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Kre_TaxSetup - Field Currency Used - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 4219262451 - Field 1661950240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default ID TKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Kre_TaxSetup - Field Default ID TKU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219262451 - Field 1513853652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export to Tax Currency</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -843,6 +878,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control NPWP - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 412056007 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Pre-Assigned No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Pre-Assigned No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3291111650 - Control 111919426 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -903,6 +943,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control VAT Prod. Posting Group - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 2361264711 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the ID TKU Pembeli field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control ID TKU Pembeli - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3291111650 - Control 3702263599 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -913,10 +958,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control IS RETURNITEM - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 666834320 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Jenis ID Pembeli field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Jenis ID Pembeli - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the LOCATION CODE field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Location Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3291111650 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Notes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3291111650 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Ship-to Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakKeluaranCard - Control Ship-to Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3291111650 - Control 2953381466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
@@ -1067,6 +1127,16 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Control Notes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3235120699 - Action 2908549274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Synchronize Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Action Synchronize Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3235120699 - Action 296734378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export XML</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakKeluaranList - Action XMLPortToImport - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2588880968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Pajak Masukan List</source>
@@ -1513,6 +1583,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SetupPPhList - Control Percentage Up - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 3426068969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount Decimal Places field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Amount Decimal Places - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 1892468204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Currency Used field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Currency Used - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 1661950240 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Default ID TKU field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Default ID TKU - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 1513853652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Export to Tax Currency field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Export to Currency - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 3120870334 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Pajak Keluaran field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Pajak Keluaran - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 833631409 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Pajak Masukan field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Pajak Masukan - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 682006212 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the PPh field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control PPh - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 1865576119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Scan EFaktur field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Scan EFaktur - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 3743191816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the User EFaktur field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control User_EFaktur - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 2588012632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Pajak Keluaran Digunggung field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control VAT Retail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 1376188475 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Rounding Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control VAT Rounding Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4004394318 - Action 2769766857 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fixing Tax Line</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1632,6 +1757,11 @@
           <source>Alamat NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCustomer - Control Alamat NPWP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 36778871 - Control 2141287977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Specifies the value of the ID TKU field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCustomer - Control ID TKU - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 36778871 - Control 2803599818 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Is WAPU ?</source>
@@ -1792,6 +1922,11 @@
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHTProductPostingGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1236290020 - Control 3302003269 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Specifies the value of the ID TKU field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtLocationCard - Control Kre ID TKU - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 902400145 - Control 2578088115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4135951594">
           <source>Return Date</source>
@@ -2148,10 +2283,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control TAXNUMBER - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1887010200 - Control 3093375153 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+        <trans-unit id="PageExtension 1887010200 - Control 4187200721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Specifies the value of the WHT Amount field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control WHT AMount - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchaseOrder - Control WHT Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 13950292 - Control 3414466033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1521900543">
           <source>Gross Up</source>
@@ -2598,10 +2733,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control TAXNUMBER - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2984887457 - Control 3093375153 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+        <trans-unit id="PageExtension 2984887457 - Control 4187200721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Specifies the value of the WHT Amount field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control WHT AMount - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrder - Control WHT Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3360287691 - Control 551538586 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
           <source>Is Tax Exemption VAT</source>
@@ -2683,6 +2818,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtShiptoAddress - Control Alamat NPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2408278298 - Control 2141287977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1187003046">
+          <source>Specifies the value of the ID TKU field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtShiptoAddress - Control ID TKU - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1912042255 - Control 2333307687 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>Alamat NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2763,6 +2903,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control WHTProductPostingGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4142435239 - Control 1338671929 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1994514640">
+          <source>Specifies the value of the Coretax Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension MyExtension - Control Kre Coretax Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 36778871 - Field 1091936847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Alamat NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2772,6 +2917,11 @@
           <source>Tax Digunggung</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtCustomer - Field Digunggung - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 36778871 - Field 2141287977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>ID TKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtCustomer - Field ID TKU - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 36778871 - Field 1823123005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Is NPWP</source>
@@ -2872,6 +3022,11 @@
           <source>WHTProductPostingGroup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLEntryWHT - Field WHTProductPostingGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3018862648 - Field 3302003269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>ID TKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtLocation - Field Kre ID TKU - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 375091185 - Field 2535140379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 633887033">
           <source>IS FORWARDER</source>
@@ -3343,6 +3498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtShiptoAddress - Field AlamatNPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2408278298 - Field 2141287977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
+          <source>ID TKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtShiptoAddress - Field ID TKU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2911997618 - Field 3527177982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2941967353">
           <source>IS SYNCH</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3387,6 +3547,11 @@
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field WHTProductPostingGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3457156565 - Field 1338671929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1920046521">
+          <source>Coretax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Kre Unit of Measure - Field Kre Coretax Code - Property Caption</note>
         </trans-unit>
       </group>
     </body>

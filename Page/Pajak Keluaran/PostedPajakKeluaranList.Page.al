@@ -215,6 +215,44 @@ page 60004 PostedPajakKeluaranList
                     end;
                 end;
             }
+
+            action("XMLPortToImport")
+            {
+                ApplicationArea = All;
+                Image = Export;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML';
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    XMLPajakKeluaran: XmlPort "XML Pajak Keluaran";
+                    Content: Text;
+                    TxtBuilder: TextBuilder;
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    XMLCoretax.CreateXML(KRE_TAXJOUR);
+                end;
+            }
+            action("Synchronize Customer")
+            {
+                ApplicationArea = All;
+                Image = RefreshRegister;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Synchronize Customer';
+
+                trigger OnAction()
+                begin
+                    XMLCoretax.SynchronizeCustomer();
+                end;
+            }
         }
     }
+    var
+        XMLCoretax: Codeunit "XML Coretax";
 }

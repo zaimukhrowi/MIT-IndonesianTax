@@ -80,13 +80,17 @@ codeunit 60001 PajakCode
                         begin
                             if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Customer."No.";
-                                if Customer.ISPKP = true then
-                                    TaxJour.NPWP := Customer.NPWP
-                                else
+                                if Customer.ISPKP = true then begin
+                                    TaxJour.NPWP := Customer.NPWP;
+                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                                end else begin
                                     TaxJour.NPWP := Customer.NIK;
+                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                                end;
                                 TaxJour.NAMA := Customer.NamaNPWP;
                                 //Alamat NPWP pindah ke bawah
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
+                                TaxJour."Kode Transaksi" := CopyStr(Format(Customer.PrefixWAPU), 1, 2);
                             end
                         end;
                 end;
@@ -235,15 +239,21 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Sales Invoices"."Sell-to Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Sales Invoices"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
                                 TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
                             else
                                 TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Order No.";
+                            TaxJour."Location Code" := "Posted Sales Invoices"."Location Code";
                         end;
                         //End of IsNull TaxNumber diambil dari register tax number dan taxdate input manual
                         //retur taxNumber dan retur date input manual
@@ -259,10 +269,15 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Sales Credit Memos"."Sell-to Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Sales Credit Memos"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
                         end;
                         //End of retur taxNumber dan retur date input manual
                         "Posted Service Invoices".SetRange("No.", SourceTable.Document_No_);
@@ -275,10 +290,15 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Service Invoices"."Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Service Invoices"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
                                 TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
@@ -600,10 +620,13 @@ codeunit 60001 PajakCode
                         begin
                             if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Customer."No.";
-                                if Customer.ISPKP = true then
-                                    TaxJour.NPWP := Customer.NPWP
-                                else
+                                if Customer.ISPKP = true then begin
+                                    TaxJour.NPWP := Customer.NPWP;
+                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                                end else begin
                                     TaxJour.NPWP := Customer.NIK;
+                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                                end;
                                 TaxJour.NAMA := Customer.NamaNPWP;
                                 //Alamat NPWP pindah ke bawah
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
@@ -770,10 +793,15 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Sales Invoices"."Sell-to Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Sales Invoices"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
                                 TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
@@ -794,10 +822,15 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Sales Credit Memos"."Sell-to Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Sales Credit Memos"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
                         end;
                         "Posted Service Invoices".SetRange("No.", SourceTable.Document_No_);
                         if "Posted Service Invoices".FindFirst() then begin
@@ -809,10 +842,15 @@ codeunit 60001 PajakCode
                                 if CustomerAddress.NPWPAddressfromShipTo then begin
                                     shiptoaddress.SetRange("Customer No.", "Posted Service Invoices"."Customer No.");
                                     shiptoaddress.SetRange("Code", "Posted Service Invoices"."Ship-to Code");
-                                    if shiptoaddress.FindFirst() then
+                                    if shiptoaddress.FindFirst() then begin
                                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                                end else
+                                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                                    end;
+                                end else begin
                                     TaxJour.ALAMATNPWP := CustomerAddress.AlamatNPWP;
+                                    TaxJour."ID TKU Pembeli" := CustomerAddress."ID TKU"
+                                end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
                                 TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
@@ -1850,18 +1888,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             if (SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice) OR (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then begin
                 TaxJour.IS_CREDITABLE := 1;
@@ -1944,18 +1990,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             if (SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice) OR (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then begin
                 TaxJour.IS_CREDITABLE := 1;
@@ -2038,18 +2092,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesInvHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             TaxJour.IS_CREDITABLE := 1;
             TaxJour.IS_RETURNITEM := TaxJour.IS_RETURNITEM::NO;
@@ -2122,18 +2184,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesInvHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             TaxJour.IS_CREDITABLE := 1;
             TaxJour.IS_RETURNITEM := TaxJour.IS_RETURNITEM::NO;
@@ -2206,18 +2276,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesInvHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             TaxJour.IS_CREDITABLE := 0;
             TaxJour.IS_RETURNITEM := TaxJour.IS_RETURNITEM::YES;
@@ -2292,18 +2370,26 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then
-                    TaxJour.NPWP := Customer.NPWP
-                else
+                if Customer.ISPKP = true then begin
+                    TaxJour.NPWP := Customer.NPWP;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+                end else begin
                     TaxJour.NPWP := Customer.NIK;
+                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+                end;
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
                     shiptoaddress.SetRange("Code", SalesInvHeader."Ship-to Code");
-                    if shiptoaddress.FindFirst() then
+                    if shiptoaddress.FindFirst() then begin
                         TaxJour.ALAMATNPWP := shiptoaddress.AlamatNPWP;
-                end else
+                        TaxJour."ID TKU Pembeli" := shiptoaddress."ID TKU";
+                        TaxJour."Ship-to Code" := shiptoaddress.Code;
+                    end;
+                end else begin
                     TaxJour.ALAMATNPWP := Customer.AlamatNPWP;
+                    TaxJour."ID TKU Pembeli" := Customer."ID TKU"
+                end;
             end;
             TaxJour.IS_CREDITABLE := 0;
             TaxJour.IS_RETURNITEM := TaxJour.IS_RETURNITEM::YES;
