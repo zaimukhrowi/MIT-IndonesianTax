@@ -35,7 +35,7 @@ codeunit 60007 "XML Coretax"
         end;
     end;
 
-    procedure CreateXML(var KRE_TAXJOUR: Record KRE_TAXJOUR)
+    procedure CreateXMLSalesOrder(var KRE_TAXJOUR: Record KRE_TAXJOUR)
     var
         SelectionFilterManagement: Codeunit SelectionFilterManagement;
         TempBlob: Codeunit "Temp Blob";
@@ -96,7 +96,7 @@ codeunit 60007 "XML Coretax"
         CompanyInformation: Record "Company Information";
     begin
         CompanyInformation.FindFirst();
-        exit(CompanyInformation."Registration No.");
+        exit(CompanyInformation."VAT Registration No.");
     end;
 
     local procedure TaxInvoice(var TaxInvoice: XmlElement; var KRE_TAXJOUR: Record KRE_TAXJOUR)
@@ -104,7 +104,7 @@ codeunit 60007 "XML Coretax"
         KreTaxSetup: Record Kre_TaxSetup;
         Location: Record Location;
         AddInfo: XmlElement;
-        BuyerAdress: XmlElement;
+        BuyerAddress: XmlElement;
         BuyerCountry: XmlElement;
         BuyerDocument: XmlElement;
         BuyerDocumentNumber: XmlElement;
@@ -122,6 +122,11 @@ codeunit 60007 "XML Coretax"
         TaxInvoiceOpt: XmlElement;
         TrxCode: XmlElement;
     begin
+        KreTaxSetup.FindFirst();
+        KreTaxSetup.TestField("Tarif PPn Percentage");
+        KreTaxSetup.TestField("DPP Nilai Lain (A)");
+        KreTaxSetup.TestField("DPP Nilai Lain (B)");
+
         TaxInvoiceDate := XmlElement.Create('TaxInvoiceDate');
         TaxInvoiceDate.Add(KRE_TAXJOUR.TAXDATE);
 
@@ -136,10 +141,13 @@ codeunit 60007 "XML Coretax"
         AddInfo := XmlElement.Create('AddInfo');
 
         CustomDoc := XmlElement.Create('CustomDoc');
+        CustomDoc.Add(KRE_TAXJOUR.Kode_Dokumen_Pendukung);
 
         CustomDocMonthYear := XmlElement.Create('CustomDocMonthYear');
+        CustomDocMonthYear.Add(Format(KRE_TAXJOUR.INVOICEDATE, 0, '<Month,2><Day,2><Year>'));
 
         RefDesc := XmlElement.Create('RefDesc');
+        RefDesc.Add(KRE_TAXJOUR.INVOICENO);
 
         FacilityStamp := XmlElement.Create('FacilityStamp');
 
@@ -150,7 +158,6 @@ codeunit 60007 "XML Coretax"
             else
                 Error(StrSubstNo('ID TKU for Location %1 is Blank', KRE_TAXJOUR."Location Code"));
         end else begin
-            KreTaxSetup.FindFirst();
             if KreTaxSetup."Default ID TKU" = '' then
                 Error('Default ID TKU in Tax Setup Card must be filled')
             else
@@ -184,10 +191,10 @@ codeunit 60007 "XML Coretax"
         BuyerName := XmlElement.Create('BuyerName');
         BuyerName.Add(KRE_TAXJOUR.NAMA);
 
-        BuyerAdress := XmlElement.Create('BuyerAdress');
+        BuyerAddress := XmlElement.Create('BuyerAddress');
         if KRE_TAXJOUR.ALAMATNPWP = '' then
             Error('Alamat NPWP for Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
-        BuyerAdress.Add(KRE_TAXJOUR.ALAMATNPWP);
+        BuyerAddress.Add(KRE_TAXJOUR.ALAMATNPWP);
 
         BuyerEmail := XmlElement.Create('BuyerEmail');
 
@@ -210,7 +217,7 @@ codeunit 60007 "XML Coretax"
         TaxInvoice.Add(BuyerCountry);
         TaxInvoice.Add(BuyerDocumentNumber);
         TaxInvoice.Add(BuyerName);
-        TaxInvoice.Add(BuyerAdress);
+        TaxInvoice.Add(BuyerAddress);
         TaxInvoice.Add(BuyerEmail);
         TaxInvoice.Add(BuyerIDTKU);
 
@@ -243,6 +250,7 @@ codeunit 60007 "XML Coretax"
         VAT: XmlElement;
         VATRate: XmlElement;
         Kre_TaxSetupRecref: RecordRef;
+        PPn: Decimal;
     begin
         Kre_TaxSetup.FindFirst();
         KRE_TAXJOURLINES.SetRange(KRE_TAXJOURID, KRE_TAXJOUR.ID);
@@ -272,9 +280,13 @@ codeunit 60007 "XML Coretax"
                 end;
 
                 Code := XmlElement.Create('Code');
+                if Item."Coretax Code" <> '' then
+                    Code.Add(Item."Coretax Code")
+                else
+                    Code.Add('000000');
 
                 Name := XmlElement.Create('Name');
-                Name.Add(KRE_TAXJOURLINES.ITEMID);
+                Name.Add(KRE_TAXJOURLINES.DESCRIPTION);
 
                 Kre_TaxSetupRecref.GetTable(Kre_TaxSetup);
                 Price := XmlElement.Create('Price');
@@ -290,18 +302,19 @@ codeunit 60007 "XML Coretax"
                 TaxBase.Add(format(Round(KRE_TAXJOURLINES.DPP_AMOUNT, Kre_TaxSetup."Amount Decimal Places", SelectStr(Kre_TaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)), 0, 1));
 
                 OtherTaxBase := XmlElement.Create('OtherTaxBase');
-                OtherTaxBase.Add(format(Round(KRE_TAXJOURLINES.DPP_AMOUNT, Kre_TaxSetup."Amount Decimal Places", SelectStr(Kre_TaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)), 0, 1));
+                OtherTaxBase.Add(format(Round(Kre_TaxSetup."DPP Nilai Lain (A)" / Kre_TaxSetup."DPP Nilai Lain (B)" * KRE_TAXJOURLINES.DPP_AMOUNT, Kre_TaxSetup."Amount Decimal Places", SelectStr(Kre_TaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)), 0, 1));
 
                 VATRate := XmlElement.Create('VATRate');
-                VATPostingSetup.Reset();
-                VATPostingSetup.SetRange("VAT Identifier", KRE_TAXJOURLINES.VAT_Identifier);
-                if VATPostingSetup.FindFirst() then
-                    VATRate.Add(VATPostingSetup."VAT %")
+                // VATPostingSetup.Reset();
+                // VATPostingSetup.SetRange("VAT Identifier", KRE_TAXJOURLINES.VAT_Identifier);
+                if Kre_TaxSetup."Tarif PPn Percentage" <> 0 then
+                    VATRate.Add(Kre_TaxSetup."Tarif PPn Percentage")
                 else
-                    Error(StrSubstNo('VAT Identifier %1 is not found', KRE_TAXJOURLINES.VAT_Identifier));
+                    Error('Tarif PPn is 0 in Tax Setup');
 
+                PPn := (Kre_TaxSetup."DPP Nilai Lain (A)" / Kre_TaxSetup."DPP Nilai Lain (B)" * KRE_TAXJOURLINES.DPP_AMOUNT) * Kre_TaxSetup."Tarif PPn Percentage" / 100;
                 VAT := XmlElement.Create('VAT');
-                VAT.Add(format(Round(KRE_TAXJOURLINES.VAT_AMOUNT, Kre_TaxSetup."Amount Decimal Places", SelectStr(Kre_TaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)), 0, 1));
+                VAT.Add(format(Round(PPn, Kre_TaxSetup."Amount Decimal Places", SelectStr(Kre_TaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)), 0, 1));
 
                 STLGRate := XmlElement.Create('STLGRate');
                 STLGRate.Add(0);
@@ -323,6 +336,148 @@ codeunit 60007 "XML Coretax"
                 GoodService.Add(STLG);
                 ListOfGoodService.Add(GoodService);
             until KRE_TAXJOURLINES.Next() = 0;
+    end;
+
+    procedure CreateXMLSalesReturn(var KRE_TAXJOUR: Record KRE_TAXJOUR)
+    var
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        TempBlob: Codeunit "Temp Blob";
+        OutputReturnDataList: XmlElement;
+        OutputReturnData: XmlElement;
+        OutputSpecialDocReturn: XmlElement;
+        TIN: XmlElement;
+        XmlDoc: XmlDocument;
+        InS: InStream;
+        OutS: OutStream;
+        FileName: Text;
+        XMLDataClear: Text;
+        XmlData: Text;
+        XMLDataClearest: Text;
+        Declaration: XmlDeclaration;
+        XmlWriteOptions: XmlWriteOptions;
+        KreTaxJournalperCustomer: Query "Kre Tax Journal per Customer";
+    begin
+        XmlDoc := XmlDocument.Create();
+        Declaration := XmlDeclaration.Create('1.0', 'utf-8', 'yes');
+        XmlDoc.SetDeclaration(Declaration);
+        OutputSpecialDocReturn := XmlElement.Create('OutputSpecialDocReturn');
+
+        GetTIN();
+        TIN := XmlElement.Create('TIN');
+        TIN.Add(GetTIN());
+        OutputSpecialDocReturn.Add(TIN);
+
+        OutputReturnDataList := XmlElement.Create('OutputReturnDataList');
+        if KRE_TAXJOUR.FindSet() then
+            repeat
+                if KRE_TAXJOUR.IS_RETURNITEM = KRE_TAXJOUR.IS_RETURNITEM::YES then begin
+                    OutputReturnData := XmlElement.Create('OutputReturnData');
+                    OutputReturnData(OutputReturnData, KRE_TAXJOUR);
+                    OutputReturnDataList.Add(OutputReturnData);
+                    KRE_TAXJOUR.TAX_EXPORTED := KRE_TAXJOUR.TAX_EXPORTED::YES;
+                    KRE_TAXJOUR.Modify(true);
+                end;
+            until KRE_TAXJOUR.Next() = 0;
+
+
+        OutputSpecialDocReturn.Add(OutputReturnDataList);
+        XmlDoc.Add(OutputSpecialDocReturn);
+        TempBlob.CreateInStream(InS);
+        TempBlob.CreateOutStream(OutS);
+        XmlDoc.WriteTo(XmlData);
+        XMLDataClear := XmlData.Replace(' standalone="yes"', '');
+        XMLDataClearest := SelectionFilterManagement.ReplaceString(XMLDataClear, ' />', '/>');
+        XMLDataClearest := XMLDataClearest.Replace('<OutputSpecialDocReturn>', '<OutputSpecialDocReturn xsi:noNamespaceSchemaLocation="schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">');
+
+        OutS.WriteText(XMLDataClearest);
+        InS.ReadText(XMLDataClearest);
+        FileName := 'TestFile_' + UserId + '_' + Format(CurrentDateTime) + '.XML';
+        DownloadFromStream(InS, '', '', '', FileName);
+    end;
+
+    local procedure OutputReturnData(var OutputReturnData: XmlElement; var KRE_TAXJOUR: Record KRE_TAXJOUR)
+    var
+        KreTaxSetup: Record Kre_TaxSetup;
+        ReturnTaxBase: XmlElement;
+        BuyerAddress: XmlElement;
+        TransactionType: XmlElement;
+        DocumentType: XmlElement;
+        TransactionDocument: XmlElement;
+        BuyerTaxpayerName: XmlElement;
+        BuyerTIN: XmlElement;
+        ReturnVAT: XmlElement;
+        DocumentDate: XmlElement;
+        ReturnSTLG: XmlElement;
+        ReturnDocumentNumber: XmlElement;
+        ReturnDate: XmlElement;
+        DocumentNumber: XmlElement;
+        TransactionDetail: XmlElement;
+    begin
+        DocumentNumber := XmlElement.Create('DocumentNumber');
+        DocumentNumber.Add(KRE_TAXJOUR.RETURN_DOC_NUMBER);
+
+        ReturnDocumentNumber := XmlElement.Create('ReturnDocumentNumber');
+        ReturnDocumentNumber.Add(KRE_TAXJOUR.INVOICENO);
+
+        TransactionType := XmlElement.Create('TransactionType');
+        TransactionType.Add('01');
+
+        DocumentType := XmlElement.Create('DocumentType');
+        DocumentType.Add('01');
+
+        TransactionDetail := XmlElement.Create('TransactionDetail');
+        if StrLen(KRE_TAXJOUR."Kode Transaksi") <> 2 then
+            Error('Prefix in Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
+        TransactionDetail.Add(KRE_TAXJOUR."Kode Transaksi");
+
+        TransactionDocument := XmlElement.Create('TransactionDocument');
+        TransactionDocument.Add('01');
+
+        DocumentDate := XmlElement.Create('DocumentDate');
+        DocumentDate.Add(Format(KRE_TAXJOUR.RETURN_DATE, 0, '<Day,2>-<Month,2>-20<Year,2>'));
+
+        BuyerTIN := XmlElement.Create('BuyerTIN');
+        if KRE_TAXJOUR."Jenis ID Pembeli" <> KRE_TAXJOUR."Jenis ID Pembeli"::TIN then
+            BuyerTin.Add('0000000000000000')
+        else begin
+            if KRE_TAXJOUR.NPWP = '' then
+                Error('NPWP for Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
+            if StrLen(KRE_TAXJOUR.NPWP) = 15 then
+                BuyerTin.Add('0' + KRE_TAXJOUR.NPWP)
+            else
+                BuyerTin.Add(KRE_TAXJOUR.NPWP)
+        end;
+
+        BuyerTaxpayerName := XmlElement.Create('BuyerTaxpayerName');
+        BuyerTaxpayerName.Add(KRE_TAXJOUR.NAMA);
+
+        BuyerAddress := XmlElement.Create('BuyerAddress');
+        if KRE_TAXJOUR.ALAMATNPWP = '' then
+            Error('Alamat NPWP for Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
+        BuyerAddress.Add(KRE_TAXJOUR.ALAMATNPWP);
+
+        ReturnTaxBase := XmlElement.Create('ReturnTaxBase');
+        ReturnTaxBase.Add(KRE_TAXJOUR.DPPAMOUNT);
+
+        ReturnVAT := XmlElement.Create('ReturnVAT');
+        ReturnVAT.Add(KRE_TAXJOUR.VATAMOUNT);
+
+        ReturnSTLG := XmlElement.Create('ReturnSTLG');
+        ReturnSTLG.Add('0');
+
+        OutputReturnData.Add(DocumentNumber);
+        OutputReturnData.Add(ReturnDocumentNumber);
+        OutputReturnData.Add(TransactionType);
+        OutputReturnData.Add(DocumentType);
+        OutputReturnData.Add(TransactionDetail);
+        OutputReturnData.Add(TransactionDocument);
+        OutputReturnData.Add(DocumentDate);
+        OutputReturnData.Add(BuyerTIN);
+        OutputReturnData.Add(BuyerTaxpayerName);
+        OutputReturnData.Add(BuyerAddress);
+        OutputReturnData.Add(ReturnTaxBase);
+        OutputReturnData.Add(ReturnVAT);
+        OutputReturnData.Add(ReturnSTLG);
     end;
 
 }

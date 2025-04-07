@@ -59,6 +59,26 @@ table 60006 Kre_TaxSetup
             DataClassification = ToBeClassified;
             Caption = 'Default ID TKU';
         }
+        field(13; "Tarif PPn Percentage"; Integer)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Tarif PPn Percentage';
+        }
+        field(14; "DPP Nilai Lain (A)"; Integer)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'DPP Nilai Lain (A)';
+        }
+        field(15; "DPP Nilai Lain (B)"; Integer)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'DPP Nilai Lain (B)';
+        }
+        field(16; "Use Registered Tax Number"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Use Registered Tax Number';
+        }
     }
 
 

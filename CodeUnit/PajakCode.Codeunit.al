@@ -1531,12 +1531,14 @@ codeunit 60001 PajakCode
     procedure SetPostingPajakTrueLine(ID: Integer)
     var
         TaxJour1: Record KRE_TAXJOUR;
+        Kre_TaxSetup: Record Kre_TaxSetup;
         RegTaxNumberCode: Codeunit RegTaxNumberCode;
         NotifValidasi: Notification;
         // ValidasiBeforePosting: Text;
         YesNo: Enum YESNO;
         TaxSource: Enum TAX_SOURCE;
     begin
+        Kre_TaxSetup.FindFirst();
         TaxJour1.Get(ID);
         if (TaxJour1.TAX_SOURCE = TaxSource::Purchase) then begin
             if (TaxJour1.IS_RETURNITEM = YesNo::YES) then begin
@@ -1582,7 +1584,8 @@ codeunit 60001 PajakCode
             exit
         else begin
             if (TaxJour1.TAX_SOURCE = TaxSource::Sales) and (TaxJour1.TAXNUMBER = '') and (TaxJour1.IS_RETURNITEM = YesNo::NO) then  //hanya journal keluaran normal
-                TaxJour1.TAXNUMBER := RegTaxNumberCode.GetTaxNumberFree(TaxJour1.INVOICENO, TaxJour1.TAXDATE, TaxJour1.ACCOUNTID);
+                if Kre_TaxSetup."Use Registered Tax Number" then
+                    TaxJour1.TAXNUMBER := RegTaxNumberCode.GetTaxNumberFree(TaxJour1.INVOICENO, TaxJour1.TAXDATE, TaxJour1.ACCOUNTID);
 
             TaxJour1.TAX_POSTED := YesNo::YES;
             TaxJour1.Modify(true);

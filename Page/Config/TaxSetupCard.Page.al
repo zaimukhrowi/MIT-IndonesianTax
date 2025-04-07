@@ -63,11 +63,39 @@ page 60016 TaxSetupCard
                     ShowMandatory = true;
                     ToolTip = 'Specifies the value of the Export to Tax Currency field.';
                 }
-                field("Default ID TKU"; Rec."Default ID TKU")
+                group(Coretax)
                 {
-                    ApplicationArea = All;
-                    ShowMandatory = true;
-                    ToolTip = 'Specifies the value of the Default ID TKU field.';
+                    Caption = 'Coretax';
+                    field("Default ID TKU"; Rec."Default ID TKU")
+                    {
+                        ApplicationArea = All;
+                        ShowMandatory = true;
+                        ToolTip = 'Specifies the value of the Default ID TKU field.';
+                    }
+                    field("Tarif PPn Percentage"; Rec."Tarif PPn Percentage")
+                    {
+                        ApplicationArea = All;
+                        ShowMandatory = true;
+                        ToolTip = 'Specifies the value of the Tarif PPn Percentage field.';
+                    }
+                    field("DPP Nilai Lain (A)"; Rec."DPP Nilai Lain (A)")
+                    {
+                        ApplicationArea = All;
+                        ShowMandatory = true;
+                        ToolTip = 'Specifies the value of the DPP Nilai Lain (A) field.';
+                    }
+                    field("DPP Nilai Lain (B)"; Rec."DPP Nilai Lain (B)")
+                    {
+                        ApplicationArea = All;
+                        ShowMandatory = true;
+                        ToolTip = 'Specifies the value of the DPP Nilai Lain (B) field.';
+                    }
+
+                    field("Use Registered Tax Number"; Rec."Use Registered Tax Number")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Use Registered Tax Number field.';
+                    }
                 }
             }
         }

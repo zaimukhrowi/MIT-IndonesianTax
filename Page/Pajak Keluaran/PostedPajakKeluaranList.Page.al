@@ -228,13 +228,37 @@ page 60004 PostedPajakKeluaranList
                 trigger OnAction()
                 var
                     KRE_TAXJOUR: Record KRE_TAXJOUR;
-                    XMLPajakKeluaran: XmlPort "XML Pajak Keluaran";
-                    Content: Text;
-                    TxtBuilder: TextBuilder;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
                 begin
                     KRE_TAXJOUR.Reset();
                     CurrPage.SetSelectionFilter(KRE_TAXJOUR);
-                    XMLCoretax.CreateXML(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
+                end;
+            }
+
+            action("XMLPortToImportReturn")
+            {
+                ApplicationArea = All;
+                Image = ReturnOrder;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML Return';
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    XMLCoretax.CreateXMLSalesReturn(KRE_TAXJOUR);
                 end;
             }
             action("Synchronize Customer")

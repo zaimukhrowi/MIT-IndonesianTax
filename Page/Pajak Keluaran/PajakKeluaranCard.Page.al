@@ -245,6 +245,29 @@ page 60008 PajakKeluaranCard
                     PajakCode.SetPostingPajakTrueLine(Rec.ID);
                 end;
             }
+            action("XMLPortToImport")
+            {
+                ApplicationArea = All;
+                Image = Export;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML';
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
+                    XMLCoretax: Codeunit "XML Coretax";
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
+                end;
+            }
             action("Export Efaktur")
             {
                 Promoted = true;
