@@ -87,7 +87,7 @@ codeunit 60007 "XML Coretax"
 
         OutS.WriteText(XMLDataClearest);
         InS.ReadText(XMLDataClearest);
-        FileName := 'TestFile_' + UserId + '_' + Format(CurrentDateTime) + '.XML';
+        FileName := 'FK' + UserId + '_' + Format(CurrentDateTime) + '.XML';
         DownloadFromStream(InS, '', '', '', FileName);
     end;
 
@@ -391,7 +391,7 @@ codeunit 60007 "XML Coretax"
 
         OutS.WriteText(XMLDataClearest);
         InS.ReadText(XMLDataClearest);
-        FileName := 'TestFile_' + UserId + '_' + Format(CurrentDateTime) + '.XML';
+        FileName := 'Retur Dok Lain' + UserId + '_' + Format(CurrentDateTime) + '.XML';
         DownloadFromStream(InS, '', '', '', FileName);
     end;
 
