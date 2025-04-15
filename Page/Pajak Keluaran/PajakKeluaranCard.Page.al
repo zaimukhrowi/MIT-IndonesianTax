@@ -265,7 +265,10 @@ page 60008 PajakKeluaranCard
                     CurrPage.SetSelectionFilter(KRE_TAXJOUR);
                     RecRef.GetTable(KRE_TAXJOUR);
                     SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
-                    XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
+                    if Rec.IS_RETURNITEM = Rec.IS_RETURNITEM::YES then
+                        XMLCoretax.CreateXMLSalesReturn(KRE_TAXJOUR)
+                    else
+                        XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
                 end;
             }
             action("Export Efaktur")

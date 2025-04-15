@@ -1703,6 +1703,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TaxSycnh - Action Update - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2069236161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Synchronize</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - RequestPage 2516438534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - RequestPage RequestOptionsPage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - Control 3090661100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Control Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - Control 2649176925 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the End Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Control End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - Control 2649176925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Control End Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - Control 474480784 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Start Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Control Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2069236161 - Control 474480784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Tax Synchronize Runner - Control Start Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 4285741520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt Line WHT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1907,6 +1942,11 @@
           <source>Prefix</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCustomer - Control Prefix WAPU - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 36778871 - Control 1890294165 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Specifies the value of the Retail Customer field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCustomer - Control Retail Customer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 36778871 - Control 1302278457 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Tax Digunggung ?</source>
@@ -3027,6 +3067,11 @@
           <source>Prefix</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtCustomer - Field PrefixWAPU - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 36778871 - Field 1890294165 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Retail Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtCustomer - Field Retail Customer - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 36778871 - Field 1349107145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>WHT Product Posting Group</source>

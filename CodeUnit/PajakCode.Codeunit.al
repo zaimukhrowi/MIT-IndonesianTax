@@ -1,7 +1,7 @@
 codeunit 60001 PajakCode
 {
     Permissions = TableData "VAT Entry" = RM;
-    procedure TaxSynch()
+    procedure TaxSynch(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         SourceTable: Query KreVATEntry;
@@ -45,13 +45,18 @@ codeunit 60001 PajakCode
         // SourceTable.SetRange(Is_Synch, false);
         // SourceTable.SetFilter(Type, '<> %1', 0);
         // SourceTable.SetFilter(Bill_to_Pay_to_No_, '<> %1', '');
+        SourceTable.SetRange(SourceTable.Posting_Date, StartDate, EndDate);
         SourceTable.Open();
         while SourceTable.READ() do begin
-            // if SourceTable.FindSet() then begin
+            CustomerRetail := false;
+            if SourceTable.Type = SourceTable.Type::Sale then
+                if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then
+                    if Customer."Retail Customer" then
+                        CustomerRetail := true;
             TaxJour.LockTable();
             // repeat
             TaxJour.SetFilter(INVOICENO, '=%1', SourceTable.Document_No_);
-            if not TaxJour.FindSet() then begin
+            if (not TaxJour.FindSet()) and (not CustomerRetail) then begin
                 Clear(TaxJour);
                 TaxJour.Init();
                 TaxJour.INVOICENO := SourceTable.Document_No_;
@@ -527,7 +532,8 @@ codeunit 60001 PajakCode
                 //Update flag   
             end
             else
-                UpdateInvoice(SourceTable.Document_No_);
+                if not CustomerRetail then
+                    UpdateInvoice(SourceTable.Document_No_);
 
             // SourceTable.Is_Synch := true;
             // SourceTable.Modify();
@@ -538,7 +544,7 @@ codeunit 60001 PajakCode
 
     end;
 
-    procedure TaxSynchForeignCurrency()
+    procedure TaxSynchForeignCurrency(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         SourceTable: Query KreVATEntryForeignCurrency;
@@ -585,13 +591,18 @@ codeunit 60001 PajakCode
         // SourceTable.SetRange(Is_Synch, false);
         // SourceTable.SetFilter(Type, '<> %1', 0);
         // SourceTable.SetFilter(Bill_to_Pay_to_No_, '<> %1', '');
+        SourceTable.SetRange(SourceTable.Posting_Date, StartDate, EndDate);
         SourceTable.Open();
         while SourceTable.READ() do begin
-            // if SourceTable.FindSet() then begin
+            CustomerRetail := false;
+            if SourceTable.Type = SourceTable.Type::Sale then
+                if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then
+                    if Customer."Retail Customer" then
+                        CustomerRetail := true;
             TaxJour.LockTable();
             // repeat
             TaxJour.SetFilter(INVOICENO, '=%1', SourceTable.Document_No_);
-            if not TaxJour.FindSet() then begin
+            if (not TaxJour.FindSet()) and (not CustomerRetail) then begin
                 Clear(TaxJour);
                 TaxJour.Init();
                 TaxJour.INVOICENO := SourceTable.Document_No_;
@@ -1108,7 +1119,8 @@ codeunit 60001 PajakCode
                 //Update flag   
             end
             else
-                UpdateInvoice(SourceTable.Document_No_);
+                if not CustomerRetail then
+                    UpdateInvoice(SourceTable.Document_No_);
 
             // SourceTable.Is_Synch := true;
             // SourceTable.Modify();
@@ -2445,4 +2457,7 @@ codeunit 60001 PajakCode
         end;
     end;
 
+    var
+
+        CustomerRetail: Boolean;
 }

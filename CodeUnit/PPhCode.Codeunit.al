@@ -144,7 +144,7 @@ codeunit 60006 PPhCode
         end;
     end;
 
-    procedure PPhSynch()
+    procedure PPhSynch(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         GLAccount: Record "G/L Account";
@@ -170,6 +170,7 @@ codeunit 60006 PPhCode
                 if GLAccount.FindSet() then
                     repeat
                         // Clear(GLEntry);
+                        GLEntry.SetRange("Posting Date", StartDate, EndDate);
                         GLEntry.SetRange("G/L Account No.", GLAccount."No.");
                         GLEntry.SetFilter(WHTProductPostingGroup, '<> %1', '');
                         // GLEntry.SetRange("Source Code", 'PURCHASES', 'SALES');
@@ -604,7 +605,7 @@ codeunit 60006 PPhCode
             end;
     end;
 
-    procedure PPhSynchForeignCurrency()
+    procedure PPhSynchForeignCurrency(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         GLAccount: Record "G/L Account";
@@ -632,6 +633,7 @@ codeunit 60006 PPhCode
                 if GLAccount.FindSet() then
                     repeat
                         // Clear(GLEntry);
+                        GLEntry.SetRange("Posting Date", StartDate, EndDate);
                         GLEntry.SetRange("G/L Account No.", GLAccount."No.");
                         GLEntry.SetFilter(WHTProductPostingGroup, '<> %1', '');
                         // GLEntry.SetRange("Source Code", 'PURCHASES', 'SALES');
@@ -1069,7 +1071,7 @@ codeunit 60006 PPhCode
             end;
     end;
 
-    procedure PPhSynch2Row()
+    procedure PPhSynch2Row(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         GLAccount: Record "G/L Account";
@@ -1097,6 +1099,7 @@ codeunit 60006 PPhCode
                 if GLAccount.FindSet() then
                     repeat
                         // Clear(GLEntry);
+                        GLEntry.SetRange("Posting Date", StartDate, EndDate);
                         GLEntry.SetRange("G/L Account No.", GLAccount."No.");
                         GLEntry.SetFilter(WHTProductPostingGroup, '= %1', '');
                         // GLEntry.SetRange("Source Code", 'PURCHASES', 'SALES');
@@ -1386,7 +1389,7 @@ codeunit 60006 PPhCode
 
     end;
 
-    procedure PPhSynch2RowForeignCurrency()
+    procedure PPhSynch2RowForeignCurrency(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
         GLAccount: Record "G/L Account";
@@ -1415,6 +1418,7 @@ codeunit 60006 PPhCode
                 if GLAccount.FindSet() then
                     repeat
                         // Clear(GLEntry);
+                        GLEntry.SetRange("Posting Date", StartDate, EndDate);
                         GLEntry.SetRange("G/L Account No.", GLAccount."No.");
                         GLEntry.SetFilter(WHTProductPostingGroup, '= %1', '');
                         // GLEntry.SetRange("Source Code", 'PURCHASES', 'SALES');

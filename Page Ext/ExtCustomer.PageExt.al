@@ -6,6 +6,11 @@ pageextension 60000 ExtCustomer extends "Customer Card"
         {
             group("Indonesian Tax")
             {
+                field("Retail Customer"; Rec."Retail Customer")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Retail Customer field.';
+                }
                 field(ISPKP; Rec.ISPKP)
                 {
                     ApplicationArea = All;

@@ -10,6 +10,7 @@ query 60003 KreVATEntry
         dataitem(VAT_Entry; "VAT Entry")
         {
             DataItemTableFilter = Is_Synch = filter(false), "Type" = filter('<> 0 '), Amount = filter('<> 0 '), "VAT Prod. Posting Group" = filter(<> '');//, "Bill-to/Pay-to No." = filter('<> ''');
+            filter(Posting_Date; "Posting Date") { }
             column("Type"; Type)
             { }
             column(Document_No_; "Document No.")

@@ -56,5 +56,10 @@ tableextension 60001 ExtCustomer extends Customer
             DataClassification = ToBeClassified;
             Caption = 'ID TKU';
         }
+        field(60013; "Retail Customer"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Retail Customer';
+        }
     }
 }
