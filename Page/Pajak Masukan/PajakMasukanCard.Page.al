@@ -212,6 +212,32 @@ page 60010 PajakMasukanCard
                     end;
                 end;
             }
+            action("XMLPortToImport")
+            {
+                ApplicationArea = All;
+                Image = Export;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML';
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
+                    XMLCoretax: Codeunit "XML Coretax";
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    if Rec.IS_RETURNITEM = Rec.IS_RETURNITEM::YES then
+                        XMLCoretax.CreateXMLPurchaseReturn(KRE_TAXJOUR)
+                    // else
+                    // XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
+                end;
+            }
         }
     }
 

@@ -1093,6 +1093,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control TAX CANCELLED - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1203650285 - Action 296734378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export XML</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Action XMLPortToImport - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 813439942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pajak Masukan Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1182,6 +1187,11 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakMasukanList - Control TAX CANCELLED - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2588880968 - Action 2522858496 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export XML Return</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PostedPajakMasukanList - Action XMLPortToImportReturn - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2193506531 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PPh Keluaran List</source>

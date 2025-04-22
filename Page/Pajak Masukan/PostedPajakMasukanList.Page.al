@@ -202,6 +202,32 @@ page 60006 PostedPajakMasukanList
                     end;
                 end;
             }
+
+            action("XMLPortToImportReturn")
+            {
+                ApplicationArea = All;
+                Image = ReturnOrder;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML Return';
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    XMLCoretax.CreateXMLPurchaseReturn(KRE_TAXJOUR);
+                end;
+            }
         }
     }
+
+    var
+        XMLCoretax: Codeunit "XML Coretax";
 }
