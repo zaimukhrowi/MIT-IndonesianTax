@@ -104,7 +104,7 @@ codeunit 60007 "XML Coretax"
         KreTaxSetup: Record Kre_TaxSetup;
         Location: Record Location;
         AddInfo: XmlElement;
-        BuyerAddress: XmlElement;
+        BuyerAdress: XmlElement;
         BuyerCountry: XmlElement;
         BuyerDocument: XmlElement;
         BuyerDocumentNumber: XmlElement;
@@ -191,10 +191,10 @@ codeunit 60007 "XML Coretax"
         BuyerName := XmlElement.Create('BuyerName');
         BuyerName.Add(KRE_TAXJOUR.NAMA);
 
-        BuyerAddress := XmlElement.Create('BuyerAddress');
+        BuyerAdress := XmlElement.Create('BuyerAdress');
         if KRE_TAXJOUR.ALAMATNPWP = '' then
             Error('Alamat NPWP for Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
-        BuyerAddress.Add(KRE_TAXJOUR.ALAMATNPWP);
+        BuyerAdress.Add(KRE_TAXJOUR.ALAMATNPWP);
 
         BuyerEmail := XmlElement.Create('BuyerEmail');
 
@@ -217,7 +217,7 @@ codeunit 60007 "XML Coretax"
         TaxInvoice.Add(BuyerCountry);
         TaxInvoice.Add(BuyerDocumentNumber);
         TaxInvoice.Add(BuyerName);
-        TaxInvoice.Add(BuyerAddress);
+        TaxInvoice.Add(BuyerAdress);
         TaxInvoice.Add(BuyerEmail);
         TaxInvoice.Add(BuyerIDTKU);
 
