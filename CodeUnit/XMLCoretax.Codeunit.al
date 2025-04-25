@@ -578,7 +578,7 @@ codeunit 60007 "XML Coretax"
         TransactionDocumentData := XmlElement.Create('TransactionDocumentData');
 
         InvoiceNumber := XmlElement.Create('InvoiceNumber');
-        InvoiceNumber.Add(KRE_TAXJOUR.RETURN_DOC_NUMBER);
+        InvoiceNumber.Add(KRE_TAXJOUR.TAXNUMBER);
 
         SellerTIN := XmlElement.Create('SellerTIN');
         if StrLen(KRE_TAXJOUR.NPWP) = 15 then
