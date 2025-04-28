@@ -66,6 +66,12 @@ pageextension 60001 ExtVendor extends "Vendor Card"
                     ToolTip = 'Alamat NPWP';
                     MultiLine = true;
                 }
+                field(NITKU; Rec.NITKU)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the NITKU field.';
+                    Caption = 'NITKU';
+                }
 
             }
         }

@@ -35,5 +35,9 @@ tableextension 60000 ExtVendor extends Vendor
         {
             Caption = 'Is NPWP';
         }
+        field(60008; NITKU; Text[22])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }
