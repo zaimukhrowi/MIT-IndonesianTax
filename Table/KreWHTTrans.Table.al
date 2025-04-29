@@ -209,6 +209,11 @@ table 60009 KreWHTTrans
             Editable = false;
             FieldClass = FlowField;
         }
+
+        field(47; NITKU; Text[22])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

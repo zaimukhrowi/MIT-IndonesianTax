@@ -2993,6 +2993,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control NIK - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1912042255 - Control 1219831143 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the value of the NITKU field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control NITKU - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1912042255 - Control 1219831143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>NITKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control NITKU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1912042255 - Control 1294354891 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3657,6 +3667,11 @@
           <source>NIK</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field NIK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1912042255 - Field 1219831143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>NITKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field NITKU - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1912042255 - Field 1294354891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>NPWP</source>

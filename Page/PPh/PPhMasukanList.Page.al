@@ -179,6 +179,11 @@ page 60021 PPhMasukanList
                     Caption = 'Bukti Potong Status';
                     Editable = true;
                 }
+                field(NITKU; Rec.NITKU)
+                {
+                    ApplicationArea = All;
+                    Caption = 'NITKU';
+                }
                 field(NPWP; Rec.NPWP)
                 {
                     ApplicationArea = All;

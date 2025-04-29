@@ -223,6 +223,7 @@ codeunit 60006 PPhCode
                                                                     if Vendor.FindFirst() then begin
                                                                         //if Vendor.ISPKP = true then
                                                                         WHTTrans.NPWP := Vendor.NPWP;
+                                                                        WHTTrans.NITKU := Vendor.NITKU;
                                                                         //else
                                                                         WHTTrans.NIK := Vendor.NIK;
                                                                         WHTTrans.Nama := Vendor.NamaNPWP;
@@ -274,6 +275,7 @@ codeunit 60006 PPhCode
                                                                 Vendor.SetRange("No.", GLEntry."Source No.");
                                                                 if Vendor.FindSet() then begin
                                                                     WHTTrans.NPWP := Vendor.NPWP;
+                                                                    WHTTrans.NITKU := Vendor.NITKU;
                                                                     WHTTrans.Nama := Vendor.NamaNPWP;
                                                                     WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                 end;
@@ -328,6 +330,7 @@ codeunit 60006 PPhCode
                                                                 Vendor.SetRange("No.", GLEntry."Source No.");
                                                                 if Vendor.FindSet() then begin
                                                                     WHTTrans.NPWP := Vendor.NPWP;
+                                                                    WHTTrans.NITKU := Vendor.NITKU;
                                                                     WHTTrans.Nama := Vendor.NamaNPWP;
                                                                     WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                 end;
@@ -686,6 +689,7 @@ codeunit 60006 PPhCode
                                                                     if Vendor.FindFirst() then begin
                                                                         //if Vendor.ISPKP = true then
                                                                         WHTTrans.NPWP := Vendor.NPWP;
+                                                                        WHTTrans.NITKU := Vendor.NITKU;
                                                                         //else
                                                                         WHTTrans.NIK := Vendor.NIK;
                                                                         WHTTrans.Nama := Vendor.NamaNPWP;
@@ -737,6 +741,7 @@ codeunit 60006 PPhCode
                                                                 Vendor.SetRange("No.", GLEntry."Source No.");
                                                                 if Vendor.FindSet() then begin
                                                                     WHTTrans.NPWP := Vendor.NPWP;
+                                                                    WHTTrans.NITKU := Vendor.NITKU;
                                                                     WHTTrans.Nama := Vendor.NamaNPWP;
                                                                     WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                 end;
@@ -792,6 +797,7 @@ codeunit 60006 PPhCode
                                                                 Vendor.SetRange("No.", GLEntry."Source No.");
                                                                 if Vendor.FindSet() then begin
                                                                     WHTTrans.NPWP := Vendor.NPWP;
+                                                                    WHTTrans.NITKU := Vendor.NITKU;
                                                                     WHTTrans.Nama := Vendor.NamaNPWP;
                                                                     WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                 end;
@@ -1204,6 +1210,7 @@ codeunit 60006 PPhCode
                                                                     Vendor.SetRange("No.", GLEntry."Source No.");
                                                                     if Vendor.FindSet() then begin
                                                                         WHTTrans.NPWP := Vendor.NPWP;
+                                                                        WHTTrans.NITKU := Vendor.NITKU;
                                                                         WHTTrans.Nama := Vendor.NamaNPWP;
                                                                         WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                     end;
@@ -1525,6 +1532,7 @@ codeunit 60006 PPhCode
                                                                     Vendor.SetRange("No.", GLEntry."Source No.");
                                                                     if Vendor.FindSet() then begin
                                                                         WHTTrans.NPWP := Vendor.NPWP;
+                                                                        WHTTrans.NITKU := Vendor.NITKU;
                                                                         WHTTrans.Nama := Vendor.NamaNPWP;
                                                                         WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                                                                     end;
@@ -2203,6 +2211,7 @@ codeunit 60006 PPhCode
             Vend.SetRange("No.", WHT."Source No");
             if Vend.FindFirst() then begin
                 WHT.NPWP := Vend.NPWP;
+                WHT.NITKU := Vend.NITKU;
                 WHT."Alamat NPWP" := Vend.AlamatNPWP;
                 WHT.Nama := Vend.NamaNPWP;
                 WHT.Modify();
@@ -2447,6 +2456,7 @@ codeunit 60006 PPhCode
                     WHTTrans."VAT Type" := WHTTrans."VAT Type"::Purchase;
                     if Vendor.Get(PurchHeader."Buy-from Vendor No.") then begin
                         WHTTrans.NPWP := Vendor.NPWP;
+                        WHTTrans.NITKU := Vendor.NITKU;
                         WHTTrans.Nama := Vendor.NamaNPWP;
                         WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                     end;
@@ -2504,6 +2514,7 @@ codeunit 60006 PPhCode
                     WHTTrans."VAT Type" := WHTTrans."VAT Type"::Purchase;
                     if Vendor.Get(PurchHeader."Buy-from Vendor No.") then begin
                         WHTTrans.NPWP := Vendor.NPWP;
+                        WHTTrans.NITKU := Vendor.NITKU;
                         WHTTrans.Nama := Vendor.NamaNPWP;
                         WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                     end;
@@ -2561,6 +2572,7 @@ codeunit 60006 PPhCode
                     WHTTrans."VAT Type" := WHTTrans."VAT Type"::Purchase;
                     if Vendor.Get(PurchHeader."Buy-from Vendor No.") then begin
                         WHTTrans.NPWP := Vendor.NPWP;
+                        WHTTrans.NITKU := Vendor.NITKU;
                         WHTTrans.Nama := Vendor.NamaNPWP;
                         WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
                     end;
@@ -2618,6 +2630,7 @@ codeunit 60006 PPhCode
     //                 WHTTrans."VAT Type" := WHTTrans."VAT Type"::Purchase;
     //                 if Vendor.Get(PurchHeader."Buy-from Vendor No.") then begin
     //                     WHTTrans.NPWP := Vendor.NPWP;
+    // WHTTrans.NITKU := Vendor.NITKU;
     //                     WHTTrans.Nama := Vendor.NamaNPWP;
     //                     WHTTrans."Alamat NPWP" := Vendor.AlamatNPWP;
     //                 end;
