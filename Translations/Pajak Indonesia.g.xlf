@@ -128,6 +128,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field NIK - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 1219831143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NITKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field NITKU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219912687 - Field 1294354891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1293,6 +1298,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control NIK - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 1219831143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NITKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control NITKU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 1294354891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1482,6 +1492,11 @@
           <source>NIK</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control NIK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 1219831143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NITKU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control NITKU - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2849531152 - Control 1294354891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>NPWP</source>

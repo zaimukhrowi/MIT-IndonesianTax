@@ -43,7 +43,7 @@ tableextension 60017 ExtGLEntryWHT extends "G/L Entry"
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        OnBeforeOnAfterInsert(IsHandled);
+        OnBeforeOnAfterInsert(IsHandled, Rec);
         if IsHandled then
             exit;
 
@@ -133,7 +133,7 @@ tableextension 60017 ExtGLEntryWHT extends "G/L Entry"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeOnAfterInsert(var IsHandled: Boolean)
+    local procedure OnBeforeOnAfterInsert(var IsHandled: Boolean; GLEntry: Record "G/L Entry")
     begin
     end;
 }
