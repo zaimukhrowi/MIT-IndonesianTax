@@ -60,6 +60,8 @@ report 60000 "Tax Synchronize Runner"
         TaxSetup: Record Kre_TaxSetup;
     begin
         TaxSetup.FindFirst();
+        if EndDate = 0D then
+            EndDate := Today;
         IF CONFIRM('Are you sure to synchronize ?', TRUE) then begin
             if TaxSetup."Currency Used" = TaxSetup."Currency Used"::"Currency Amount" then begin
                 PajakCode.TaxSynch(StartDate, EndDate);
