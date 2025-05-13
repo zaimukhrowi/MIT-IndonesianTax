@@ -79,6 +79,11 @@ table 60006 Kre_TaxSetup
             DataClassification = ToBeClassified;
             Caption = 'Use Registered Tax Number';
         }
+        field(18; "Calculate WHT per Line"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Calculate WHT per Line';
+        }
     }
 
 

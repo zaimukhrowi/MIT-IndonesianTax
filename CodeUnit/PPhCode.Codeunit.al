@@ -1740,19 +1740,37 @@ codeunit 60006 PPhCode
     procedure UpdatePurchaseLineAmount(DocNo: Code[20])
     var
         PLine: Query KrePurchaseLineWHT;
+        KrePurchaseLineWHTperLine: Query KrePurchaseLineWHTperLine;
+        Kre_TaxSetup: Record Kre_TaxSetup;
     begin
-        PLine.SetRange(Document_No_, DocNo);
-        PLine.SetRange(IsWHTCalc, false);
-        PLine.SetRange(IsGrossUp, false);
-        PLine.Open;
-        while PLine.Read do
-            if PLine.Purchase_WHT_Account = '' then
-                Error('Purchase WHT Account %1 not found !', PLine.WHTProductPostingGroup)
-            else
-                InsertPurchaseLine(PLine.No_, DocNo, PLine.Document_Type, PLine.Purchase_WHT_Account, PLine.G_L_Account_Name, PLine.Sum_Line_Amount, PLine.Sum_Line_Amount_Additional_Currency, PLine.Dimension_Set_ID,
-                 PLine.Unit_of_Measure_Code, PLine.Currency_Code, PLine.Buy_from_Vendor_No_, PLine.Pay_to_Vendor_No_, PLine.Planned_Receipt_Date,
-                 PLine.Gen__Bus__Posting_Group, PLine.Gen__Prod__Posting_Group, PLine.VAT_Bus__Posting_Group, PLine.VAT_Prod__Posting_Group, PLine.Type,
-                   PLine.WHTProductPostingGroup, PLine.WHTPercentage)
+        Kre_TaxSetup.FindFirst();
+        if Kre_TaxSetup."Calculate WHT per Line" then begin
+            KrePurchaseLineWHTperLine.SetRange(Document_No_, DocNo);
+            KrePurchaseLineWHTperLine.SetRange(IsWHTCalc, false);
+            KrePurchaseLineWHTperLine.SetRange(IsGrossUp, false);
+            KrePurchaseLineWHTperLine.Open;
+            while KrePurchaseLineWHTperLine.Read do
+                if KrePurchaseLineWHTperLine.Purchase_WHT_Account = '' then
+                    Error('Purchase WHT Account %1 not found !', KrePurchaseLineWHTperLine.WHTProductPostingGroup)
+                else
+                    InsertPurchaseLine(KrePurchaseLineWHTperLine.No_, DocNo, KrePurchaseLineWHTperLine.Document_Type, KrePurchaseLineWHTperLine.Purchase_WHT_Account, KrePurchaseLineWHTperLine.G_L_Account_Name, KrePurchaseLineWHTperLine.Sum_Line_Amount, KrePurchaseLineWHTperLine.Sum_Line_Amount_Additional_Currency, KrePurchaseLineWHTperLine.Dimension_Set_ID,
+                     KrePurchaseLineWHTperLine.Unit_of_Measure_Code, KrePurchaseLineWHTperLine.Currency_Code, KrePurchaseLineWHTperLine.Buy_from_Vendor_No_, KrePurchaseLineWHTperLine.Pay_to_Vendor_No_, KrePurchaseLineWHTperLine.Planned_Receipt_Date,
+                     KrePurchaseLineWHTperLine.Gen__Bus__Posting_Group, KrePurchaseLineWHTperLine.Gen__Prod__Posting_Group, KrePurchaseLineWHTperLine.VAT_Bus__Posting_Group, KrePurchaseLineWHTperLine.VAT_Prod__Posting_Group, KrePurchaseLineWHTperLine.Type,
+                       KrePurchaseLineWHTperLine.WHTProductPostingGroup, KrePurchaseLineWHTperLine.WHTPercentage)
+        end else begin
+            PLine.SetRange(Document_No_, DocNo);
+            PLine.SetRange(IsWHTCalc, false);
+            PLine.SetRange(IsGrossUp, false);
+            PLine.Open;
+            while PLine.Read do
+                if PLine.Purchase_WHT_Account = '' then
+                    Error('Purchase WHT Account %1 not found !', PLine.WHTProductPostingGroup)
+                else
+                    InsertPurchaseLine(PLine.No_, DocNo, PLine.Document_Type, PLine.Purchase_WHT_Account, PLine.G_L_Account_Name, PLine.Sum_Line_Amount, PLine.Sum_Line_Amount_Additional_Currency, PLine.Dimension_Set_ID,
+                     PLine.Unit_of_Measure_Code, PLine.Currency_Code, PLine.Buy_from_Vendor_No_, PLine.Pay_to_Vendor_No_, PLine.Planned_Receipt_Date,
+                     PLine.Gen__Bus__Posting_Group, PLine.Gen__Prod__Posting_Group, PLine.VAT_Bus__Posting_Group, PLine.VAT_Prod__Posting_Group, PLine.Type,
+                       PLine.WHTProductPostingGroup, PLine.WHTPercentage)
+        end;
     end;
 
     procedure UpdatePurchaseLineAmountGrossUp(DocNo: Code[20])

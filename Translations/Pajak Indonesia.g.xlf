@@ -763,6 +763,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Kre_TaxSetup - Field Amount Decimal Places - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219262451 - Field 2968526650 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate WHT per Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Kre_TaxSetup - Field Calculate WHT per Line - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219262451 - Field 1892468204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Used</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1643,6 +1648,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Amount Decimal Places - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2669085970 - Control 2968526650 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Calculate WHT per Line field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TaxSetupCard - Control Calculate WHT per Line - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2669085970 - Control 2179682370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Coretax</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1777,6 +1787,11 @@
           <source>Purchase Line WHT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query KrePurchaseLineWHT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 3915096581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Line WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query KrePurchaseLineWHTperLine - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 3962170963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Line WHT</source>

@@ -63,6 +63,11 @@ page 60016 TaxSetupCard
                     ShowMandatory = true;
                     ToolTip = 'Specifies the value of the Export to Tax Currency field.';
                 }
+                field("Calculate WHT per Line"; Rec."Calculate WHT per Line")
+                {
+                    ToolTip = 'Specifies the value of the Calculate WHT per Line field.';
+                    ApplicationArea = All;
+                }
                 group(Coretax)
                 {
                     Caption = 'Coretax';
