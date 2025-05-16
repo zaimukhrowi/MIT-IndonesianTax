@@ -28,6 +28,13 @@ page 60008 PajakKeluaranCard
                 field("Keterangan Tambahan"; Rec."Keterangan Tambahan")
                 {
                     ApplicationArea = All;
+                    TableRelation = "Kre Tax Additional Info".Code;
+                    ToolTip = '';
+                }
+                field("Cap Fasilitas"; Rec."Cap Fasilitas")
+                {
+                    ApplicationArea = All;
+                    TableRelation = "Kre Tax Facility Stamp".Code;
                     ToolTip = '';
                 }
                 field("INVOICE DATE"; Rec.INVOICEDATE)

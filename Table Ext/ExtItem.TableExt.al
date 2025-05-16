@@ -7,6 +7,13 @@ tableextension 60026 ExtItem extends Item
             DataClassification = ToBeClassified;
             Caption = 'Coretax Code';
         }
+        field(60001; "Kre Item Type"; Option)
+        {
+            DataClassification = ToBeClassified;
+            OptionMembers = "A","B";
+            OptionCaption = 'Barang,Jasa';
+            Caption = 'Item Type';
+        }
     }
 
     keys

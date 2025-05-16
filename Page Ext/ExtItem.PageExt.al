@@ -10,6 +10,14 @@ pageextension 60039 ExtItem extends "Item Card"
                 ToolTip = 'Specifies the value of the Coretax Code field.';
             }
         }
+        addafter("Item Category Code")
+        {
+            field("Kre Item Type"; Rec."Kre Item Type")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Item Type field.';
+            }
+        }
     }
 
     actions

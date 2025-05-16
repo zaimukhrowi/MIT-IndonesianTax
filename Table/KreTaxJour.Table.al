@@ -156,6 +156,11 @@ table 60002 KRE_TAXJOUR
             DataClassification = ToBeClassified;
             Caption = 'Ship-to Code';
         }
+        field(37; "Cap Fasilitas"; Text[1000])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Cap Fasilitas';
+        }
 
 
     }

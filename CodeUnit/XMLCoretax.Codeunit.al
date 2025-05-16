@@ -144,7 +144,7 @@ codeunit 60007 "XML Coretax"
         CustomDoc.Add(KRE_TAXJOUR.Kode_Dokumen_Pendukung);
 
         CustomDocMonthYear := XmlElement.Create('CustomDocMonthYear');
-        CustomDocMonthYear.Add(Format(KRE_TAXJOUR.INVOICEDATE, 0, '<Month,2><Day,2><Year>'));
+        CustomDocMonthYear.Add(Format(KRE_TAXJOUR.INVOICEDATE, 0, '<Month,2><Year4>'));
 
         RefDesc := XmlElement.Create('RefDesc');
         RefDesc.Add(KRE_TAXJOUR.INVOICENO);
