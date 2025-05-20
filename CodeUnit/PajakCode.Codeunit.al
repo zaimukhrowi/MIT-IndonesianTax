@@ -85,13 +85,7 @@ codeunit 60001 PajakCode
                         begin
                             if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Customer."No.";
-                                if Customer.ISPKP = true then begin
-                                    TaxJour.NPWP := Customer.NPWP;
-                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                                end else begin
-                                    TaxJour.NPWP := Customer.NIK;
-                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                                end;
+                                GetCustomerID(Customer, TaxJour);
                                 TaxJour.NAMA := Customer.NamaNPWP;
                                 //Alamat NPWP pindah ke bawah
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
@@ -216,6 +210,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.TOTAL_AMOUNT := PurchLineCM."Line Amount";
                                 TaxJourLines.DISCOUNT_AMOUNT := PurchLineCM."Line Discount Amount";
                                 TaxJourLines.DPP_AMOUNT := PurchLineCM."VAT Base Amount";
+                                TaxJourLines."Coretax Item Code" := PurchLineCM."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := PurchLineCM."Coretax Item Description";
 
                                 if SelisihVAT2 > 0 then begin
                                     if PurchLineCM."Line No." = 10000 then
@@ -631,13 +627,7 @@ codeunit 60001 PajakCode
                         begin
                             if Customer.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Customer."No.";
-                                if Customer.ISPKP = true then begin
-                                    TaxJour.NPWP := Customer.NPWP;
-                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                                end else begin
-                                    TaxJour.NPWP := Customer.NIK;
-                                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                                end;
+                                GetCustomerID(Customer, TaxJour);
                                 TaxJour.NAMA := Customer.NamaNPWP;
                                 //Alamat NPWP pindah ke bawah
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
@@ -776,6 +766,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.QTY := system.Round(PurchLineCM.Quantity, 1, '>');
                                 TaxJourLines.DISCOUNT_AMOUNT := PurchLineCM."Line Discount Amount" / ExchangeRate;
                                 TaxJourLines.DPP_AMOUNT := PurchLineCM."VAT Base Amount" / ExchangeRate;
+                                TaxJourLines."Coretax Item Code" := PurchLineCM."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := PurchLineCM."Coretax Item Description";
 
                                 if SelisihVAT2 > 0 then begin
                                     if PurchLineCM."Line No." = 10000 then
@@ -1249,6 +1241,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.TOTAL_AMOUNT := PurchLineCM."Line Amount";
                                 TaxJourLines.DISCOUNT_AMOUNT := PurchLineCM."Line Discount Amount";
                                 TaxJourLines.DPP_AMOUNT := PurchLineCM."VAT Base Amount";
+                                TaxJourLines."Coretax Item Code" := PurchLineCM."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := PurchLineCM."Coretax Item Description";
 
                                 if SelisihVAT2 > 0 then begin
                                     if PurchLineCM."Line No." = 10000 then
@@ -1881,6 +1875,28 @@ codeunit 60001 PajakCode
             exit(0);
     end;
 
+    local procedure GetCustomerID(var Customer: Record Customer; var TaxJour: Record KRE_TAXJOUR)
+    begin
+        if Customer."ID Type" = Customer."ID Type"::TIN then begin
+            TaxJour.NPWP := Customer.NPWP;
+            TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
+            TaxJour."Customer ID" := Customer.NPWP;
+        end;
+        if Customer."ID Type" = Customer."ID Type"::"National ID" then begin
+            TaxJour.NPWP := Customer.NIK;
+            TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
+            TaxJour."Customer ID" := Customer.NIK;
+        end;
+        if Customer."ID Type" = Customer."ID Type"::Passport then begin
+            TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::Passport;
+            TaxJour."Customer ID" := Customer."Passport No.";
+        end;
+        if Customer."ID Type" = Customer."ID Type"::"Other ID" then begin
+            TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"Other ID";
+            TaxJour."Customer ID" := Customer."Other ID";
+        end;
+    end;
+
     procedure InsertTaxExcemptionVAT(var SalesHeader: Record "Sales Header")
     var
         TaxJour: Record KRE_TAXJOUR;
@@ -1903,13 +1919,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
@@ -2005,13 +2015,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
@@ -2107,13 +2111,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
@@ -2199,13 +2197,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
@@ -2291,13 +2283,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");
@@ -2385,13 +2371,7 @@ codeunit 60001 PajakCode
             //TaxJour."VAT Prod. Posting Group" := SalesHeader.VAT_Prod__Posting_Group;
             if Customer.Get(SalesInvHeader."Sell-to Customer No.") then begin
                 TaxJour.ACCOUNTID := Customer."No.";
-                if Customer.ISPKP = true then begin
-                    TaxJour.NPWP := Customer.NPWP;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::TIN;
-                end else begin
-                    TaxJour.NPWP := Customer.NIK;
-                    TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"National ID";
-                end;
+                GetCustomerID(Customer, TaxJour);
                 TaxJour.NAMA := Customer.NamaNPWP;
                 if Customer.NPWPAddressfromShipTo then begin
                     shiptoaddress.SetRange("Customer No.", Customer."No.");

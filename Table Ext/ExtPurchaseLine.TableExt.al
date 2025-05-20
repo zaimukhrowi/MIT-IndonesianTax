@@ -40,5 +40,13 @@ tableextension 60015 ExtPurchaseLine extends "Purchase Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60009; "Coretax Item Code"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(600010; "Coretax Item Description"; Text[200])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

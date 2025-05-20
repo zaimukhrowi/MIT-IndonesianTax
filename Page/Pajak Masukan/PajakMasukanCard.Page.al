@@ -164,6 +164,7 @@ page 60010 PajakMasukanCard
                 UpdatePropagation = SubPart;
                 Visible = true;
                 ApplicationArea = All;
+                Editable = Rec.TAX_POSTED = Rec.TAX_POSTED::NO;
 
             }
         }

@@ -85,6 +85,11 @@ page 60008 PajakKeluaranCard
                     ApplicationArea = All;
                     ToolTip = '';
                 }
+                field("Customer ID"; Rec."Customer ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Customer ID field.';
+                }
                 field(NAMA; Rec.NAMA)
                 {
                     ApplicationArea = All;
@@ -260,6 +265,7 @@ page 60008 PajakKeluaranCard
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 Caption = 'Export XML';
+                ToolTip = 'Executes the Export XML action.';
 
                 trigger OnAction()
                 var

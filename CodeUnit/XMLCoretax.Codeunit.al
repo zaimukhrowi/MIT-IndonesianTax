@@ -16,9 +16,24 @@ codeunit 60007 "XML Coretax"
         KRE_TAXJOUR.SetRange(KRE_TAXJOUR.TAX_POSTED, KRE_TAXJOUR.TAX_POSTED::YES);
         if KRE_TAXJOUR.FindSet() then begin
             repeat
-                if (KRE_TAXJOUR.NPWP = '') or (KRE_TAXJOUR."ID TKU Pembeli" = '') then begin
+                if (KRE_TAXJOUR."Customer ID" = '') or (KRE_TAXJOUR."ID TKU Pembeli" = '') or (KRE_TAXJOUR.NPWP = '') then begin
                     Customer.Get(KRE_TAXJOUR.ACCOUNTID);
-                    KRE_TAXJOUR.NPWP := Customer.NPWP;
+                    case KRE_TAXJOUR."Jenis ID Pembeli" of
+                        KRE_TAXJOUR."Jenis ID Pembeli"::TIN:
+                            begin
+                                KRE_TAXJOUR."Customer ID" := Customer.NPWP;
+                                KRE_TAXJOUR.NPWP := Customer.NPWP;
+                            end;
+                        KRE_TAXJOUR."Jenis ID Pembeli"::"National ID":
+                            begin
+                                KRE_TAXJOUR."Customer ID" := Customer.NIK;
+                                KRE_TAXJOUR.NPWP := Customer.NIK;
+                            end;
+                        KRE_TAXJOUR."Jenis ID Pembeli"::Passport:
+                            KRE_TAXJOUR."Customer ID" := Customer."Passport No.";
+                        KRE_TAXJOUR."Jenis ID Pembeli"::"Other ID":
+                            KRE_TAXJOUR."Customer ID" := Customer."Other ID";
+                    end;
                     KRE_TAXJOUR."Kode Transaksi" := CopyStr(Format(Customer.PrefixWAPU), 1, 2);
                     if KRE_TAXJOUR."Ship-to Code" <> '' then begin
                         ShiptoAddress.Get(Customer."No.", KRE_TAXJOUR."Ship-to Code");
@@ -103,6 +118,7 @@ codeunit 60007 "XML Coretax"
     var
         KreTaxSetup: Record Kre_TaxSetup;
         Location: Record Location;
+        Customer: Record Customer;
         AddInfo: XmlElement;
         BuyerAdress: XmlElement;
         BuyerCountry: XmlElement;
@@ -138,7 +154,12 @@ codeunit 60007 "XML Coretax"
             Error('Prefix in Customer %1 is blank', KRE_TAXJOUR.ACCOUNTID);
         TrxCode.Add(KRE_TAXJOUR."Kode Transaksi");
 
+        if (KRE_TAXJOUR."Kode Transaksi" = '07') or (KRE_TAXJOUR."Kode Transaksi" = '08') then
+            if (KRE_TAXJOUR."Keterangan Tambahan" = '') or (KRE_TAXJOUR."Cap Fasilitas" = '') then
+                Error('Keterangan Tambahan & Cap Fasilitas must be filled for transaction type 07 or 08');
+
         AddInfo := XmlElement.Create('AddInfo');
+        AddInfo.Add(KRE_TAXJOUR."Keterangan Tambahan");
 
         CustomDoc := XmlElement.Create('CustomDoc');
         CustomDoc.Add(KRE_TAXJOUR.Kode_Dokumen_Pendukung);
@@ -150,6 +171,7 @@ codeunit 60007 "XML Coretax"
         RefDesc.Add(KRE_TAXJOUR.INVOICENO);
 
         FacilityStamp := XmlElement.Create('FacilityStamp');
+        FacilityStamp.Add(KRE_TAXJOUR."Cap Fasilitas");
 
         SellerIDTKU := XmlElement.Create('SellerIDTKU');
         if Location.Get(KRE_TAXJOUR."Location Code") then begin
@@ -179,14 +201,15 @@ codeunit 60007 "XML Coretax"
         BuyerDocument := XmlElement.Create('BuyerDocument');
         BuyerDocument.Add(Format(KRE_TAXJOUR."Jenis ID Pembeli"));
 
+        Customer.Get(KRE_TAXJOUR.ACCOUNTID);
         BuyerCountry := XmlElement.Create('BuyerCountry');
-        BuyerCountry.Add('IDN');
+        BuyerCountry.Add(Customer."Country/Region Code");
 
         BuyerDocumentNumber := XmlElement.Create('BuyerDocumentNumber');
         if KRE_TAXJOUR."Jenis ID Pembeli" = KRE_TAXJOUR."Jenis ID Pembeli"::TIN then
             BuyerDocumentNumber.Add('-')
         else
-            BuyerDocumentNumber.Add(KRE_TAXJOUR.NPWP);
+            BuyerDocumentNumber.Add(KRE_TAXJOUR."Customer ID");
 
         BuyerName := XmlElement.Create('BuyerName');
         BuyerName.Add(KRE_TAXJOUR.NAMA);
@@ -197,6 +220,7 @@ codeunit 60007 "XML Coretax"
         BuyerAdress.Add(KRE_TAXJOUR.ALAMATNPWP);
 
         BuyerEmail := XmlElement.Create('BuyerEmail');
+        BuyerEmail.Add(Customer."E-Mail");
 
         BuyerIDTKU := XmlElement.Create('BuyerIDTKU');
         if KRE_TAXJOUR."ID TKU Pembeli" = '' then
@@ -259,31 +283,32 @@ codeunit 60007 "XML Coretax"
                 GoodService := XmlElement.Create('GoodService');
                 Opt := XmlElement.Create('Opt');
                 Unit := XmlElement.Create('Unit');
-                if Item.Get(KRE_TAXJOURLINES.ITEMID) then begin
-                    if Item.Type = Item.Type::Inventory then begin
-                        Opt.Add('A');
-                        if SalesInvoiceLine.Get(KRE_TAXJOURLINES.INVOICENO, KRE_TAXJOURLINES.INVOICELINENO) then
-                            if UnitofMeasure.Get(SalesInvoiceLine."Unit of Measure Code") then begin
-                                if UnitofMeasure."Kre Coretax Code" <> '' then
-                                    Unit.Add(UnitofMeasure."Kre Coretax Code")
-                                else
-                                    Error('Coretax Code in UOM %1 is blank', UnitofMeasure.Code);
-                            end else
-                                Error(StrSubstNo('Unit of Measure %1 is not found', SalesInvoiceLine."Unit of Measure Code"));
-                    end else begin
-                        Opt.Add('B');
+
+                if SalesInvoiceLine.Get(KRE_TAXJOURLINES.INVOICENO, KRE_TAXJOURLINES.INVOICELINENO) then
+                    if UnitofMeasure.Get(SalesInvoiceLine."Unit of Measure Code") then begin
+                        if UnitofMeasure."Kre Coretax Code" <> '' then
+                            Unit.Add(UnitofMeasure."Kre Coretax Code")
+                        else
+                            Error('Coretax Code in UOM %1 is blank', UnitofMeasure.Code);
+                    end else
                         Unit.Add('UM.0018');
-                    end;
-                end else begin
+
+                if Item.Get(KRE_TAXJOURLINES.ITEMID) then begin
+                    if Item."Kre Item Type" = Item."Kre Item Type"::A then
+                        Opt.Add('A')
+                    else
+                        Opt.Add('B');
+                end else
                     Opt.Add('B');
-                    Unit.Add('UM.0018');
-                end;
 
                 Code := XmlElement.Create('Code');
-                if Item."Coretax Code" <> '' then
-                    Code.Add(Item."Coretax Code")
+                if KRE_TAXJOURLINES."Coretax Item Code" <> '' then
+                    Code.Add(KRE_TAXJOURLINES."Coretax Item Code")
                 else
-                    Code.Add('000000');
+                    if Item."Coretax Code" <> '' then
+                        Code.Add(Item."Coretax Code")
+                    else
+                        Code.Add('000000');
 
                 Name := XmlElement.Create('Name');
                 Name.Add(KRE_TAXJOURLINES.DESCRIPTION);
@@ -338,7 +363,8 @@ codeunit 60007 "XML Coretax"
             until KRE_TAXJOURLINES.Next() = 0;
     end;
 
-    procedure CreateXMLSalesReturn(var KRE_TAXJOUR: Record KRE_TAXJOUR)
+    procedure CreateXMLSalesReturn(var
+                                       KRE_TAXJOUR: Record KRE_TAXJOUR)
     var
         SelectionFilterManagement: Codeunit SelectionFilterManagement;
         TempBlob: Codeunit "Temp Blob";
@@ -541,7 +567,6 @@ codeunit 60007 "XML Coretax"
         KreTaxSetup: Record Kre_TaxSetup;
         Location: Record Location;
         Kre_TaxSetupRecref: RecordRef;
-        AddInfo: XmlElement;
         BuyerAddress: XmlElement;
         BuyerCountry: XmlElement;
         BuyerDocument: XmlElement;
@@ -690,12 +715,12 @@ codeunit 60007 "XML Coretax"
                 end;
 
                 Name := XmlElement.Create('Name');
-                Name.Add(KRE_TAXJOURLINES.DESCRIPTION);
+                Name.Add(KRE_TAXJOURLINES."Coretax Item Description");
 
                 Code := XmlElement.Create('Code');
                 Code.Add('000000');
-                if Item."Coretax Code" <> '' then
-                    Code.Add(Item."Coretax Code");
+                if KRE_TAXJOURLINES."Coretax Item Code" <> '' then
+                    Code.Add(KRE_TAXJOURLINES."Coretax Item Code");
 
                 Quantity := XmlElement.Create('Quantity');
                 Quantity.Add(KRE_TAXJOURLINES.QTY);

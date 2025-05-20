@@ -11,6 +11,11 @@ pageextension 60000 ExtCustomer extends "Customer Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Retail Customer field.';
                 }
+                field("ID Type"; Rec."ID Type")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the ID Type field.';
+                }
                 field(ISPKP; Rec.ISPKP)
                 {
                     ApplicationArea = All;
@@ -41,6 +46,16 @@ pageextension 60000 ExtCustomer extends "Customer Card"
                     Enabled = NIKenabled;
                     Importance = Additional;
                     ShowMandatory = NIKmandatory;
+                }
+                field("Passport No."; Rec."Passport No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Passport No. field.';
+                }
+                field("Other ID"; Rec."Other ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Other ID field.';
                 }
                 field(WHTProductPostingGroup; Rec.WHTProductPostingGroup)
                 {

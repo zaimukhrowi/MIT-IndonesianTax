@@ -4,7 +4,7 @@ page 60011 PajakMasukanLines
     SourceTable = KRE_TAXJOURLINES;
     DeleteAllowed = false;
     InsertAllowed = false;
-    ModifyAllowed = false;
+    // ModifyAllowed = false;
     Caption = 'Pajak Masukan Lines';
 
     layout
@@ -36,7 +36,11 @@ page 60011 PajakMasukanLines
                 field(DESCRIPTION; Rec.DESCRIPTION)
                 {
                     ApplicationArea = All;
-                    Editable = false;
+                    Editable = true;
+                }
+                field("Coretax Code"; Rec."Coretax Code")
+                {
+                    ApplicationArea = All;
                 }
                 field(VAT_Bus_Posting_Group; Rec.VAT_Bus_Posting_Group)
                 {

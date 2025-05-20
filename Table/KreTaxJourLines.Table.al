@@ -67,6 +67,16 @@ table 60003 KRE_TAXJOURLINES
         {
             Caption = 'VAT AMOUNT';
         }
+        field(17; "Coretax Item Code"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Coretax Item Code';
+        }
+        field(18; "Coretax Item Description"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Coretax Item Description';
+        }
     }
     keys
     {

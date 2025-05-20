@@ -658,6 +658,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field VATAMOUNT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2127931683 - Field 1761938741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coretax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOURLINES - Field Coretax Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2127931683 - Field 3555874826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>DESCRIPTION</source>
           <note from="Developer" annotates="general" priority="2"></note>

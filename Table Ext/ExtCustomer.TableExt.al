@@ -61,5 +61,22 @@ tableextension 60001 ExtCustomer extends Customer
             DataClassification = ToBeClassified;
             Caption = 'Retail Customer';
         }
+        field(60014; "ID Type"; Option)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'ID Type';
+            OptionMembers = "TIN","National ID","Passport","Other ID";
+            OptionCaption = 'TIN,National ID,Passport,Other ID';
+        }
+        field(60015; "Passport No."; Text[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Passport No.';
+        }
+        field(60016; "Other ID"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Other ID';
+        }
     }
 }

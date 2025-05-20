@@ -161,6 +161,11 @@ table 60002 KRE_TAXJOUR
             DataClassification = ToBeClassified;
             Caption = 'Cap Fasilitas';
         }
+        field(38; "Customer ID"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Customer ID';
+        }
 
 
     }
