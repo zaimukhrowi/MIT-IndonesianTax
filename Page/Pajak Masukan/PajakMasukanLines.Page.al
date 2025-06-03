@@ -38,7 +38,11 @@ page 60011 PajakMasukanLines
                     ApplicationArea = All;
                     Editable = true;
                 }
-                field("Coretax Code"; Rec."Coretax Code")
+                field("Coretax Item Code"; Rec."Coretax Item Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Coretax Item Description"; Rec."Coretax Item Description")
                 {
                     ApplicationArea = All;
                 }

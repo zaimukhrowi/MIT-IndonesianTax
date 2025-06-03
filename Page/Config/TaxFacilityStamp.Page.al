@@ -1,7 +1,7 @@
-page 60024 "Kre Tax Facility Stamp"
+page 60024 "Tax Facility Stamp"
 {
     ApplicationArea = All;
-    Caption = 'Kre Tax Facility Stamp';
+    Caption = 'Tax Facility Stamp';
     PageType = List;
     SourceTable = "Kre Tax Facility Stamp";
     UsageCategory = Lists;

@@ -251,9 +251,9 @@ codeunit 60001 PajakCode
                                 end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No."
                             else
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Order No.";
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No.";
                             TaxJour."Location Code" := "Posted Sales Invoices"."Location Code";
                         end;
                         //End of IsNull TaxNumber diambil dari register tax number dan taxdate input manual
@@ -302,9 +302,9 @@ codeunit 60001 PajakCode
                                 end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No."
                             else
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Order No.";
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No.";
                         end;
                         //End of retur taxNumber dan retur date input manual
                         "Posted Service Credit Memos".SetRange("No.", SourceTable.Document_No_);
@@ -807,9 +807,9 @@ codeunit 60001 PajakCode
                                 end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No."
                             else
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Order No.";
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No.";
                         end;
                         //End of IsNull TaxNumber diambil dari register tax number dan taxdate input manual
                         //retur taxNumber dan retur date input manual
@@ -856,9 +856,9 @@ codeunit 60001 PajakCode
                                 end;
 
                             if "Posted Sales Invoices"."Order No." = '' then
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Pre-Assigned No."
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No."
                             else
-                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."Order No.";
+                                TaxJour.Kode_Dokumen_Pendukung := "Posted Sales Invoices"."External Document No.";
                         end;
                         //End of retur taxNumber dan retur date input manual
                         "Posted Service Credit Memos".SetRange("No.", SourceTable.Document_No_);
@@ -1949,7 +1949,7 @@ codeunit 60001 PajakCode
             TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
             TaxJour.TAXNUMBER := SalesHeader.TAXNUMBER;
             TaxJour.CURRENCY := SalesHeader."Currency Code";
-            TaxJour.Kode_Dokumen_Pendukung := SalesHeader."No.";
+            TaxJour.Kode_Dokumen_Pendukung := SalesHeader."External Document No.";
             SalesLine.Reset();
             SalesLine.SetRange("Document No.", SalesHeader."No.");
             SalesLine.SetRange("Document Type", SalesHeader."Document Type");
@@ -2045,7 +2045,7 @@ codeunit 60001 PajakCode
             TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
             TaxJour.TAXNUMBER := SalesHeader.TAXNUMBER;
             TaxJour.CURRENCY := SalesHeader."Currency Code";
-            TaxJour.Kode_Dokumen_Pendukung := SalesHeader."No.";
+            TaxJour.Kode_Dokumen_Pendukung := SalesHeader."External Document No.";
             SalesLine.Reset();
             SalesLine.SetRange("Document No.", SalesHeader."No.");
             SalesLine.SetRange("Document Type", SalesHeader."Document Type");
@@ -2133,7 +2133,7 @@ codeunit 60001 PajakCode
         TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
         TaxJour.TAXNUMBER := SalesInvHeader.TAXNUMBER;
         TaxJour.CURRENCY := SalesInvHeader."Currency Code";
-        TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."No.";
+        TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."External Document No.";
         SalesInvLine.Reset();
         SalesInvLine.SetRange("Document No.", SalesInvHeader."No.");
         SalesInvLine.SetRange(IsWHTCalc, false);
@@ -2219,7 +2219,7 @@ codeunit 60001 PajakCode
         TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
         TaxJour.TAXNUMBER := SalesInvHeader.TAXNUMBER;
         TaxJour.CURRENCY := SalesInvHeader."Currency Code";
-        TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."No.";
+        TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."External Document No.";
         SalesInvLine.Reset();
         SalesInvLine.SetRange("Document No.", SalesInvHeader."No.");
         SalesInvLine.SetRange(IsWHTCalc, false);
@@ -2307,7 +2307,7 @@ codeunit 60001 PajakCode
             TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
             //TaxJour.TAXNUMBER := SalesInvHeader.TAXNUMBER;
             TaxJour.CURRENCY := SalesInvHeader."Currency Code";
-            TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."No.";
+            TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."External Document No.";
             SalesInvLine.Reset();
             SalesInvLine.SetRange("Document No.", SalesInvHeader."No.");
             SalesInvLine.SetRange("Is TaxExemption", true);
@@ -2395,7 +2395,7 @@ codeunit 60001 PajakCode
             TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Sales;
             //TaxJour.TAXNUMBER := SalesInvHeader.TAXNUMBER;
             TaxJour.CURRENCY := SalesInvHeader."Currency Code";
-            TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."No.";
+            TaxJour.Kode_Dokumen_Pendukung := SalesInvHeader."External Document No.";
             SalesInvLine.Reset();
             SalesInvLine.SetRange("Document No.", SalesInvHeader."No.");
             SalesInvLine.SetRange("Is TaxExemption", true);

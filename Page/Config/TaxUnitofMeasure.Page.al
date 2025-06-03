@@ -1,7 +1,7 @@
-page 60025 "Kre Tax Unit of Measure"
+page 60025 "Tax Unit of Measure"
 {
     ApplicationArea = All;
-    Caption = 'Kre Tax Unit of Measure';
+    Caption = 'Tax Unit of Measure';
     PageType = List;
     SourceTable = "Kre Tax Unit of Measure";
     UsageCategory = Lists;

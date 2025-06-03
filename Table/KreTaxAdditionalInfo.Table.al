@@ -1,6 +1,7 @@
 table 60010 "Kre Tax Additional Info"
 {
     DataClassification = ToBeClassified;
+    LookupPageId = "Tax Additional Info";
 
     fields
     {
@@ -27,7 +28,7 @@ table 60010 "Kre Tax Additional Info"
 
     fieldgroups
     {
-        // Add changes to field groups here
+        fieldgroup(DropDown; Code, "Additional Info") { }
     }
 
     var

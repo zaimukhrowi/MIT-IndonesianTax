@@ -1,6 +1,7 @@
 table 60011 "Kre Tax Facility Stamp"
 {
     DataClassification = ToBeClassified;
+    LookupPageID = "Tax Facility Stamp";
 
     fields
     {
@@ -25,9 +26,10 @@ table 60011 "Kre Tax Facility Stamp"
         }
     }
 
+
     fieldgroups
     {
-        // Add changes to field groups here
+        fieldgroup(DropDown; Code, "Facility Stamp") { }
     }
 
     var

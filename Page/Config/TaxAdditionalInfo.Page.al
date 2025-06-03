@@ -1,10 +1,10 @@
-page 60023 "Kre Tax Additional Info"
+page 60023 "Tax Additional Info"
 {
     ApplicationArea = All;
-    Caption = 'Kre Tax Additional Info';
+    Caption = 'Tax Additional Info';
     PageType = List;
     SourceTable = "Kre Tax Additional Info";
-    UsageCategory = Lists;
+    UsageCategory = Administration;
 
     layout
     {

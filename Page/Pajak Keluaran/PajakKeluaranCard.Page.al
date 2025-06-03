@@ -28,13 +28,11 @@ page 60008 PajakKeluaranCard
                 field("Keterangan Tambahan"; Rec."Keterangan Tambahan")
                 {
                     ApplicationArea = All;
-                    TableRelation = "Kre Tax Additional Info".Code;
                     ToolTip = '';
                 }
                 field("Cap Fasilitas"; Rec."Cap Fasilitas")
                 {
                     ApplicationArea = All;
-                    TableRelation = "Kre Tax Facility Stamp".Code;
                     ToolTip = '';
                 }
                 field("INVOICE DATE"; Rec.INVOICEDATE)
@@ -266,6 +264,7 @@ page 60008 PajakKeluaranCard
                 PromotedIsBig = true;
                 Caption = 'Export XML';
                 ToolTip = 'Executes the Export XML action.';
+                Visible = Rec.TAX_POSTED = Rec.TAX_POSTED::YES;
 
                 trigger OnAction()
                 var

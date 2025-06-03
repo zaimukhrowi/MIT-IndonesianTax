@@ -221,13 +221,13 @@ page 60010 PajakMasukanCard
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 Caption = 'Export XML';
+                Visible = Rec.TAX_POSTED = Rec.TAX_POSTED::YES;
 
                 trigger OnAction()
                 var
                     KRE_TAXJOUR: Record KRE_TAXJOUR;
                     RecRef: RecordRef;
                     SelectionFilterManagement: Codeunit SelectionFilterManagement;
-                    XMLCoretax: Codeunit "XML Coretax";
                 begin
                     KRE_TAXJOUR.Reset();
                     CurrPage.SetSelectionFilter(KRE_TAXJOUR);
@@ -237,6 +237,30 @@ page 60010 PajakMasukanCard
                         XMLCoretax.CreateXMLPurchaseReturn(KRE_TAXJOUR)
                     // else
                     // XMLCoretax.CreateXMLSalesOrder(KRE_TAXJOUR);
+                end;
+            }
+
+            action("XMLPortToImportReturn")
+            {
+                ApplicationArea = All;
+                Image = ReturnOrder;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Caption = 'Export XML Return';
+                Visible = Rec.TAX_POSTED = Rec.TAX_POSTED::YES;
+
+                trigger OnAction()
+                var
+                    KRE_TAXJOUR: Record KRE_TAXJOUR;
+                    RecRef: RecordRef;
+                    SelectionFilterManagement: Codeunit SelectionFilterManagement;
+                begin
+                    KRE_TAXJOUR.Reset();
+                    CurrPage.SetSelectionFilter(KRE_TAXJOUR);
+                    RecRef.GetTable(KRE_TAXJOUR);
+                    SelectionFilterManagement.GetSelectionFilter(RecRef, KRE_TAXJOUR.FieldNo(ID));
+                    XMLCoretax.CreateXMLPurchaseReturn(KRE_TAXJOUR);
                 end;
             }
         }
@@ -257,4 +281,5 @@ page 60010 PajakMasukanCard
     var
         btn_export: Boolean;
         btn_posting: Boolean;
+        XMLCoretax: Codeunit "XML Coretax";
 }

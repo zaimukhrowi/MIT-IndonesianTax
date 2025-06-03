@@ -72,7 +72,7 @@ table 60003 KRE_TAXJOURLINES
             DataClassification = ToBeClassified;
             Caption = 'Coretax Item Code';
         }
-        field(18; "Coretax Item Description"; Text[10])
+        field(18; "Coretax Item Description"; Text[200])
         {
             DataClassification = ToBeClassified;
             Caption = 'Coretax Item Description';

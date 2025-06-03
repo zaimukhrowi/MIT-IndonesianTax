@@ -622,7 +622,7 @@ codeunit 60007 "XML Coretax"
         ReturnOtherTaxBase.Add(Round(KRE_TAXJOUR.DPPAMOUNT, KreTaxSetup."Amount Decimal Places", SelectStr(KreTaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)));
 
         ReturnVAT := XmlElement.Create('ReturnVAT');
-        ReturnVAT.Add(KRE_TAXJOUR.VATAMOUNT);
+        ReturnVAT.Add(Round(KRE_TAXJOUR.VATAMOUNT, KreTaxSetup."Amount Decimal Places", SelectStr(KreTaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)));
 
         ReturnSTLG := XmlElement.Create('ReturnSTLG');
         ReturnSTLG.Add(0);
@@ -648,7 +648,7 @@ codeunit 60007 "XML Coretax"
         ReturnOtherTaxBaseTotal.Add(Round(KRE_TAXJOUR.DPPAMOUNT, KreTaxSetup."Amount Decimal Places", SelectStr(KreTaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)));
 
         ReturnVATTotal := XmlElement.Create('ReturnVATTotal');
-        ReturnVATTotal.Add(KRE_TAXJOUR.VATAMOUNT);
+        ReturnVATTotal.Add(Round(KRE_TAXJOUR.VATAMOUNT, KreTaxSetup."Amount Decimal Places", SelectStr(KreTaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)));
 
         ReturnSTLGTotal := XmlElement.Create('ReturnSTLGTotal');
         ReturnSTLGTotal.Add(0);
@@ -718,9 +718,10 @@ codeunit 60007 "XML Coretax"
                 Name.Add(KRE_TAXJOURLINES."Coretax Item Description");
 
                 Code := XmlElement.Create('Code');
-                Code.Add('000000');
                 if KRE_TAXJOURLINES."Coretax Item Code" <> '' then
-                    Code.Add(KRE_TAXJOURLINES."Coretax Item Code");
+                    Code.Add(KRE_TAXJOURLINES."Coretax Item Code")
+                else
+                    Code.Add('000000');
 
                 Quantity := XmlElement.Create('Quantity');
                 Quantity.Add(KRE_TAXJOURLINES.QTY);

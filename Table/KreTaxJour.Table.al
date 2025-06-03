@@ -109,7 +109,7 @@ table 60002 KRE_TAXJOUR
         {
             Caption = 'FG Pengganti';
         }
-        field(27; Kode_Dokumen_Pendukung; Code[20])
+        field(27; Kode_Dokumen_Pendukung; Code[35])
         {
             Caption = 'Kode Dokumen Pendukung';
         }
@@ -128,6 +128,7 @@ table 60002 KRE_TAXJOUR
         field(31; "Keterangan Tambahan"; Text[250])
         {
             Caption = 'Keterangan Tambahan';
+            TableRelation = "Kre Tax Additional Info";
         }
         field(32; "Kode Transaksi"; Text[10])
         {
@@ -160,6 +161,7 @@ table 60002 KRE_TAXJOUR
         {
             DataClassification = ToBeClassified;
             Caption = 'Cap Fasilitas';
+            TableRelation = "Kre Tax Facility Stamp";
         }
         field(38; "Customer ID"; Text[100])
         {
