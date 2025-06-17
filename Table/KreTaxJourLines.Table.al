@@ -71,6 +71,17 @@ table 60003 KRE_TAXJOURLINES
         {
             DataClassification = ToBeClassified;
             Caption = 'Coretax Item Code';
+
+            trigger OnLookup()
+            var
+                KreCoretaxItem: Record "Kre Coretax Item";
+            begin
+                Clear(KreCoretaxItem);
+                if PAGE.RunModal(PAGE::"Tax Coretax Item", KreCoretaxItem) = Action::LookupOK then begin
+                    "Coretax Item Code" := KreCoretaxItem.Code;
+                    "Coretax Item Description" := KreCoretaxItem.Description;
+                end
+            end;
         }
         field(18; "Coretax Item Description"; Text[200])
         {

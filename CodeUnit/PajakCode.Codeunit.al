@@ -359,6 +359,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.QTY := system.Round(SalesLineInv.Quantity, 1, '>');
                                 TaxJourLines.TOTAL_AMOUNT := SalesLineInv."Line Amount";
                                 TaxJourLines.DISCOUNT_AMOUNT := SalesLineInv."Line Discount Amount";
+                                TaxJourLines."Coretax Item Code" := SalesLineInv."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := SalesLineInv."Coretax Item Description";
                                 VATGroup.Reset();
                                 VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
                                 VATGroup.FindFirst();
@@ -929,6 +931,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.PRICE := SalesLineInv."Unit Price" / ExchangeRate;
                                 TaxJourLines.QTY := system.Round(SalesLineInv.Quantity, 1, '>');
                                 TaxJourLines.DISCOUNT_AMOUNT := SalesLineInv."Line Discount Amount" / ExchangeRate;
+                                TaxJourLines."Coretax Item Code" := SalesLineInv."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := SalesLineInv."Coretax Item Description";
                                 VATGroup.Reset();
                                 VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
                                 VATGroup.FindFirst();
@@ -1289,6 +1293,8 @@ codeunit 60001 PajakCode
                                 TaxJourLines.QTY := system.Round(SalesLineInv.Quantity, 1, '>');
                                 TaxJourLines.TOTAL_AMOUNT := SalesLineInv."Line Amount";
                                 TaxJourLines.DISCOUNT_AMOUNT := SalesLineInv."Line Discount Amount";
+                                TaxJourLines."Coretax Item Code" := SalesLineInv."Coretax Item Code";
+                                TaxJourLines."Coretax Item Description" := SalesLineInv."Coretax Item Description";
                                 VATGroup.Reset();
                                 VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
                                 VATGroup.FindFirst();
@@ -1987,6 +1993,8 @@ codeunit 60001 PajakCode
                     TaxJourLines.DISCOUNT_AMOUNT := SalesLine."Line Discount Amount";
                     TaxJourLines.DPP_AMOUNT := SalesLine."Amount";
                     TaxJourLines.VAT_AMOUNT := SalesLine."Tax Exemption Amount";
+                    TaxJourLines."Coretax Item Code" := SalesLine."Coretax Item Code";
+                    TaxJourLines."Coretax Item Description" := SalesLine."Coretax Item Description";
                     TaxJourLines.Insert();
                 until (SalesLine.Next() = 0);
             end;
@@ -2083,6 +2091,8 @@ codeunit 60001 PajakCode
                     TaxJourLines.DISCOUNT_AMOUNT := SalesLine."Line Discount Amount" / Exch;
                     TaxJourLines.DPP_AMOUNT := SalesLine."Amount" / Exch;
                     TaxJourLines.VAT_AMOUNT := SalesLine."Tax Exemption Amount" / Exch;
+                    TaxJourLines."Coretax Item Code" := SalesLine."Coretax Item Code";
+                    TaxJourLines."Coretax Item Description" := SalesLine."Coretax Item Description";
                     TaxJourLines.Insert();
                 until (SalesLine.Next() = 0);
             end;
@@ -2170,6 +2180,8 @@ codeunit 60001 PajakCode
                 TaxJourLines.DISCOUNT_AMOUNT := SalesInvLine."Line Discount Amount";
                 TaxJourLines.DPP_AMOUNT := SalesInvLine."Amount";
                 TaxJourLines.VAT_AMOUNT := SalesInvLine."Tax Exemption Amount";
+                TaxJourLines."Coretax Item Code" := SalesInvLine."Coretax Item Code";
+                TaxJourLines."Coretax Item Description" := SalesInvLine."Coretax Item Description";
                 TaxJourLines.Insert();
             until (SalesInvLine.Next() = 0);
         end;
@@ -2256,6 +2268,8 @@ codeunit 60001 PajakCode
                 TaxJourLines.DISCOUNT_AMOUNT := SalesInvLine."Line Discount Amount" / Exch;
                 TaxJourLines.DPP_AMOUNT := SalesInvLine."Amount" / Exch;
                 TaxJourLines.VAT_AMOUNT := SalesInvLine."Tax Exemption Amount" / Exch;
+                TaxJourLines."Coretax Item Code" := SalesInvLine."Coretax Item Code";
+                TaxJourLines."Coretax Item Description" := SalesInvLine."Coretax Item Description";
                 TaxJourLines.Insert();
             until (SalesInvLine.Next() = 0);
         end;

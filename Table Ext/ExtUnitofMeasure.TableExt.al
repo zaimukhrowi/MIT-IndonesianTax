@@ -6,6 +6,7 @@ tableextension 60025 "Kre Unit of Measure" extends "Unit of Measure"
         {
             DataClassification = ToBeClassified;
             Caption = 'Coretax Code';
+            TableRelation = "Kre Tax Unit of Measure";
         }
     }
 

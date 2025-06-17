@@ -1,20 +1,17 @@
-table 60012 "Kre Tax Unit of Measure"
+table 60013 "Kre Coretax Item"
 {
     DataClassification = ToBeClassified;
-    LookupPageId = "Tax Unit of Measure";
 
     fields
     {
-        field(1; Code; Code[20])
+        field(1; Code; Text[6])
         {
             DataClassification = ToBeClassified;
-            Caption = 'Code';
 
         }
-        field(2; "Unit of Measure"; Text[100])
+        field(2; Description; Text[1000])
         {
             DataClassification = ToBeClassified;
-            Caption = 'Unit of Measure';
         }
     }
 

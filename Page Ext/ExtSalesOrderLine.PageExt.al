@@ -111,6 +111,22 @@ pageextension 60019 ExtSalesOrderLine extends "Sales Order Subform"
                 Editable = false;
             }
         }
+
+        addafter(Description)
+        {
+            field("Coretax Item Code"; Rec."Coretax Item Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Coretax Item Code';
+                ToolTip = 'Specifies the value of the Coretax Item Code field.';
+            }
+            field("Coretax Item Description"; Rec."Coretax Item Description")
+            {
+                ApplicationArea = All;
+                Caption = 'Coretax Item Description';
+                ToolTip = 'Specifies the value of the Coretax Item Description field.';
+            }
+        }
     }
     local procedure SetWHTAmount(var SL: Record "Sales Line")
     begin

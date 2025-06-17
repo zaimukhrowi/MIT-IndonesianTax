@@ -40,5 +40,39 @@ tableextension 60014 ExtSalesLine extends "Sales Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60009; "Coretax Item Code"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+
+            trigger OnLookup()
+            var
+                KreCoretaxItem: Record "Kre Coretax Item";
+            begin
+                Clear(KreCoretaxItem);
+                if PAGE.RunModal(PAGE::"Tax Coretax Item", KreCoretaxItem) = Action::LookupOK then begin
+                    "Coretax Item Code" := KreCoretaxItem.Code;
+                    "Coretax Item Description" := KreCoretaxItem.Description;
+                end
+            end;
+        }
+        field(60010; "Coretax Item Description"; Text[200])
+        {
+            DataClassification = ToBeClassified;
+        }
+
+        modify("No.")
+        {
+            trigger OnAfterValidate()
+            var
+                Item: Record Item;
+                KreCoretaxItem: Record "Kre Coretax Item";
+            begin
+                if Item.Get("No.") then begin
+                    "Coretax Item Code" := Item."Coretax Code";
+                    if KreCoretaxItem.Get(Item."Coretax Code") then
+                        "Coretax Item Description" := KreCoretaxItem.Description;
+                end;
+            end;
+        }
     }
 }

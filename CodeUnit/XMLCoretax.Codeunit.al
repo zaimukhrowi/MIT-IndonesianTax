@@ -612,7 +612,7 @@ codeunit 60007 "XML Coretax"
             SellerTIN.Add(KRE_TAXJOUR.NPWP);
 
         ReturnDate := XmlElement.Create('ReturnDate');
-        ReturnDate.Add(KRE_TAXJOUR.RETURN_DATE);
+        ReturnDate.Add(Format(KRE_TAXJOUR.RETURN_DATE, 0, '<Day,2>-<Month,2>-20<Year,2>'));
 
         ReturnTaxBase := XmlElement.Create('ReturnTaxBase');
         ReturnTaxBase.Add(Round(KRE_TAXJOUR.DPPAMOUNT, KreTaxSetup."Amount Decimal Places", SelectStr(KreTaxSetup."VAT Rounding Type" + 1, Kre_TaxSetupRecref.Field(6).OptionMembers)));

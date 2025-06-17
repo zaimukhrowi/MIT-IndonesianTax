@@ -40,5 +40,13 @@ tableextension 60018 ExtSalesInvLine extends "Sales Invoice Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60009; "Coretax Item Code"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60010; "Coretax Item Description"; Text[200])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }
