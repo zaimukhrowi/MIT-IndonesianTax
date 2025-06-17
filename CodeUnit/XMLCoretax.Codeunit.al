@@ -720,8 +720,12 @@ codeunit 60007 "XML Coretax"
                 Code := XmlElement.Create('Code');
                 if KRE_TAXJOURLINES."Coretax Item Code" <> '' then
                     Code.Add(KRE_TAXJOURLINES."Coretax Item Code")
-                else
-                    Code.Add('000000');
+                else begin
+                    if Item."Coretax Code" <> '' then
+                        Code.Add(Item."Coretax Code")
+                    else
+                        Code.Add('000000');
+                end;
 
                 Quantity := XmlElement.Create('Quantity');
                 Quantity.Add(KRE_TAXJOURLINES.QTY);
