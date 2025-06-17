@@ -75,5 +75,8 @@ permissionset 60000 "Pajak Indonesia"
         page "Tax Facility Stamp" = X,
         page "Tax Unit of Measure" = X,
         query "Kre Tax Journal per Customer" = X,
-        query KrePurchaseLineWHTperLine = X;
+        query KrePurchaseLineWHTperLine = X,
+        tabledata "Kre Coretax Item" = RIMD,
+        table "Kre Coretax Item" = X,
+        page "Tax Coretax Item" = X;
 }
