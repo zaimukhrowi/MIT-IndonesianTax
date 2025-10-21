@@ -352,6 +352,7 @@ codeunit 60001 PajakCode
                                 TaxJourLines.TYPE := SalesLineInv.Type;
                                 TaxJourLines.ITEMID := SalesLineInv."No.";
                                 TaxJourLines.DESCRIPTION := SalesLineInv.Description;
+                                OnInsertDescriptionOnTaxSynch(TaxJourLines, SalesLineInv);
                                 TaxJourLines.VAT_Bus_Posting_Group := SalesLineInv."VAT Bus. Posting Group";
                                 TaxJourLines.VAT_Prod_Posting_Group := SalesLineInv."VAT Prod. Posting Group";
                                 TaxJourLines.VAT_Identifier := SalesLineInv."VAT Identifier";
@@ -2454,4 +2455,10 @@ codeunit 60001 PajakCode
     var
 
         CustomerRetail: Boolean;
+
+
+    [IntegrationEvent(false, false)]
+    procedure OnInsertDescriptionOnTaxSynch(var TaxJourLines: Record KRE_TAXJOURLINES; var SalesLineInv: Record "Sales Invoice Line")
+    begin
+    end;
 }
