@@ -72,10 +72,7 @@ codeunit 60001 PajakCode
                         begin
                             if Vendor.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Vendor."No.";
-                                if Vendor.ISPKP = true then
-                                    TaxJour.NPWP := Vendor.NPWP
-                                else
-                                    TaxJour.NPWP := Vendor.NIK;
+                                GetVendorID(Vendor, TaxJour);
                                 TaxJour.NAMA := Vendor.NamaNPWP;
                                 TaxJour.ALAMATNPWP := Vendor.AlamatNPWP;
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Purchase;
@@ -617,10 +614,7 @@ codeunit 60001 PajakCode
                         begin
                             if Vendor.Get(SourceTable.Bill_to_Pay_to_No_) then begin
                                 TaxJour.ACCOUNTID := Vendor."No.";
-                                if Vendor.ISPKP = true then
-                                    TaxJour.NPWP := Vendor.NPWP
-                                else
-                                    TaxJour.NPWP := Vendor.NIK;
+                                GetVendorID(Vendor, TaxJour);
                                 TaxJour.NAMA := Vendor.NamaNPWP;
                                 TaxJour.ALAMATNPWP := Vendor.AlamatNPWP;
                                 TaxJour.TAX_SOURCE := TaxJour.TAX_SOURCE::Purchase;
@@ -1901,6 +1895,28 @@ codeunit 60001 PajakCode
         if Customer."ID Type" = Customer."ID Type"::"Other ID" then begin
             TaxJour."Jenis ID Pembeli" := TaxJour."Jenis ID Pembeli"::"Other ID";
             TaxJour."Customer ID" := Customer."Other ID";
+        end;
+    end;
+
+    local procedure GetVendorID(var Vendor: Record Vendor; var TaxJour: Record KRE_TAXJOUR)
+    begin
+        if Vendor."ID Type" = Vendor."ID Type"::TIN then begin
+            TaxJour.NPWP := Vendor.NPWP;
+            TaxJour."Jenis ID Penjual" := TaxJour."Jenis ID Penjual"::TIN;
+            TaxJour."Vendor ID" := Vendor.NPWP;
+        end;
+        if Vendor."ID Type" = Vendor."ID Type"::"National ID" then begin
+            TaxJour.NPWP := Vendor.NIK;
+            TaxJour."Jenis ID Penjual" := TaxJour."Jenis ID Penjual"::"National ID";
+            TaxJour."Vendor ID" := Vendor.NIK;
+        end;
+        if Vendor."ID Type" = Vendor."ID Type"::Passport then begin
+            TaxJour."Jenis ID Penjual" := TaxJour."Jenis ID Penjual"::Passport;
+            TaxJour."Vendor ID" := Vendor."Passport No.";
+        end;
+        if Vendor."ID Type" = Vendor."ID Type"::"Other ID" then begin
+            TaxJour."Jenis ID Penjual" := TaxJour."Jenis ID Penjual"::"Other ID";
+            TaxJour."Vendor ID" := Vendor."Other ID";
         end;
     end;
 

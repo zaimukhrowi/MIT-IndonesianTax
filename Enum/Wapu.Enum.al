@@ -9,4 +9,5 @@ enum 60000 WAPU
     value(7; "070") { }
     value(8; "080") { }
     value(9; "090") { }
+    value(10; " ") { }
 }

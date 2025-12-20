@@ -6,6 +6,24 @@ pageextension 60001 ExtVendor extends "Vendor Card"
         {
             group("Indonesian Tax")
             {
+                field("ID Type"; Rec."ID Type")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the ID Type field.';
+                    trigger OnValidate()
+                    begin
+                        case Rec."ID Type" of
+                            Rec."ID Type"::TIN:
+                                SetMandatory(true, false, false, false);
+                            Rec."ID Type"::"National ID":
+                                SetMandatory(false, true, false, false);
+                            Rec."ID Type"::Passport:
+                                SetMandatory(false, false, true, false);
+                            Rec."ID Type"::"Other ID":
+                                SetMandatory(false, false, false, true);
+                        end;
+                    end;
+                }
                 field(ISPKP; Rec.ISPKP)
                 {
                     ApplicationArea = All;
@@ -37,6 +55,18 @@ pageextension 60001 ExtVendor extends "Vendor Card"
                     Importance = Additional;
                     ShowMandatory = NIKmandatory;
 
+                }
+                field("Passport No."; Rec."Passport No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Passport No. field.';
+                    ShowMandatory = Passportmandatory;
+                }
+                field("Other ID"; Rec."Other ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Other ID field.';
+                    ShowMandatory = Othermandatory;
                 }
                 field(WHTProductPostingGroup; Rec.WHTProductPostingGroup)
                 {
@@ -80,15 +110,33 @@ pageextension 60001 ExtVendor extends "Vendor Card"
     begin
         if Rec.ISPKP = true then begin
             NIKenabled := false;
-            NIKmandatory := false;
             NPWPenabled := true;
-            NPWPmandatory := true;
         end
         else begin
             NIKenabled := true;
-            NIKmandatory := true;
             NPWPenabled := false;
-            NPWPmandatory := false;
+        end;
+    end;
+
+    local procedure SetMandatory(NPWP: Boolean; NIK: Boolean; Passport: Boolean; Other: Boolean)
+    begin
+        NIKmandatory := NIK;
+        NPWPmandatory := NPWP;
+        Passportmandatory := Passport;
+        Othermandatory := Other;
+    end;
+
+    trigger OnAfterGetRecord()
+    begin
+        case Rec."ID Type" of
+            Rec."ID Type"::TIN:
+                SetMandatory(true, false, false, false);
+            Rec."ID Type"::"National ID":
+                SetMandatory(false, true, false, false);
+            Rec."ID Type"::Passport:
+                SetMandatory(false, false, true, false);
+            Rec."ID Type"::"Other ID":
+                SetMandatory(false, false, false, true);
         end;
     end;
 
@@ -97,5 +145,7 @@ pageextension 60001 ExtVendor extends "Vendor Card"
         NIKmandatory: Boolean;
         NPWPenabled: Boolean;
         NPWPmandatory: Boolean;
+        Passportmandatory: Boolean;
+        Othermandatory: Boolean;
 
 }

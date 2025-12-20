@@ -147,6 +147,14 @@ table 60002 KRE_TAXJOUR
             OptionCaption = 'TIN,National ID,Passport,Other ID';
             Caption = 'Jenis ID Pembeli';
         }
+
+        field(40; "Jenis ID Penjual"; Option)
+        {
+            DataClassification = ToBeClassified;
+            OptionMembers = TIN,"National ID",Passport,"Other ID";
+            OptionCaption = 'TIN,National ID,Passport,Other ID';
+            Caption = 'Jenis ID Penjual';
+        }
         field(35; "ID TKU Pembeli"; Text[22])
         {
             DataClassification = ToBeClassified;
@@ -167,6 +175,11 @@ table 60002 KRE_TAXJOUR
         {
             DataClassification = ToBeClassified;
             Caption = 'Customer ID';
+        }
+        field(39; "Vendor ID"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Vendor ID';
         }
 
 

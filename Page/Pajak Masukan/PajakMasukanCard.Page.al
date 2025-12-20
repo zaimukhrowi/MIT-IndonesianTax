@@ -63,6 +63,11 @@ page 60010 PajakMasukanCard
                 {
                     ApplicationArea = All;
                 }
+                field("Vendor ID"; Rec."Vendor ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Vendor ID field.';
+                }
                 field(NAMA; Rec.NAMA)
                 {
                     ApplicationArea = All;
@@ -156,6 +161,13 @@ page 60010 PajakMasukanCard
                 {
                     ApplicationArea = All;
                     ToolTip = '';
+                }
+
+                field("Jenis ID Penjual"; Rec."Jenis ID Penjual")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Jenis ID Penjual field.';
+                    Editable = false;
                 }
             }
             part("Pajak Masukan Lines"; PajakMasukanLines)
