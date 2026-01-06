@@ -231,6 +231,27 @@ table 60009 KreWHTTrans
         {
             DataClassification = ToBeClassified;
         }
+        field(52; "WHT Amount (Tax Rate)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(53; "Amount (Tax Rate)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(54; "Discount Amount (Tax Rate)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(55; "DPP Amount (Tax Rate)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(56; "VAT Amount (Tax Rate)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+
     }
     keys
     {

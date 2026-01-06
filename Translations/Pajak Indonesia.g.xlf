@@ -53,6 +53,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 1728763238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219912687 - Field 2407875588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bukti Potong Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -83,6 +88,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Dimension Set ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 848741993 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Discount Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219912687 - Field 1792520506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -97,6 +107,11 @@
           <source>DPP Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field DPP Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 966131554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPP Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field DPP Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4219912687 - Field 329134311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No</source>
@@ -248,6 +263,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field VAT Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 1967551107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field VAT Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219912687 - Field 1844012642 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Bus. Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -262,6 +282,11 @@
           <source>VAT Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field VAT Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 3659125859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field WHT Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4219912687 - Field 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WHT Source Document No.</source>
@@ -1348,6 +1373,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 1728763238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 2407875588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bukti Potong Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1388,6 +1418,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Dimension Set ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 848741993 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Discount Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 1792520506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1402,6 +1437,11 @@
           <source>DPP Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control DPP Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 966131554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPP Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control DPP Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2193506531 - Control 3628453960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>External Doc No</source>
@@ -1468,6 +1508,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Posting Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 412056007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pre-Assigned No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Pre-Assigned No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1502,6 +1547,16 @@
           <source>VAT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control VAT Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 1967551107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control VAT Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 3659125859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2193506531 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the WHT Source Document No. field.</source>
@@ -1588,6 +1643,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 1728763238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2849531152 - Control 2407875588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bukti Potong Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1623,6 +1683,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Dimension Set ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 848741993 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Discount Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2849531152 - Control 1792520506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1637,6 +1702,11 @@
           <source>DPP Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control DPP Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 966131554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPP Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control DPP Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2849531152 - Control 3628453960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>External Doc No</source>
@@ -1738,10 +1808,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control VAT Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 1967551107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control VAT Amount (Tax Rate) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2849531152 - Control 2999139543 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Vendor No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 3659125859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Amount (Tax Rate)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Amount (Tax Rate) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2849531152 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the WHT Source Document No. field.</source>

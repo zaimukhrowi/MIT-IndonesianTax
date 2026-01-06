@@ -185,6 +185,36 @@ page 60021 PPhMasukanList
                     Caption = 'VAT Amount';
                     //Editable = false;
                 }
+                field("WHT Amount (Tax Rate)"; Rec."WHT Amount (Tax Rate)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'WHT Amount (Tax Rate)';
+                    //Editable = false;
+                }
+                field("Amount (Tax Rate)"; Rec."Amount (Tax Rate)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Amount (Tax Rate)';
+                    //Editable = false;
+                }
+                field("Discount Amount (Tax Rate)"; Rec."Discount Amount (Tax Rate)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Discount Amount (Tax Rate)';
+                    //Editable = false;
+                }
+                field("DPP Amount (Tax Rate)"; Rec."DPP Amount (Tax Rate)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'DPP Amount (Tax Rate)';
+                    //Editable = false;
+                }
+                field("VAT Amount (Tax Rate)"; Rec."VAT Amount (Tax Rate)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'VAT Amount (Tax Rate)';
+                    //Editable = false;
+                }
                 field("Bukti Potong Date"; Rec."Bukti Potong Date")
                 {
                     ApplicationArea = All;

@@ -202,10 +202,21 @@ codeunit 60006 PPhCode
                                         // WHTTrans."PPh Code" := GLEntry.WHTProductPostingGroup;
                                         WHTTrans.WHTProductPostingGroup := GLEntry.WHTProductPostingGroup;
                                         WHTTrans.WHTPercentage := GLEntry.WHTPercentage;
-                                        if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
-                                            WHTTrans.WHTAmount := GLEntry.WHTAmount * -1
-                                        else
-                                            WHTTrans.WHTAmount := GLEntry.WHTAmount;
+
+                                        if (GeneralLedgerSetup."LCY Code" <> GLEntry."Source Currency Code") and (GLEntry."Source Currency Code" <> '') then begin
+                                            CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
+                                            CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
+                                            CurrencyExchangeRate.FindLast();
+                                            if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1 * CurrencyExchangeRate."Kre Tax Rate"
+                                            else
+                                                WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * CurrencyExchangeRate."Kre Tax Rate";
+                                        end else
+                                            if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1
+                                            else
+                                                WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount;
+
                                         WHTTrans."G/L Account No" := GLEntry."G/L Account No.";
                                         WHTTrans."G/L Account Name" := GLAccount.Name;
                                         WHTTrans.Description := GLEntry.Description;
@@ -221,9 +232,9 @@ codeunit 60006 PPhCode
                                                         CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                         CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
                                                         CurrencyExchangeRate.FindLast();
-                                                        WHTTrans.Amount := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                     end else
-                                                        WHTTrans.Amount := System.Abs(GLEntry.Amount);
+                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry.Amount);
                                                     GLEntryPerDocNo.SetRange("Document No.", GLEntry."Document No.");
                                                     GLEntryPerDocNo.SetFilter("Source Type", '%1 | %2', GLEntryPerDocNo."Source Type"::Customer, GLEntryPerDocNo."Source Type"::Vendor);
                                                     GLEntryPerDocNo.FindFirst();
@@ -251,7 +262,9 @@ codeunit 60006 PPhCode
                                                                     Clear(VATEntry);
                                                                     if VendorLedger."Applies-to Doc. No." = '' then begin
                                                                         WHTTrans."DPP Amount" := 0;
+                                                                        WHTTrans."DPP Amount (Tax Rate)" := 0;
                                                                         WHTTrans."VAT Amount" := 0;
+                                                                        WHTTrans."VAT Amount (Tax Rate)" := 0;
                                                                     end else begin
                                                                         VLedgerPerCloseNo.SetRange("Closed by Entry No.", VendorLedger."Entry No.");
                                                                         VLedgerPerCloseNo.FindSet();
@@ -262,11 +275,11 @@ codeunit 60006 PPhCode
                                                                             CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                                             CurrencyExchangeRate.FindLast();
-                                                                            WHTTrans."DPP Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                            WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                            WHTTrans."DPP Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                            WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                                         end else begin
-                                                                            WHTTrans."DPP Amount" := System.Abs(VATEntry.Base);
-                                                                            WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                                            WHTTrans."DPP Amount (Tax Rate)" := System.Abs(VATEntry.Base);
+                                                                            WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                                         end;
                                                                     end;
                                                                     WHTTrans."VAT Type" := VATEntry.Type;
@@ -292,9 +305,9 @@ codeunit 60006 PPhCode
                                                             CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                             CurrencyExchangeRate.FindLast();
-                                                            WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                            WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                         end else
-                                                            WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                            WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                         //WHTTrans."DPP Amount" := System.Abs(VATEntry.Base); pindah ke bawah                                                
                                                         WHTTrans."VAT Type" := VATEntry.Type;
                                                     end;
@@ -331,11 +344,11 @@ codeunit 60006 PPhCode
                                                                         CurrencyExchangeRate.SetRange("Currency Code", PurchInvHeader."Currency Code");
                                                                         CurrencyExchangeRate.SetFilter("Starting Date", '..%1', PurchInvHeader."Posting Date");
                                                                         CurrencyExchangeRate.FindLast();
-                                                                        WHTTrans.Amount := System.Abs(PurchInvLine."Amount Including VAT") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                        WHTTrans."DPP Amount" := System.Abs(PurchInvLine."Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount Including VAT") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                        WHTTrans."DPP Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                                     end else begin
-                                                                        WHTTrans.Amount := System.Abs(PurchInvLine."Amount Including VAT");
-                                                                        WHTTrans."DPP Amount" := System.Abs(PurchInvLine."Amount");
+                                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount Including VAT");
+                                                                        WHTTrans."DPP Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount");
                                                                     end;
                                                                 end;
                                                                 //end else
@@ -350,9 +363,9 @@ codeunit 60006 PPhCode
                                                         CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                         CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
                                                         CurrencyExchangeRate.FindLast();
-                                                        WHTTrans.Amount := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                     end else
-                                                        WHTTrans.Amount := System.Abs(GLEntry.Amount);
+                                                        WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry.Amount);
                                                     WHTTrans."Source Type" := GLEntry."Source Type";
                                                     WHTTrans."Source No" := GLEntry."Source No.";
                                                     Clear(VATEntry);
@@ -368,11 +381,11 @@ codeunit 60006 PPhCode
                                                             CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                             CurrencyExchangeRate.FindLast();
-                                                            WHTTrans."DPP Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
-                                                            WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                            WHTTrans."DPP Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                            WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                         end else begin
-                                                            WHTTrans."DPP Amount" := System.Abs(VATEntry.Base);
-                                                            WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                            WHTTrans."DPP Amount (Tax Rate)" := System.Abs(VATEntry.Base);
+                                                            WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                         end;
                                                         WHTTrans."VAT Type" := VATEntry.Type;
                                                     end;
@@ -426,10 +439,21 @@ codeunit 60006 PPhCode
                                             // WHTTrans."PPh Code" := GLEntry.WHTProductPostingGroup;
                                             WHTTrans.WHTProductPostingGroup := GLEntry.WHTProductPostingGroup;
                                             WHTTrans.WHTPercentage := GLEntry.WHTPercentage;
-                                            if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
-                                                WHTTrans.WHTAmount := GLEntry.WHTAmount * -1
-                                            else
-                                                WHTTrans.WHTAmount := GLEntry.WHTAmount;
+
+                                            if (GeneralLedgerSetup."LCY Code" <> GLEntry."Source Currency Code") and (GLEntry."Source Currency Code" <> '') then begin
+                                                CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
+                                                CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
+                                                CurrencyExchangeRate.FindLast();
+                                                if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                    WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1 * CurrencyExchangeRate."Kre Tax Rate"
+                                                else
+                                                    WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * CurrencyExchangeRate."Kre Tax Rate";
+                                            end else
+                                                if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                    WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1
+                                                else
+                                                    WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount;
+
                                             WHTTrans."G/L Account No" := GLEntry."G/L Account No.";
                                             WHTTrans."G/L Account Name" := GLAccount.Name;
                                             WHTTrans.Description := GLEntry.Description;
@@ -445,9 +469,9 @@ codeunit 60006 PPhCode
                                                             CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
                                                             CurrencyExchangeRate.FindLast();
-                                                            WHTTrans.Amount := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                         end else
-                                                            WHTTrans.Amount := System.Abs(GLEntry.Amount);
+                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry.Amount);
                                                         GLEntryPerDocNo.SetRange("Document No.", GLEntry."Document No.");
                                                         GLEntryPerDocNo.SetFilter("Source Type", '%1 | %2', GLEntryPerDocNo."Source Type"::Customer, GLEntryPerDocNo."Source Type"::Vendor);
                                                         GLEntryPerDocNo.FindFirst();
@@ -480,7 +504,9 @@ codeunit 60006 PPhCode
                                                                         Clear(VATEntry);
                                                                         if CustLedger."Applies-to Doc. No." = '' then begin
                                                                             WHTTrans."DPP Amount" := 0;
+                                                                            WHTTrans."DPP Amount (Tax Rate)" := 0;
                                                                             WHTTrans."VAT Amount" := 0;
+                                                                            WHTTrans."VAT Amount (Tax Rate)" := 0;
                                                                         end else begin
                                                                             CLedgerPerCloseNo.SetRange("Closed by Entry No.", CustLedger."Entry No.");
                                                                             CLedgerPerCloseNo.FindSet();
@@ -491,11 +517,11 @@ codeunit 60006 PPhCode
                                                                                 CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                                                 CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                                                 CurrencyExchangeRate.FindLast();
-                                                                                WHTTrans."DPP Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                                WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                                WHTTrans."DPP Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                                WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                                             end else begin
-                                                                                WHTTrans."DPP Amount" := System.Abs(VATEntry.Base);
-                                                                                WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                                                WHTTrans."DPP Amount (Tax Rate)" := System.Abs(VATEntry.Base);
+                                                                                WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                                             end;
                                                                         end;
                                                                         WHTTrans."VAT Type" := VATEntry.Type;
@@ -521,9 +547,9 @@ codeunit 60006 PPhCode
                                                                 CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                                 CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                                 CurrencyExchangeRate.FindLast();
-                                                                WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                             end else
-                                                                WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                                WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                             WHTTrans."VAT Type" := VATEntry.Type;
                                                         end;
                                                         case GLEntry."Source Type" of
@@ -558,11 +584,11 @@ codeunit 60006 PPhCode
                                                                             CurrencyExchangeRate.SetRange("Currency Code", SalesInvHeader."Currency Code");
                                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', SalesInvHeader."Posting Date");
                                                                             CurrencyExchangeRate.FindLast();
-                                                                            WHTTrans.Amount := System.Abs(SalesInvLine."Amount Including VAT") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                            WHTTrans."DPP Amount" := System.Abs(SalesInvLine."Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(SalesInvLine."Amount Including VAT") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                            WHTTrans."DPP Amount (Tax Rate)" := System.Abs(SalesInvLine."Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                                         end else begin
-                                                                            WHTTrans.Amount := System.Abs(SalesInvLine."Amount Including VAT");
-                                                                            WHTTrans."DPP Amount" := System.Abs(SalesInvLine."Amount");
+                                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(SalesInvLine."Amount Including VAT");
+                                                                            WHTTrans."DPP Amount (Tax Rate)" := System.Abs(SalesInvLine."Amount");
                                                                         end;
                                                                     end
                                                                 end;
@@ -575,9 +601,9 @@ codeunit 60006 PPhCode
                                                             CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                             CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
                                                             CurrencyExchangeRate.FindLast();
-                                                            WHTTrans.Amount := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                         end else
-                                                            WHTTrans.Amount := System.Abs(GLEntry.Amount);
+                                                            WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry.Amount);
                                                         WHTTrans."Source Type" := GLEntry."Source Type";
                                                         WHTTrans."Source No" := GLEntry."Source No.";
                                                         Clear(VATEntry);
@@ -593,11 +619,11 @@ codeunit 60006 PPhCode
                                                                 CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                                 CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                                 CurrencyExchangeRate.FindLast();
-                                                                WHTTrans."DPP Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                WHTTrans."DPP Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                             end else begin
-                                                                WHTTrans."DPP Amount" := System.Abs(VATEntry.Base);
-                                                                WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                                WHTTrans."DPP Amount (Tax Rate)" := System.Abs(VATEntry.Base);
+                                                                WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                             end;
                                                             WHTTrans."VAT Type" := VATEntry.Type;
                                                         end;
@@ -650,10 +676,21 @@ codeunit 60006 PPhCode
                                                 // WHTTrans."PPh Code" := GLEntry.WHTProductPostingGroup;
                                                 WHTTrans.WHTProductPostingGroup := GLEntry.WHTProductPostingGroup;
                                                 WHTTrans.WHTPercentage := GLEntry.WHTPercentage;
-                                                if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
-                                                    WHTTrans.WHTAmount := GLEntry.WHTAmount * -1
-                                                else
-                                                    WHTTrans.WHTAmount := GLEntry.WHTAmount;
+
+                                                if (GeneralLedgerSetup."LCY Code" <> GLEntry."Source Currency Code") and (GLEntry."Source Currency Code" <> '') then begin
+                                                    CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
+                                                    CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
+                                                    CurrencyExchangeRate.FindLast();
+                                                    if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                        WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1 * CurrencyExchangeRate."Kre Tax Rate"
+                                                    else
+                                                        WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * CurrencyExchangeRate."Kre Tax Rate";
+                                                end else
+                                                    if GLEntry."Document Type" = GLEntry."Document Type"::"Credit Memo" then
+                                                        WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount * -1
+                                                    else
+                                                        WHTTrans."WHT Amount (Tax Rate)" := GLEntry.WHTAmount;
+
                                                 WHTTrans."G/L Account No" := GLEntry."G/L Account No.";
                                                 WHTTrans."G/L Account Name" := GLAccount.Name;
                                                 WHTTrans.Description := GLEntry.Description;
@@ -662,9 +699,9 @@ codeunit 60006 PPhCode
                                                     CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                     CurrencyExchangeRate.SetFilter("Starting Date", '..%1', GLEntry."Posting Date");
                                                     CurrencyExchangeRate.FindLast();
-                                                    WHTTrans.Amount := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
+                                                    WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Source Currency Amount") * CurrencyExchangeRate."Kre Tax Rate";
                                                 end else
-                                                    WHTTrans.Amount := System.Abs(GLEntry.Amount);
+                                                    WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry.Amount);
                                                 WHTTrans."WHT Source Type" := GLEntry."WHT Source Type";
                                                 WHTTrans."WHT Source No." := GLEntry."WHT Source No.";
 
@@ -698,7 +735,9 @@ codeunit 60006 PPhCode
                                                                             Clear(VATEntry);
                                                                             if CustLedger."Applies-to Doc. No." = '' then begin
                                                                                 WHTTrans."DPP Amount" := 0;
+                                                                                WHTTrans."DPP Amount (Tax Rate)" := 0;
                                                                                 WHTTrans."VAT Amount" := 0;
+                                                                                WHTTrans."VAT Amount (Tax Rate)" := 0;
                                                                             end else begin
                                                                                 CLedgerPerCloseNo.SetRange("Closed by Entry No.", CustLedger."Entry No.");
                                                                                 CLedgerPerCloseNo.FindSet();
@@ -709,11 +748,11 @@ codeunit 60006 PPhCode
                                                                                     CurrencyExchangeRate.SetRange("Currency Code", GLEntry."Source Currency Code");
                                                                                     CurrencyExchangeRate.SetFilter("Starting Date", '..%1', VATEntry."Posting Date");
                                                                                     CurrencyExchangeRate.FindLast();
-                                                                                    WHTTrans."DPP Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
-                                                                                    WHTTrans."VAT Amount" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                                    WHTTrans."DPP Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Base), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
+                                                                                    WHTTrans."VAT Amount (Tax Rate)" := CurrencyExchangeRate.ExchangeAmount(System.Abs(VATEntry.Amount), GeneralLedgerSetup."LCY Code", GLEntry."Source Currency Code", VATEntry."Posting Date") * CurrencyExchangeRate."Kre Tax Rate";
                                                                                 end else begin
-                                                                                    WHTTrans."DPP Amount" := System.Abs(VATEntry.Base);
-                                                                                    WHTTrans."VAT Amount" := System.Abs(VATEntry.Amount);
+                                                                                    WHTTrans."DPP Amount (Tax Rate)" := System.Abs(VATEntry.Base);
+                                                                                    WHTTrans."VAT Amount (Tax Rate)" := System.Abs(VATEntry.Amount);
                                                                                 end;
                                                                             end;
                                                                             WHTTrans."VAT Type" := VATEntry.Type;
@@ -721,6 +760,11 @@ codeunit 60006 PPhCode
                                                                     end;
                                                             end;
                                                         end;
+                                                end;
+
+                                                if SalesInvHeader.Get(GLEntry."WHT Source Document No.") then begin
+                                                    WHTTrans."Pre-Assigned No." := SalesInvHeader."Pre-Assigned No.";
+                                                    WHTTrans."Invoice Date" := SalesInvHeader."Posting Date";
                                                 end;
                                                 WHTTrans."Entry No" := GLEntry."Entry No.";
                                                 WHTTrans."External Doc No" := GLEntry."External Document No.";
@@ -808,7 +852,7 @@ codeunit 60006 PPhCode
                                         case GLEntry."Document Type" of
                                             GLEntry."Document Type"::Payment: // Payment (order) 
                                                 begin
-                                                    WHTTrans.Amount := System.Abs(GLEntry."Additional-Currency Amount");
+                                                    WHTTrans."Amount (Tax Rate)" := System.Abs(GLEntry."Additional-Currency Amount");
                                                     GLEntryPerDocNo.SetRange("Document No.", GLEntry."Document No.");
                                                     GLEntryPerDocNo.SetFilter("Source Type", '%1 | %2', GLEntryPerDocNo."Source Type"::Customer, GLEntryPerDocNo."Source Type"::Vendor);
                                                     GLEntryPerDocNo.FindFirst();
@@ -2002,32 +2046,33 @@ codeunit 60006 PPhCode
             SalesInvoiceLine.SetRange("Document No.", GenJournalLine."Applies-to Doc. No.");
             SalesInvoiceLine.FindSet();
             repeat
-                Kre_MasterPPh.Get(SalesInvoiceLine.WHTProductPostingGroup);
-                Kre_MasterPPh.TestField("Sales WHT Account");
-                GJLine.Init();
-                GJLine.Validate("Journal Template Name", GenJournalLine."Journal Template Name");
-                GJLine.Validate("Journal Batch Name", GenJournalLine."Journal Batch Name");
-                GJLine.Validate("Source Code", GenJournalLine."Source Code");
-                GJLine.Validate("Posting Date", GenJournalLine."Posting Date");
-                GJLine.Validate("Document Type", GJLine."Document Type"::Payment);
-                GJLine.Validate("Document No.", GenJournalLine."Document No.");
-                GJLine.Validate("Line No.", GetLastGJNoLine(GenJournalLine."Document No.", GenJournalLine."Journal Template Name", GenJournalLine."Source Code", GenJournalLine."Journal Batch Name"));
-                GJLine.Validate("Account Type", GJLine."Account Type"::"G/L Account");
-                GJLine.Validate("Account No.", Kre_MasterPPh."Sales WHT Account");
-                GJLine.Validate("Currency Code", GenJournalLine."Currency Code");
-                GJLine.Validate("Amount", SalesInvoiceLine.WHTAmount);
-                // GJLine."Shortcut Dimension 1 Code", ShortcutDimCode[1];
-                // GJLine."Shortcut Dimension 2 Code", ShortcutDimCode[2];
-                GJLine.Validate(Quantity, 1);
-                GJLine.WHTProductPostingGroup := SalesInvoiceLine.WHTProductPostingGroup;
-                GJLine.WHTPercentage := SalesInvoiceLine.WHTPercentage;
-                GJLine.WHTAmount := SalesInvoiceLine.WHTAmount;
-                GJLine.IsWHTCalc := true;
-                GJLine.Validate("Dimension Set ID", GenJournalLine."Dimension Set ID");
-                GJLine."WHT Source Type" := SalesInvoiceLine."WHT Source Type";
-                GJLine."WHT Source No." := SalesInvoiceLine."WHT Source No.";
-                GJLine."WHT Source Document No." := SalesInvoiceLine."Document No.";
-                GJLine.Insert(true);
+                if Kre_MasterPPh.Get(SalesInvoiceLine.WHTProductPostingGroup) then begin
+                    Kre_MasterPPh.TestField("Sales WHT Account");
+                    GJLine.Init();
+                    GJLine.Validate("Journal Template Name", GenJournalLine."Journal Template Name");
+                    GJLine.Validate("Journal Batch Name", GenJournalLine."Journal Batch Name");
+                    GJLine.Validate("Source Code", GenJournalLine."Source Code");
+                    GJLine.Validate("Posting Date", GenJournalLine."Posting Date");
+                    GJLine.Validate("Document Type", GJLine."Document Type"::Payment);
+                    GJLine.Validate("Document No.", GenJournalLine."Document No.");
+                    GJLine.Validate("Line No.", GetLastGJNoLine(GenJournalLine."Document No.", GenJournalLine."Journal Template Name", GenJournalLine."Source Code", GenJournalLine."Journal Batch Name"));
+                    GJLine.Validate("Account Type", GJLine."Account Type"::"G/L Account");
+                    GJLine.Validate("Account No.", Kre_MasterPPh."Sales WHT Account");
+                    GJLine.Validate("Currency Code", GenJournalLine."Currency Code");
+                    GJLine.Validate("Amount", SalesInvoiceLine.WHTAmount);
+                    // GJLine."Shortcut Dimension 1 Code", ShortcutDimCode[1];
+                    // GJLine."Shortcut Dimension 2 Code", ShortcutDimCode[2];
+                    GJLine.Validate(Quantity, 1);
+                    GJLine.WHTProductPostingGroup := SalesInvoiceLine.WHTProductPostingGroup;
+                    GJLine.WHTPercentage := SalesInvoiceLine.WHTPercentage;
+                    GJLine.WHTAmount := SalesInvoiceLine.WHTAmount;
+                    GJLine.IsWHTCalc := true;
+                    GJLine.Validate("Dimension Set ID", GenJournalLine."Dimension Set ID");
+                    GJLine."WHT Source Type" := SalesInvoiceLine."WHT Source Type";
+                    GJLine."WHT Source No." := SalesInvoiceLine."WHT Source No.";
+                    GJLine."WHT Source Document No." := SalesInvoiceLine."Document No.";
+                    GJLine.Insert(true);
+                end;
             until SalesInvoiceLine.Next() = 0;
         end;
         if GenJournalLine."Account Type" = GenJournalLine."Account Type"::Vendor then begin
