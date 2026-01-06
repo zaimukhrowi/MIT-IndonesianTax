@@ -51,14 +51,20 @@ table 60002 KRE_TAXJOUR
         field(12; DPPAMOUNT; Decimal)
         {
             Caption = 'DPP AMOUNT';
+            FieldClass = FlowField;
+            CalcFormula = sum(KRE_TAXJOURLINES.DPP_AMOUNT where(KRE_TAXJOURID = field(ID)));
         }
         field(13; VATAMOUNT; Decimal)
         {
             Caption = 'VAT AMOUNT';
+            FieldClass = FlowField;
+            CalcFormula = sum(KRE_TAXJOURLINES.VAT_AMOUNT where(KRE_TAXJOURID = field(ID)));
         }
         field(14; INVOICEAMOUNT; Decimal)
         {
             Caption = 'INVOICE AMOUNT';
+            FieldClass = FlowField;
+            CalcFormula = sum(KRE_TAXJOURLINES.TOTAL_AMOUNT where(KRE_TAXJOURID = field(ID)));
         }
         field(15; IS_CREDITABLE; Integer)
         {

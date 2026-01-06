@@ -80,6 +80,26 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
                 ToolTip = 'WHT Amount Additional Currency';
                 ApplicationArea = All;
             }
+
+            field("WHT Source Type"; Rec."WHT Source Type")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Type field.';
+                Caption = 'WHT Source Type';
+            }
+            field("WHT Source No."; Rec."WHT Source No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source No. field.';
+                Caption = 'WHT Source No.';
+            }
+            field("WHT Source Document No."; Rec."WHT Source Document No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Document No. field.';
+                Caption = 'WHT Source Document No.';
+            }
+
         }
     }
     actions
@@ -98,7 +118,7 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
                 var
                     PPhCode: Codeunit PPhCode;
                 begin
-                    PPhCode.UpdateGenJourLineAmount(Rec."Document No.");
+                    PPhCode.CalculateWHTGenJournal(Rec);
                     CurrPage.Update();
                 end;
             }

@@ -68,6 +68,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Bukti Potong Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field Currency Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4219912687 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -257,6 +262,21 @@
           <source>VAT Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field VAT Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4219912687 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KreWHTTrans - Field WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4219912687 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WHTAmount</source>
@@ -598,6 +618,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Jenis ID Pembeli - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 921341105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jenis ID Penjual</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Jenis ID Penjual - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 921341105 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TIN,National ID,Passport,Other ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Jenis ID Penjual - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 1373678984 - Field 3014909938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Keterangan Tambahan</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -708,6 +738,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field VATAMOUNT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1373678984 - Field 3038868539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOUR - Field Vendor ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2127931683 - Field 146655370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Coretax Item Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -717,6 +752,11 @@
           <source>Coretax Item Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOURLINES - Field Coretax Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2127931683 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table KRE_TAXJOURLINES - Field Currency Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2127931683 - Field 3555874826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>DESCRIPTION</source>
@@ -1168,6 +1208,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control Kode_Dokumen_Pendukung - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1203650285 - Control 3038868539 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Vendor ID field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control Vendor ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1203650285 - Control 921341105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Jenis ID Penjual field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PajakMasukanCard - Control Jenis ID Penjual - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1203650285 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1313,6 +1363,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Bukti Potong Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control Currency Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 627846863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1443,6 +1503,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control VAT Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2193506531 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhKeluaranList - Control WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2193506531 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>WHT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1512,6 +1602,16 @@
           <source>Bukti Potong Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Bukti Potong Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Currency Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2849531152 - Control 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
@@ -1642,6 +1742,36 @@
           <source>Vendor No</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control Vendor No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2849531152 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PPhMasukanList - Control WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2849531152 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>WHT Amount</source>
@@ -1938,6 +2068,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query KreSalesLineWHT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Query 1069523948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query KreSalesLineWHTperLine - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 2194007581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Entry</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1997,6 +2132,36 @@
           <source>WHT Calculation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Action WHT Calculation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Specifies the value of the WHT Source Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2943792172 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCashRecJourLine - Control WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2943792172 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
           <source>WHT Amount</source>
@@ -2183,6 +2348,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtCustomer - Control WHTProductPostingGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2274408345 - Control 1761938741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
+          <source>Specifies the value of the Coretax Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLAccountCard - Control Coretax Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2274408345 - Control 3174344582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
           <source>Is PPh</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2192,6 +2362,41 @@
           <source>Is PPh</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLAccountCard - Control IsPPh - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2274408345 - Control 1611952640 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
+          <source>Specifies the value of the Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLAccountCard - Control Kre Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 4232207410 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Specifies the value of the WHT Source Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1462817476 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtGLEntries - Control WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1462817476 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
           <source>WHT Amount</source>
@@ -2323,6 +2528,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedPurchInvSubform - Action Send to Tax Jour - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1353940513 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2410131092">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedPurchInvSubform - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1353940513 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2410131092">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedPurchInvSubform - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1353940513 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2410131092">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedPurchInvSubform - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1353940513 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2410131092">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedPurchInvSubform - Control WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1353940513 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2410131092">
           <source>WHT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2452,6 +2677,26 @@
           <source>Send to Tax Jour</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedSalesInvSubform - Action Send to Tax Jour - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421018453 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedSalesInvSubform - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421018453 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedSalesInvSubform - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421018453 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedSalesInvSubform - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421018453 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPostedSalesInvSubform - Control WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 421018453 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
           <source>WHT Amount</source>
@@ -2678,6 +2923,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchInvLine - Control Is TaxExemption - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2603932934 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchInvLine - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2603932934 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchInvLine - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2603932934 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchInvLine - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2603932934 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchInvLine - Control WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2603932934 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
           <source>WHT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2737,6 +3002,26 @@
           <source>Is Tax Exemption WHT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchOrderLine - Control Is TaxExemption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 779991351 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 526152577">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchOrderLine - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 779991351 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 526152577">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchOrderLine - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 779991351 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 526152577">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchOrderLine - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 779991351 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 526152577">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtPurchOrderLine - Control WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 779991351 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 526152577">
           <source>WHT Amount</source>
@@ -2938,6 +3223,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesInvLine - Control Tax Exemption Percentage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 58241842 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3689007477">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesInvLine - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 58241842 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3689007477">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesInvLine - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 58241842 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3689007477">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesInvLine - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 58241842 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3689007477">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesInvLine - Control WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 58241842 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3689007477">
           <source>WHT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3088,6 +3393,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrderLine - Control Tax Exemption Percentage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3360287691 - Control 188196555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>Specifies the value of the WHT Source No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrderLine - Control WHT Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3360287691 - Control 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrderLine - Control WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3360287691 - Control 753824834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>Specifies the value of the WHT Source Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrderLine - Control WHT Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3360287691 - Control 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtSalesOrderLine - Control WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3360287691 - Control 189547969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
           <source>WHT Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3173,6 +3498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control Alamat NPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1912042255 - Control 1146727775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the value of the ID Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control ID Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1912042255 - Control 1823123005 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>is NPWP ?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3243,6 +3573,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control NPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1912042255 - Control 997582547 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the value of the Other ID field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control Other ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1912042255 - Control 36154713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the value of the Passport No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control Passport No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1912042255 - Control 1349107145 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3252,6 +3592,16 @@
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ExtVendor - Control WHTProductPostingGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 275685411 - Control 1806360157 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2792926999">
+          <source>Tax Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Kre Currency Exchange Rates - Control Kre Tax Rate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 275685411 - Control 1806360157 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2792926999">
+          <source>Tax Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Kre Currency Exchange Rates - Control Kre Tax Rate - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4142435239 - Control 1338671929 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1994514640">
           <source>Specifies the value of the Coretax Code field.</source>
@@ -3353,6 +3703,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGenJournalLinePI - Field IsWHTCalc - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 592510045 - Field 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGenJournalLinePI - Field WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 592510045 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGenJournalLinePI - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 592510045 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGenJournalLinePI - Field WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 592510045 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>WHTAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3373,10 +3738,40 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGenJournalLinePI - Field WHTProductPostingGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2853653189 - Field 1761938741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Coretax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLAccount - Field Coretax Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2853653189 - Field 3174344582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
           <source>Is PPh</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLAccount - Field IsPPh - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2853653189 - Field 1611952640 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLAccount - Field Kre Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2853653189 - Field 1611952640 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Barang,Jasa</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLAccount - Field Kre Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 622696831 - Field 4232207410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
+          <source>WHT Source Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLEntryWHT - Field WHT Source Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 622696831 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLEntryWHT - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 622696831 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtGLEntryWHT - Field WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 622696831 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
           <source>WHTAmount</source>
@@ -3493,6 +3888,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseLine - Field IsWHTCalc - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1397117352 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1397117352 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchaseLine - Field WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1397117352 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
           <source>WHTAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3573,6 +3978,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchCrMmLine - Field Tax Exemption Percentage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1447743734 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchCrMmLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1447743734 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchCrMmLine - Field WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1447743734 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
           <source>WHTAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3643,6 +4058,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchInvLine - Field Tax Exemption Percentage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2603932934 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchInvLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2603932934 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtPurchInvLine - Field WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2603932934 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
           <source>WHTAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3702,6 +4127,16 @@
           <source>Tax Exemption Percentage</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesCrMmLine - Field Tax Exemption Percentage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2394417346 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesCrMmLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2394417346 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesCrMmLine - Field WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2394417346 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
           <source>WHTAmount</source>
@@ -3803,6 +4238,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesInvLine - Field Tax Exemption Percentage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 58241842 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesInvLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 58241842 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesInvLine - Field WHT Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 58241842 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
           <source>WHTAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3857,6 +4302,16 @@
           <source>Tax Exemption Percentage</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesLine - Field Tax Exemption Percentage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2953126313 - Field 188196555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>WHT Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesLine - Field WHT Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2953126313 - Field 753824834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>WHT Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtSalesLine - Field WHT Source Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2953126313 - Field 189547969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>WHTAmount</source>
@@ -3943,6 +4398,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field AlamatNPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1912042255 - Field 1146727775 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>ID Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field ID Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1912042255 - Field 1146727775 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>TIN,National ID,Passport,Other ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field ID Type - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1912042255 - Field 1823123005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>Is NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3978,10 +4443,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field NPWP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1912042255 - Field 997582547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>Other ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field Other ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1912042255 - Field 36154713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>Passport No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field Passport No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1912042255 - Field 1349107145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension ExtVendor - Field WHTProductPostingGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2204578550 - Field 1806360157 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3305661226">
+          <source>Kre Tax Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Kre Currency Exchange Rate - Field Kre Tax Rate - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3457156565 - Field 1338671929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1920046521">
           <source>Coretax Code</source>

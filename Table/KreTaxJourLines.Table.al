@@ -88,6 +88,11 @@ table 60003 KRE_TAXJOURLINES
             DataClassification = ToBeClassified;
             Caption = 'Coretax Item Description';
         }
+        field(19; "Currency Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Currency Code';
+        }
     }
     keys
     {

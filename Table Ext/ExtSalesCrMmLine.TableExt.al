@@ -39,5 +39,13 @@ tableextension 60020 ExtSalesCrMmLine extends "Sales Cr.Memo Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60011; "WHT Source Type"; Enum "Sales Line Type")
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60012; "WHT Source No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

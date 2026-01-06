@@ -23,6 +23,18 @@ tableextension 60017 ExtGLEntryWHT extends "G/L Entry"
             DataClassification = ToBeClassified;
             //AccessByPermission = TableData "G/L Entry" = m;
         }
+        field(60011; "WHT Source Type"; Enum "Sales Line Type")
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60012; "WHT Source No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60004; "WHT Source Document No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 
     // trigger OnModify()

@@ -40,6 +40,24 @@ pageextension 60029 ExtGLEntries extends "General Ledger Entries"
                     DeleteTableCode.EditGLEntry(Rec."Entry No.", Rec.WHTAmount, Rec."WHTAmount Additional Currency");
                 end;
             }
+            field("WHT Source Type"; Rec."WHT Source Type")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Type field.';
+                Caption = 'WHT Source Type';
+            }
+            field("WHT Source No."; Rec."WHT Source No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source No. field.';
+                Caption = 'WHT Source No.';
+            }
+            field("WHT Source Document No."; Rec."WHT Source Document No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Document No. field.';
+                Caption = 'WHT Source Document No.';
+            }
         }
     }
 }

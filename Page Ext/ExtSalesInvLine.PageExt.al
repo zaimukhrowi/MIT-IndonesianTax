@@ -117,6 +117,19 @@ pageextension 60020 ExtSalesInvLine extends "Sales Invoice Subform"
                 ApplicationArea = All;
                 Editable = false;
             }
+
+            field("WHT Source Type"; Rec."WHT Source Type")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Type field.';
+                Caption = 'WHT Source Type';
+            }
+            field("WHT Source No."; Rec."WHT Source No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source No. field.';
+                Caption = 'WHT Source No.';
+            }
         }
     }
 

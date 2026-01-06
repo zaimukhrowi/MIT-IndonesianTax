@@ -61,6 +61,11 @@ page 60011 PajakMasukanLines
                     ApplicationArea = All;
                     Editable = false;
                 }
+                field("Currency Code"; Rec."Currency Code")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
                 field(PRICE; Rec.PRICE)
                 {
                     ApplicationArea = All;

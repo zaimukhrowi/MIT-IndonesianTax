@@ -214,6 +214,23 @@ table 60009 KreWHTTrans
         {
             DataClassification = ToBeClassified;
         }
+
+        field(48; "WHT Source Type"; Enum "Sales Line Type")
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(49; "WHT Source No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(51; "WHT Source Document No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(50; "Currency Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

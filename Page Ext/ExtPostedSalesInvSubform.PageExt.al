@@ -37,6 +37,19 @@ pageextension 60032 ExtPostedSalesInvSubform extends "Posted Sales Invoice Subfo
                 ToolTip = 'WHT Amount Additional Currency';
                 ApplicationArea = All;
             }
+
+            field("WHT Source Type"; Rec."WHT Source Type")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source Type field.';
+                Caption = 'WHT Source Type';
+            }
+            field("WHT Source No."; Rec."WHT Source No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the WHT Source No. field.';
+                Caption = 'WHT Source No.';
+            }
         }
     }
 

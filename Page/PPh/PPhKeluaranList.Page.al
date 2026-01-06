@@ -53,7 +53,7 @@ page 60020 PPhKeluaranList
                 {
                     ApplicationArea = All;
                     Caption = 'Tax No';
-                    Editable = false;
+                    Editable = true;
                 }
                 field("Invoice Date"; Rec."Invoice Date")
                 {
@@ -100,12 +100,37 @@ page 60020 PPhKeluaranList
                     ApplicationArea = All;
                     Editable = false;
                 }
+                field("Currency Code"; Rec."Currency Code")
+                {
+                    Caption = 'Currency Code';
+                    ToolTip = 'Currency Code';
+                    ApplicationArea = All;
+                }
                 field(WHTAmount; Rec.WHTAmount)
                 {
                     Caption = 'WHT Amount';
                     ToolTip = 'WHT Amount';
                     ApplicationArea = All;
                     //Editable = false;
+                }
+
+                field("WHT Source Type"; Rec."WHT Source Type")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the WHT Source Type field.';
+                    Caption = 'WHT Source Type';
+                }
+                field("WHT Source No."; Rec."WHT Source No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the WHT Source No. field.';
+                    Caption = 'WHT Source No.';
+                }
+                field("WHT Source Document No."; Rec."WHT Source Document No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the WHT Source Document No. field.';
+                    Caption = 'WHT Source Document No.';
                 }
                 field("Remaining Amount"; Rec."Remaining Amount Customer")
                 {

@@ -12,6 +12,19 @@ tableextension 60013 ExtGLAccount extends "G/L Account"
         {
             Caption = 'Is PPh';
         }
+
+        field(60002; "Coretax Code"; Text[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Coretax Code';
+        }
+        field(60003; "Kre Type"; Option)
+        {
+            DataClassification = ToBeClassified;
+            OptionMembers = "A","B";
+            OptionCaption = 'Barang,Jasa';
+            Caption = 'Type';
+        }
     }
 
 }

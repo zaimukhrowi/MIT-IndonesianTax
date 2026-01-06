@@ -6,6 +6,11 @@ tableextension 60014 ExtSalesLine extends "Sales Line"
         {
             TableRelation = Kre_MasterPPh.PPhCode;
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            begin
+                "WHT Source Type" := Type;
+                "WHT Source No." := "No.";
+            end;
         }
         field(60001; WHTPercentage; Decimal)
         {
@@ -73,6 +78,15 @@ tableextension 60014 ExtSalesLine extends "Sales Line"
                         "Coretax Item Description" := KreCoretaxItem.Description;
                 end;
             end;
+        }
+
+        field(60011; "WHT Source Type"; Enum "Sales Line Type")
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60012; "WHT Source No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
         }
     }
 }

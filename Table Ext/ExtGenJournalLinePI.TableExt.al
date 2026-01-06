@@ -23,5 +23,17 @@ tableextension 60016 ExtGenJournalLinePI extends "Gen. Journal Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60005; "WHT Source Type"; Enum "Sales Line Type")
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60006; "WHT Source No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60007; "WHT Source Document No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

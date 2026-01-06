@@ -168,7 +168,7 @@ codeunit 60007 "XML Coretax"
         CustomDocMonthYear.Add(Format(KRE_TAXJOUR.INVOICEDATE, 0, '<Month,2><Year4>'));
 
         RefDesc := XmlElement.Create('RefDesc');
-        RefDesc.Add(KRE_TAXJOUR.INVOICENO);
+        RefDesc.Add(KRE_TAXJOUR."Pre-Assigned No.");
 
         FacilityStamp := XmlElement.Create('FacilityStamp');
         FacilityStamp.Add(KRE_TAXJOUR."Cap Fasilitas");
@@ -254,6 +254,7 @@ codeunit 60007 "XML Coretax"
     local procedure ListOfGoodService(var KRE_TAXJOUR: Record KRE_TAXJOUR; var ListOfGoodService: XmlElement)
     var
         Item: Record Item;
+        GLAccount: Record "G/L Account";
         KRE_TAXJOURLINES: Record KRE_TAXJOURLINES;
         Kre_TaxSetup: Record Kre_TaxSetup;
         SalesInvoiceLine: Record "Sales Invoice Line";
@@ -293,13 +294,19 @@ codeunit 60007 "XML Coretax"
                     end else
                         Unit.Add('UM.0018');
 
-                if Item.Get(KRE_TAXJOURLINES.ITEMID) then begin
+                if (SalesInvoiceLine.Type = SalesInvoiceLine.Type::Item) and (Item.Get(KRE_TAXJOURLINES.ITEMID)) then begin
                     if Item."Kre Item Type" = Item."Kre Item Type"::A then
                         Opt.Add('A')
                     else
                         Opt.Add('B');
-                end else
-                    Opt.Add('B');
+                end;
+
+                if (SalesInvoiceLine.Type = SalesInvoiceLine.Type::"G/L Account") and (GLAccount.Get(KRE_TAXJOURLINES.ITEMID)) then begin
+                    if GLAccount."Kre Type" = GLAccount."Kre Type"::A then
+                        Opt.Add('A')
+                    else
+                        Opt.Add('B');
+                end;
 
                 Code := XmlElement.Create('Code');
                 if KRE_TAXJOURLINES."Coretax Item Code" <> '' then
@@ -308,7 +315,10 @@ codeunit 60007 "XML Coretax"
                     if Item."Coretax Code" <> '' then
                         Code.Add(Item."Coretax Code")
                     else
-                        Code.Add('000000');
+                        if GLAccount."Coretax Code" <> '' then
+                            Code.Add(GLAccount."Coretax Code")
+                        else
+                            Code.Add('000000');
 
                 Name := XmlElement.Create('Name');
                 Name.Add(KRE_TAXJOURLINES.DESCRIPTION);
@@ -439,6 +449,7 @@ codeunit 60007 "XML Coretax"
         DocumentNumber: XmlElement;
         TransactionDetail: XmlElement;
     begin
+        KRE_TAXJOUR.CalcFields(DPPAMOUNT, INVOICEAMOUNT, VATAMOUNT);
         DocumentNumber := XmlElement.Create('DocumentNumber');
         DocumentNumber.Add(KRE_TAXJOUR.RETURN_DOC_NUMBER);
 
@@ -593,6 +604,7 @@ codeunit 60007 "XML Coretax"
         ReturnVATTotal: XmlElement;
         ReturnSTLGTotal: XmlElement;
     begin
+        KRE_TAXJOUR.CalcFields(DPPAMOUNT, INVOICEAMOUNT, VATAMOUNT);
         KreTaxSetup.FindFirst();
         KreTaxSetup.TestField("Tarif PPn Percentage");
         KreTaxSetup.TestField("DPP Nilai Lain (A)");
