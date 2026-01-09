@@ -345,9 +345,12 @@ codeunit 60006 PPhCode
                                                                 end;
                                                                 PurchInvHeader.SetRange("No.", GLEntry."Document No.");
                                                                 if PurchInvHeader.FindSet() then begin
+                                                                    PurchInvHeader.CalcFields("Amount Including VAT", Amount);
                                                                     WHTTrans."Invoice Date" := PurchInvHeader."Document Date";
                                                                     WHTTrans."Order No" := PurchInvHeader."Order No.";
                                                                     WHTTrans.TAXNUMBER := PurchInvHeader.TAXNUMBER;
+                                                                    WHTTrans.Amount := System.Abs(PurchInvHeader."Amount Including VAT");
+                                                                    WHTTrans."DPP Amount" := System.Abs(PurchInvHeader."Amount");
                                                                 end;
                                                                 //perhitungan gross up
                                                                 //if CheckGrossUpExistInLine(GLEntry."Document No.") = true then begin
@@ -366,8 +369,6 @@ codeunit 60006 PPhCode
                                                                         WHTTrans."Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount Including VAT");
                                                                         WHTTrans."DPP Amount (Tax Rate)" := System.Abs(PurchInvLine."Amount");
                                                                     end;
-                                                                    WHTTrans.Amount := System.Abs(PurchInvLine."Amount Including VAT");
-                                                                    WHTTrans."DPP Amount" := System.Abs(PurchInvLine."Amount");
                                                                 end;
                                                                 //end else
                                                                 //   WHTTrans.Amount := System.Abs(GLEntry.Amount);
