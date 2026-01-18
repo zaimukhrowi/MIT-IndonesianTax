@@ -488,6 +488,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Kre_MasterPPh - Field PPhCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3136030225 - Field 209521122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purch. WHT Account (Gross Up)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Kre_MasterPPh - Field Purch. WHT Account (Gross Up) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3136030225 - Field 3987706147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase WHT Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1923,6 +1928,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SetupPPhCard - Control Percentage Up - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2241627221 - Control 209521122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase WHT Account (Gross Up)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SetupPPhCard - Control Purch. WHT Account (Gross Up) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2247318143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WHT Product Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1932,6 +1942,11 @@
           <source>Percentage Non-NPWP</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SetupPPhList - Control Percentage Up - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2247318143 - Control 209521122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase WHT Account (Gross Up)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SetupPPhList - Control Purch. WHT Account (Gross Up) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3838441702 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tax Additional Info</source>
@@ -2137,6 +2152,16 @@
           <source>Purchase Line WHT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query KrePurchaseLineWHT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 1399890599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Line WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query KrePurchaseLineWHTGrossUp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 2514392037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Line WHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query KrePurchaseLineWHTLineGrossUp - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 3915096581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Line WHT</source>

@@ -63,14 +63,18 @@ pageextension 60002 ExtPurchaseOrder extends "Purchase Order"
                 PromotedCategory = Category6;
                 trigger OnAction()
                 var
+                    Kre_TaxSetup: Record Kre_TaxSetup;
                     PPhCode: Codeunit PPhCode;
                     POSubForm: Page "Purchase Order Subform";
                     GrossUpExist: Boolean;
                 begin
+                    Kre_TaxSetup.FindFirst();
                     GrossUpExist := PPhCode.CheckGrossUpExistInLine(Rec."No.");
-                    if GrossUpExist then
+                    if GrossUpExist then begin
+                        if not Kre_TaxSetup."Calculate WHT per Line" then
+                            Error('Gross Up calculation only can be done when "Calculate WHT per Line" is enabled in Tax Setup');
                         PPhCode.UpdatePurchaseLineAmountGrossUp(Rec."No.")
-                    else
+                    end else
                         PPhCode.UpdatePurchaseLineAmount(Rec."No.");
 
                     POSubForm.Update();

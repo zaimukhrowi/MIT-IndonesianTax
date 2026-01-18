@@ -35,6 +35,11 @@ page 60019 SetupPPhCard
             {
                 ApplicationArea = All;
             }
+            field("Purch. WHT Account (Gross Up)"; Rec."Purch. WHT Account (Gross Up)")
+            {
+                ApplicationArea = All;
+                Caption = 'Purchase WHT Account (Gross Up)';
+            }
         }
     }
 }

@@ -41,6 +41,11 @@ table 60008 Kre_MasterPPh
             DataClassification = ToBeClassified;
             TableRelation = "G/L Account"."No." where(IsPPh = filter(true));
         }
+        field(8; "Purch. WHT Account (Gross Up)"; Code[25])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "G/L Account"."No." where(IsPPh = filter(true));
+        }
     }
 
     keys

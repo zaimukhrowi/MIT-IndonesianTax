@@ -2061,20 +2061,35 @@ codeunit 60006 PPhCode
 
     procedure UpdatePurchaseLineAmountGrossUp(DocNo: Code[20])
     var
-        PLine: Query KrePurchaseLineWHT;
+        Kre_TaxSetup: Record Kre_TaxSetup;
+        PurchaseLine: Record "Purchase Line";
+        Kre_MasterPPh: Record Kre_MasterPPh;
+        GLAccount: Record "G/L Account";
+        WHTAccount: Code[25];
+        PLine: Query KrePurchaseLineWHTGrossUp;
+        KrePurchaseLineWHTLineGrossUp: Query KrePurchaseLineWHTLineGrossUp;
     begin
-        PLine.SetRange(Document_No_, DocNo);
-        PLine.SetRange(IsWHTCalc, false);
-        PLine.SetRange(IsGrossUp, true);
-        PLine.Open;
-        while PLine.Read do
-            if PLine.Purchase_WHT_Account = '' then
-                Error('Purchase WHT Account %1 not found !', PLine.WHTProductPostingGroup)
-            else
-                InsertPurchaseLineGrossUp(PLine.No_, DocNo, PLine.Document_Type, PLine.Purchase_WHT_Account, PLine.G_L_Account_Name, PLine.Sum_Amount, PLine.Dimension_Set_ID,
-                 PLine.Unit_of_Measure_Code, PLine.Currency_Code, PLine.Buy_from_Vendor_No_, PLine.Pay_to_Vendor_No_, PLine.Planned_Receipt_Date,
-                 PLine.Gen__Bus__Posting_Group, PLine.Gen__Prod__Posting_Group, PLine.VAT_Bus__Posting_Group, PLine.VAT_Prod__Posting_Group, PLine.Type,
-                   PLine.WHTProductPostingGroup, PLine.WHTPercentage)
+        PurchaseLine.SetRange("Document No.", DocNo);
+        PurchaseLine.SetRange(IsWHTCalc, false);
+        if PurchaseLine.FindSet() then
+            repeat
+                Kre_MasterPPh.Get(PurchaseLine.WHTProductPostingGroup);
+                if PurchaseLine."Gross Up" = true then begin
+                    if Kre_MasterPPh."Purch. WHT Account (Gross Up)" = '' then
+                        Error('Purchase WHT Account Gross Up %1 not found !', Kre_MasterPPh."Purch. WHT Account (Gross Up)");
+                    GLAccount.Get(Kre_MasterPPh."Purch. WHT Account (Gross Up)");
+                    WHTAccount := Kre_MasterPPh."Purch. WHT Account (Gross Up)";
+                end else begin
+                    if Kre_MasterPPh."Purchase WHT Account" = '' then
+                        Error('Purchase WHT Account %1 not found !', Kre_MasterPPh."Purchase WHT Account");
+                    GLAccount.Get(Kre_MasterPPh."Purchase WHT Account");
+                    WHTAccount := Kre_MasterPPh."Purchase WHT Account";
+                end;
+                InsertPurchaseLine(PurchaseLine."No.", DocNo, PurchaseLine."Document Type", WHTAccount, GLAccount.Name, PurchaseLine.Amount, PurchaseLine."WHTAmount Additional Currency", PurchaseLine."Dimension Set ID",
+                    PurchaseLine."Unit of Measure Code", PurchaseLine."Currency Code", PurchaseLine."Buy-from Vendor No.", PurchaseLine."Pay-to Vendor No.", PurchaseLine."Planned Receipt Date",
+                    PurchaseLine."Gen. Bus. Posting Group", PurchaseLine."Gen. Prod. Posting Group", PurchaseLine."VAT Bus. Posting Group", PurchaseLine."VAT Prod. Posting Group", PurchaseLine.Type,
+                    PurchaseLine.WHTProductPostingGroup, PurchaseLine.WHTPercentage, PurchaseLine."Line No.");
+            until PurchaseLine.Next() = 0;
     end;
 
     procedure UpdateGenJourLineAmount(DocNo: Code[20])
@@ -2394,9 +2409,11 @@ codeunit 60006 PPhCode
                                                                                           VAT_Bus__Posting_Group: Code[20];
                                                                                           VAT_Prod__Posting_Group: Code[20]; Type: Enum "Purchase Line Type";
                                                                                               WHTProductPostingGroup: Code[25];
-                                                                                              WHTPercentage: Decimal)
+                                                                                              WHTPercentage: Decimal;
+                                                                                              LineNo: Integer)
     var
         PLine: Record "Purchase Line";
+        PurchaseLine: Record "Purchase Line";
         ShortcutDimCode: array[8] of Code[8];
         WHTGross: Decimal;
         GLAccount: Record "G/L Account";
@@ -2451,6 +2468,10 @@ codeunit 60006 PPhCode
         PLine.WHTPercentage := WHTPercentage;
         PLine.WHTAmount := WHTGross;
         PLine.IsWHTCalc := true;
+        if PurchaseLine.Get(DocType, DocNo, LineNo) then begin
+            PLine."WHT Source Type" := PurchaseLine.Type;
+            PLine."WHT Source No." := PurchaseLine."No.";
+        end;
         PLine.Insert();
     end;
 
