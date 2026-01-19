@@ -2085,7 +2085,7 @@ codeunit 60006 PPhCode
                     GLAccount.Get(Kre_MasterPPh."Purchase WHT Account");
                     WHTAccount := Kre_MasterPPh."Purchase WHT Account";
                 end;
-                InsertPurchaseLine(PurchaseLine."No.", DocNo, PurchaseLine."Document Type", WHTAccount, GLAccount.Name, PurchaseLine.Amount, PurchaseLine."WHTAmount Additional Currency", PurchaseLine."Dimension Set ID",
+                InsertPurchaseLine(PurchaseLine."No.", DocNo, PurchaseLine."Document Type", WHTAccount, GLAccount.Name, PurchaseLine.WHTAmount, PurchaseLine."WHTAmount Additional Currency", PurchaseLine."Dimension Set ID",
                     PurchaseLine."Unit of Measure Code", PurchaseLine."Currency Code", PurchaseLine."Buy-from Vendor No.", PurchaseLine."Pay-to Vendor No.", PurchaseLine."Planned Receipt Date",
                     PurchaseLine."Gen. Bus. Posting Group", PurchaseLine."Gen. Prod. Posting Group", PurchaseLine."VAT Bus. Posting Group", PurchaseLine."VAT Prod. Posting Group", PurchaseLine.Type,
                     PurchaseLine.WHTProductPostingGroup, PurchaseLine.WHTPercentage, PurchaseLine."Line No.");
