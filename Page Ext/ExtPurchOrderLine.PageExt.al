@@ -127,11 +127,11 @@ pageextension 60022 ExtPurchOrderLine extends "Purchase Order Subform"
         SH.Get(SL."Document Type", SL."Document No.");
         if Rec.WHTProductPostingGroup <> '' then begin
             if GLSetup."LCY Code" = TaxSetup."Export to Currency" then begin
-                SL.WHTAmount := (SL.WHTPercentage / 100) * SL."Line Amount";
+                SL.WHTAmount := (SL.WHTPercentage / 100) * SL."VAT Base Amount";
                 SL."WHTAmount Additional Currency" := ((SL.WHTPercentage / 100) * SL."Line Amount");
             end else begin
                 // Additional Currency
-                SL.WHTAmount := (SL.WHTPercentage / 100) * SL."Unit Cost" * Rec.Quantity;
+                SL.WHTAmount := (SL.WHTPercentage / 100) * SL."VAT Base Amount";
                 if SH."Currency Code" = TaxSetup."Export to Currency" then begin
                     SL."WHTAmount Additional Currency" := ((SL.WHTPercentage / 100) * SL."Line Amount");
                     CurFac := SH."Currency Factor";

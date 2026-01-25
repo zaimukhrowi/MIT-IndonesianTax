@@ -197,9 +197,9 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((PurchLineInv."VAT Base Amount" * PurchLineInv."VAT %") / 100) * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.TOTAL_AMOUNT := PurchLineInv."Amount Including VAT" * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.DISCOUNT_AMOUNT := PurchLineInv."Line Discount Amount" * CurrencyExchangeRate."Kre Tax Rate";
-                                    TaxJourLines.PRICE := PurchLineInv."Direct Unit Cost" * CurrencyExchangeRate."Kre Tax Rate";
+                                    TaxJourLines.PRICE := (PurchLineInv."VAT Base Amount" / PurchLineInv.Quantity) * CurrencyExchangeRate."Kre Tax Rate";
                                 end else begin
-                                    TaxJourLines.PRICE := PurchLineInv."Direct Unit Cost";
+                                    TaxJourLines.PRICE := (PurchLineInv."VAT Base Amount" / PurchLineInv.Quantity);
                                     TaxJourLines.DPP_AMOUNT := PurchLineInv."VAT Base Amount";
                                     if SelisihVAT1 > 0 then
                                         if PurchLineInv."Line No." = 10000 then
@@ -259,7 +259,7 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((PurchLineCM."VAT Base Amount" * PurchLineCM."VAT %") / 100) * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.TOTAL_AMOUNT := PurchLineCM."Amount Including VAT" * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.DISCOUNT_AMOUNT := PurchLineCM."Line Discount Amount" * CurrencyExchangeRate."Kre Tax Rate";
-                                    TaxJourLines.PRICE := PurchLineCM."Direct Unit Cost" * CurrencyExchangeRate."Kre Tax Rate";
+                                    TaxJourLines.PRICE := (PurchLineCM."VAT Base Amount" / PurchLineCM.Quantity) * CurrencyExchangeRate."Kre Tax Rate";
                                 end else begin
                                     TaxJourLines.DPP_AMOUNT := PurchLineCM."VAT Base Amount";
                                     if SelisihVAT2 > 0 then
@@ -271,7 +271,7 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((PurchLineCM."VAT Base Amount" * PurchLineCM."VAT %") / 100);
                                     TaxJourLines.TOTAL_AMOUNT := PurchLineCM."Amount Including VAT";
                                     TaxJourLines.DISCOUNT_AMOUNT := PurchLineCM."Line Discount Amount";
-                                    TaxJourLines.PRICE := PurchLineCM."Direct Unit Cost";
+                                    TaxJourLines.PRICE := (PurchLineCM."VAT Base Amount" / PurchLineCM.Quantity);
                                 end;
                                 TaxJourLines."Currency Code" := "Posted Purchase Credit Memos"."Currency Code";
                                 TaxJourLines.Insert();
@@ -286,6 +286,7 @@ codeunit 60001 PajakCode
                         if "Posted Sales Invoices".FindFirst() then begin
                             "Posted Sales Invoices".Get(SourceTable.Document_No_);
                             TaxJour.TAXNUMBER := "Posted Sales Invoices".TAXNUMBER;
+                            TaxJour.TAXDATE := "Posted Sales Invoices".TAXDATE;
                             TaxJour.CURRENCY := "Posted Sales Invoices"."Currency Code";
                             //update pajak 5.3
                             if CustomerAddress.Get("Posted Sales Invoices"."Sell-to Customer No.") then
@@ -344,6 +345,7 @@ codeunit 60001 PajakCode
                         if "Posted Service Invoices".FindFirst() then begin
                             "Posted Service Invoices".Get(SourceTable.Document_No_);
                             TaxJour.TAXNUMBER := "Posted Service Invoices".TAXNUMBER;
+                            TaxJour.TAXDATE := "Posted Service Invoices".TAXDATE;
                             TaxJour.CURRENCY := "Posted Service Invoices"."Currency Code";
                             //update pajak 5.3
                             if CustomerAddress.Get("Posted Service Invoices"."Customer No.") then
@@ -462,7 +464,7 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((SalesLineInv."VAT Base Amount" * SalesLineInv."VAT %") / 100) * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.TOTAL_AMOUNT := SalesLineInv."Amount Including VAT" * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.DISCOUNT_AMOUNT := SalesLineInv."Line Discount Amount" * CurrencyExchangeRate."Kre Tax Rate";
-                                    TaxJourLines.PRICE := SalesLineInv."Unit Price" * CurrencyExchangeRate."Kre Tax Rate";
+                                    TaxJourLines.PRICE := (SalesLineInv."VAT Base Amount" / SalesLineInv.Quantity) * CurrencyExchangeRate."Kre Tax Rate";
                                 end else begin
                                     VATGroup.Reset();
                                     VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
@@ -481,7 +483,7 @@ codeunit 60001 PajakCode
                                     else
                                         TaxJourLines.VAT_AMOUNT := ((SalesLineInv."VAT Base Amount" * SalesLineInv."VAT %") / 100);
                                     TaxJourLines.TOTAL_AMOUNT := SalesLineInv."Amount Including VAT";
-                                    TaxJourLines.PRICE := SalesLineInv."Unit Price";
+                                    TaxJourLines.PRICE := (SalesLineInv."VAT Base Amount" / SalesLineInv.Quantity);
                                     TaxJourLines.DISCOUNT_AMOUNT := SalesLineInv."Line Discount Amount";
                                 end;
 
@@ -611,7 +613,7 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((SalesLineCM."VAT Base Amount" * SalesLineCM."VAT %") / 100) * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.TOTAL_AMOUNT := SalesLineCM."Amount Including VAT" * CurrencyExchangeRate."Kre Tax Rate";
                                     TaxJourLines.DISCOUNT_AMOUNT := SalesLineCM."Line Discount Amount" * CurrencyExchangeRate."Kre Tax Rate";
-                                    TaxJourLines.PRICE := SalesLineCM."Unit Price" * CurrencyExchangeRate."Kre Tax Rate";
+                                    TaxJourLines.PRICE := (SalesLineCM."VAT Base Amount" / SalesLineCM.Quantity) * CurrencyExchangeRate."Kre Tax Rate";
                                 end else begin
                                     VATGroup.Reset();
                                     VATGroup.SetRange("Code", SourceTable.VAT_Prod__Posting_Group);
@@ -631,7 +633,7 @@ codeunit 60001 PajakCode
                                         TaxJourLines.VAT_AMOUNT := ((SalesLineCM."VAT Base Amount" * SalesLineCM."VAT %") / 100);
                                     TaxJourLines.TOTAL_AMOUNT := SalesLineCM."Amount Including VAT";
                                     TaxJourLines.DISCOUNT_AMOUNT := SalesLineCM."Line Discount Amount";
-                                    TaxJourLines.PRICE := SalesLineCM."Unit Price";
+                                    TaxJourLines.PRICE := (SalesLineCM."VAT Base Amount" / SalesLineCM.Quantity);
                                 end;
 
                                 TaxJourLines."Currency Code" := "Posted Sales Credit Memos"."Currency Code";
