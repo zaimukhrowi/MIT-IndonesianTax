@@ -163,6 +163,7 @@ codeunit 60001 PajakCode
                         PurchLineInv.SetRange(IsWHTCalc, false);
                         PurchLineInv.SetFilter("Type", '<> %1', PurchLineInv.Type::" ");
                         PurchLineInv.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        PurchLineInv.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if PurchLineInv.IsEmpty = false then
                             SelisihVAT1 := ValidasiVATAmountPurchaseLineInv(SourceTable.Document_No_, PurchLineInv);
@@ -222,6 +223,7 @@ codeunit 60001 PajakCode
                         PurchLineCM.SetRange(IsWHTCalc, false);
                         PurchLineCM.SetFilter("Type", '<> %1', PurchLineCM.Type::" ");
                         PurchLineCM.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        PurchLineCM.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if PurchLineCM.IsEmpty = false then
                             SelisihVAT2 := ValidasiVATAmountPurchaseLineCM(SourceTable.Document_No_, PurchLineCM);
@@ -419,6 +421,7 @@ codeunit 60001 PajakCode
                         SalesLineInv.SetRange(IsWHTCalc, false);
                         SalesLineInv.SetFilter("Type", '<> %1', SalesLineInv.Type::" ");
                         SalesLineInv.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        SalesLineInv.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if SalesLineInv.IsEmpty = false then
                             SelisihVAT3 := ValidasiVATAmountSalesLineInv(SourceTable.Document_No_, SalesLineInv);
@@ -496,6 +499,7 @@ codeunit 60001 PajakCode
                         ServiceLineInv.SetRange("Document No.", SourceTable.Document_No_);
                         ServiceLineInv.SetFilter("Type", '<> %1', ServiceLineInv.Type::" ");
                         ServiceLineInv.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        ServiceLineInv.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if ServiceLineInv.IsEmpty = false then
                             SelisihVAT4 := ValidasiVATAmountServiceLineInv(SourceTable.Document_No_, ServiceLineInv);
@@ -571,6 +575,7 @@ codeunit 60001 PajakCode
                         SalesLineCM.SetRange(IsWHTCalc, false);
                         SalesLineCM.SetFilter("Type", '<> %1', SalesLineCM.Type::" ");
                         SalesLineCM.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        SalesLineCM.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if SalesLineCM.IsEmpty = false then
                             SelisihVAT5 := ValidasiVATAmountSalesLineCM(SourceTable.Document_No_, SalesLineCM);
@@ -645,6 +650,7 @@ codeunit 60001 PajakCode
                         ServiceLineCM.SetRange("Document No.", SourceTable.Document_No_);
                         ServiceLineCM.SetFilter("Type", '<> %1', ServiceLineCM.Type::" ");
                         ServiceLineCM.SetFilter("VAT Prod. Posting Group", '<> %1', 'NO VAT');
+                        ServiceLineCM.SetFilter(Quantity, '> %1', 0);
                         //Validasi VAT Amount Header dgn Line 
                         if ServiceLineCM.IsEmpty = false then
                             SelisihVAT6 := ValidasiVATAmountServiceLineCM(SourceTable.Document_No_, ServiceLineCM);
