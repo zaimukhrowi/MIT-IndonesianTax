@@ -20,6 +20,12 @@ pageextension 60020 ExtSalesInvLine extends "Sales Invoice Subform"
         }
         addafter("Depreciation Book Code")
         {
+            field("WHT Applicable"; Rec."WHT Applicable")
+            {
+                ApplicationArea = All;
+                Caption = 'WHT Applicable';
+                ToolTip = 'Specifies the value of the WHT Applicable field.';
+            }
             field(WHTProductPostingGroup; Rec.WHTProductPostingGroup)
             {
                 ApplicationArea = All;

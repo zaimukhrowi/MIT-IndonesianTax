@@ -44,13 +44,13 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
                             if Customer.ISNPWP then begin
                                 if Kre_MasterPPh.Get(rec.WHTProductPostingGroup) then begin
                                     Rec.WHTPercentage := Kre_MasterPPh."Percentage";
-                                    SetWHTAmount(Rec);
+                                    SetWHTAmountCustomer(Rec);
                                 end;
                             end else begin
                                 if Kre_MasterPPh.Get(Rec.WHTProductPostingGroup) then begin
                                     Rec.WHTPercentage := Kre_MasterPPh."Percentage Up";
                                     CurrPage.Update();
-                                    SetWHTAmount(Rec);
+                                    SetWHTAmountCustomer(Rec);
                                 end;
                             end;
                 end;
@@ -118,7 +118,7 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
                 var
                     PPhCode: Codeunit PPhCode;
                 begin
-                    PPhCode.CalculateWHTGenJournal(Rec);
+                    PPhCode.UpdateGenJourLineAmount(Rec."Document No.");
                     CurrPage.Update();
                 end;
             }
@@ -163,6 +163,25 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
             end;
             GJL.Modify();
         end;
+    end;
+
+    local procedure SetWHTAmountCustomer(var GJL: Record "Gen. Journal Line")
+    var
+        SalesInvoiceLine: Record "Sales Invoice Line";
+    begin
+        if Rec.WHTProductPostingGroup <> '' then
+            if Rec."Applies-to Doc. No." = '' then
+                SetWHTAmount(Rec)
+            else begin
+                SalesInvoiceLine.SetRange("Document No.", Rec."Applies-to Doc. No.");
+                SalesInvoiceLine.SetRange("WHT Applicable", true);
+                if not SalesInvoiceLine.IsEmpty then begin
+                    SalesInvoiceLine.CalcSums("VAT Base Amount");
+                    GJL.WHTAmount := (Rec.WHTPercentage / 100) * SalesInvoiceLine."VAT Base Amount";
+                    GJL.Modify(true);
+                end else
+                    SetWHTAmount(Rec);
+            end;
     end;
 
     var

@@ -13,6 +13,12 @@ pageextension 60032 ExtPostedSalesInvSubform extends "Posted Sales Invoice Subfo
         }
         addafter("Job No.")
         {
+            field("WHT Applicable"; Rec."WHT Applicable")
+            {
+                ApplicationArea = All;
+                Caption = 'WHT Applicable';
+                ToolTip = 'Specifies the value of the WHT Applicable field.';
+            }
             field(WHTProductPostingGroup; Rec.WHTProductPostingGroup)
             {
                 ApplicationArea = All;
@@ -75,6 +81,38 @@ pageextension 60032 ExtPostedSalesInvSubform extends "Posted Sales Invoice Subfo
                             SalestoJournalLine(SILine."Document No.", SILine."VAT Prod. Posting Group", SILine."Line No.");
                         until SILine.Next() = 0;
                     Message('Success!');
+                end;
+            }
+        }
+
+        addafter(Dimensions)
+        {
+            action("Set WHT Applicable")
+            {
+                Caption = 'Set WHT Applicable';
+                ToolTip = 'Set WHT Applicable';
+                ApplicationArea = All;
+                Image = EditLines;
+                trigger OnAction()
+                var
+                    SalesInvoiceLine: Record "Sales Invoice Line";
+                begin
+                    CurrPage.SetSelectionFilter(SalesInvoiceLine);
+                    PajakCode.SetWHTApplicable(SalesInvoiceLine, true);
+                end;
+            }
+            action("Reset WHT Applicable")
+            {
+                Caption = 'Reset WHT Applicable';
+                ToolTip = 'Reset WHT Applicable';
+                ApplicationArea = All;
+                Image = EditLines;
+                trigger OnAction()
+                var
+                    SalesInvoiceLine: Record "Sales Invoice Line";
+                begin
+                    CurrPage.SetSelectionFilter(SalesInvoiceLine);
+                    PajakCode.SetWHTApplicable(SalesInvoiceLine, false);
                 end;
             }
         }
@@ -151,4 +189,8 @@ pageextension 60032 ExtPostedSalesInvSubform extends "Posted Sales Invoice Subfo
         else
             exit(0);
     end;
+
+    var
+        PajakCode: Codeunit PajakCode;
+
 }

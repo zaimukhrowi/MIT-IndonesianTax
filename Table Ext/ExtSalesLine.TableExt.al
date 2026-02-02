@@ -88,5 +88,9 @@ tableextension 60014 ExtSalesLine extends "Sales Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60013; "WHT Applicable"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

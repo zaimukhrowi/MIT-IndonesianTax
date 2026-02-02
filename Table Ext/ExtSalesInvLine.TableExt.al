@@ -56,5 +56,9 @@ tableextension 60018 ExtSalesInvLine extends "Sales Invoice Line"
         {
             DataClassification = ToBeClassified;
         }
+        field(60013; "WHT Applicable"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

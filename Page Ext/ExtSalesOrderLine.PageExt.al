@@ -20,6 +20,12 @@ pageextension 60019 ExtSalesOrderLine extends "Sales Order Subform"
         }
         addafter("Shipment Date")
         {
+            field("WHT Applicable"; Rec."WHT Applicable")
+            {
+                ApplicationArea = All;
+                Caption = 'WHT Applicable';
+                ToolTip = 'Specifies the value of the WHT Applicable field.';
+            }
             field(WHTProductPostingGroup; Rec.WHTProductPostingGroup)
             {
                 ApplicationArea = All;

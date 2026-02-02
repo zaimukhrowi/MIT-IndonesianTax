@@ -1,6 +1,7 @@
 codeunit 60001 PajakCode
 {
-    Permissions = TableData "VAT Entry" = RM;
+    Permissions = TableData "VAT Entry" = RM,
+                    tabledata "Sales Invoice Line" = RM;
     procedure TaxSynch(StartDate: Date; EndDate: Date)
     var
         TaxSetup: Record Kre_TaxSetup;
@@ -2669,6 +2670,17 @@ codeunit 60001 PajakCode
                 until (SalesInvLine.Next() = 0);
             end;
         end;
+    end;
+
+
+    procedure SetWHTApplicable(var SalesInvoiceLine: Record "Sales Invoice Line"; IsWHT: Boolean)
+    begin
+        if SalesInvoiceLine.FindSet() then
+            repeat
+                SalesInvoiceLine."WHT Applicable" := IsWHT;
+                SalesInvoiceLine.Modify(true);
+            until SalesInvoiceLine.Next() = 0;
+        Message('WHT Applicable updated successfully.');
     end;
 
     var
