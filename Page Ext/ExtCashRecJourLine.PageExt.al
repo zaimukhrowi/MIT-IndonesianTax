@@ -118,7 +118,8 @@ pageextension 60025 ExtCashRecJourLine extends "Cash Receipt Journal"
                 var
                     PPhCode: Codeunit PPhCode;
                 begin
-                    PPhCode.UpdateGenJourLineAmount(Rec."Document No.");
+
+                    PPhCode.UpdateGenJourLineAmount(Rec."Document No.", Rec."Applies-to Doc. No.");
                     CurrPage.Update();
                 end;
             }

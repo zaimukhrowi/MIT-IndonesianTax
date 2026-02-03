@@ -2092,7 +2092,7 @@ codeunit 60006 PPhCode
             until PurchaseLine.Next() = 0;
     end;
 
-    procedure UpdateGenJourLineAmount(DocNo: Code[20])
+    procedure UpdateGenJourLineAmount(DocNo: Code[20]; AppliesToDocNo: Code[20])
     var
         GJLine: Query KreCashReceiptLineWHT;
     begin
@@ -2105,7 +2105,7 @@ codeunit 60006 PPhCode
             else
                 InsertGJLine(GJLine.Account_No_, DocNo, GJLine.Document_Type, GJLine.Sales_WHT_Account, GJLine.G_L_Account_Name, GJLine.Sum_Line_Amount, GJLine.Sum_Line_Amount_Additional_Currency, GJLine.Dimension_Set_ID,
                 GJLine.Source_Code, GJLine.Journal_Template_Name, GJLine.Journal_Batch_Name, GJLine.Posting_Date, GJLine.Account_Type, GJLine.Currency_Code,
-                  GJLine.WHTProductPostingGroup, GJLine.WHTPercentage)
+                  GJLine.WHTProductPostingGroup, GJLine.WHTPercentage, AppliesToDocNo)
     end;
 
     procedure CalculateWHTGenJournal(GenJournalLine: Record "Gen. Journal Line")
@@ -2487,13 +2487,15 @@ codeunit 60006 PPhCode
                                                                                      Account_Type: Enum "Gen. Journal Account Type";
                                                                                      Currency_Code: Code[10];
                                                                                      WHTProductPostingGroup: Code[25];
-                                                                                     WHTPercentage: Decimal)
+                                                                                     WHTPercentage: Decimal;
+                                                                                     AppliesToDocNo: Code[20])
     var
         GJLine: Record "Gen. Journal Line";
         ShortcutDimCode: array[8] of Code[8];
         GLAccount: Record "G/L Account";
         Vendor: Record Vendor;
         Customer: Record Customer;
+        SalesInvoiceLine: Record "Sales Invoice Line";
         Description: Text[100];
     begin
         case Account_Type of
@@ -2530,6 +2532,13 @@ codeunit 60006 PPhCode
         GJLine."WHTAmount Additional Currency" := SumLineAmount_Add_Cur;
         GJLine.IsWHTCalc := true;
         GJLine.Validate("Dimension Set ID", DimSetID);
+        SalesInvoiceLine.SetRange("Document No.", AppliesToDocNo);
+        SalesInvoiceLine.SetRange("WHT Applicable", true);
+        if SalesInvoiceLine.FindFirst() then begin
+            GJLine."WHT Source Type" := SalesInvoiceLine.Type;
+            GJLine."WHT Source No." := SalesInvoiceLine."No.";
+            GJLine."WHT Source Document No." := SalesInvoiceLine."Document No.";
+        end;
         GJLine.Insert(true);
     end;
 
